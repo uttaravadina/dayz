@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/Header.css'
 
 class Header extends React.Component {
 
@@ -19,7 +20,6 @@ class Header extends React.Component {
     }
 
     updateTime = () => {
-        console.log('hi')
         let currHour = new Date().getHours();
         let currMin = new Date().getMinutes();
         
@@ -37,22 +37,25 @@ class Header extends React.Component {
         }
 
         let hrsTill = 23 - currHour;
-        let minsTill = 60 - currMin;
+        let minsTill = 59 - currMin;
 
         this.setState({ hrsTill, minsTill });
     }
 
     componentWillUnmount() {
         clearInterval(this.timerID);
-      }
+    }
 
     render() {
         const { timeframe, emoji, hrsTill, minsTill } = this.state;
 
         return (
             <>
-                <p>Good {timeframe}, Karen {emoji}</p>
-                <p>{hrsTill} hrs {minsTill} mins till day ends</p>
+                <div className='Header'>
+                    <h1>Good {timeframe}, Karen {emoji}</h1>
+                    <p>{hrsTill} hrs {minsTill} mins till day ends</p>
+                </div>
+                
 
             </>
         );
