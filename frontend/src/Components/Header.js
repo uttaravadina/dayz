@@ -7,9 +7,19 @@ class Header extends React.Component {
         emoji: '',
         hrsTill: '',
         minsTill: '',
+        timerID: null,
     }
 
     componentDidMount = () => {
+        this.updateTime()
+        this.timerID = setInterval(
+            () => this.updateTime(),
+            60000
+        );
+    }
+
+    updateTime = () => {
+        console.log('hi')
         let currHour = new Date().getHours();
         let currMin = new Date().getMinutes();
         
@@ -26,11 +36,15 @@ class Header extends React.Component {
             this.setState({ timeframe: 'night', emoji: '🌙' });
         }
 
-        let hrsTill = 23 - currHour
-        let minsTill = 60 - currMin
+        let hrsTill = 23 - currHour;
+        let minsTill = 60 - currMin;
 
-        this.setState({ hrsTill, minsTill })
+        this.setState({ hrsTill, minsTill });
     }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
 
     render() {
         const { timeframe, emoji, hrsTill, minsTill } = this.state;
