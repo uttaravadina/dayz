@@ -1,0 +1,20 @@
+.legend-module {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.colorbox-container {
+    padding: 10px;
+}
+
+.colorbox {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.colorbox-label {
+    vertical-align: middle;
+}

@@ -1,0 +1,14 @@
+.header {
+    padding: 10px;
+}
+
+.header h1 {
+    text-align: left;
+    color: #737373;
+}
+
+.header p {
+    text-align: left;
+    font-size: x-large;
+}
+

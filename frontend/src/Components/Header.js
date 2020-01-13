@@ -51,7 +51,7 @@ class Header extends React.Component {
 
         return (
             <>
-                <div className='Header'>
+                <div className="header">
                     <h1>Good {timeframe}, Karen {emoji}</h1>
                     <p>{hrsTill} hrs {minsTill} mins till day ends</p>
                 </div>
