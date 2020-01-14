@@ -26,10 +26,10 @@ class Header extends React.Component {
         if (currHour >= 6 && currHour <= 12) {
             this.setState({ timeframe: 'morning', emoji: '🌅' });
         }
-        else if (currHour >= 13 && currHour <= 17) {
+        else if (currHour >= 13 && currHour <= 16) {
             this.setState({ timeframe: 'afternoon', emoji: '☀️' });
         }
-        else if (currHour >= 18 && currHour <= 21) {
+        else if (currHour >= 17 && currHour <= 20) {
             this.setState({ timeframe: 'evening', emoji: '🌄' });
         }
         else {

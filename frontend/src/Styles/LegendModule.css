@@ -16,5 +16,10 @@
 }
 
 .colorbox-label {
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+.colorbox-label p {
+    font-size: large;
 }

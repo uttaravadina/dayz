@@ -1,5 +1,6 @@
 import React from 'react';
 import LegendModule from './LegendModule';
+import '../Styles/Legend.css'
 
 class Legend extends React.Component {
 
@@ -14,8 +15,6 @@ class Legend extends React.Component {
                     <LegendModule color='#CB6BE7' mood='Normal'/>
                     <LegendModule color='#FF66C5' mood='Off'/>
                     <LegendModule color='#FF5757' mood='Bad'/>
-
-
                 </div>
             </>
         );
