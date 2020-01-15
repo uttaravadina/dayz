@@ -1,0 +1,43 @@
+.arrow-bar {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+
+.arrow {
+	color: black;
+	cursor: pointer;
+    font-size: 3rem;
+    width: 35px;
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.arrow h1 {
+    text-align: center;
+}
+
+.arrow.right {
+    left: 10rem;
+}
+
+.arrow.left {
+    left: 5rem;
+}
+
+.curr-timeframe {
+    position: fixed;
+    left: 15rem;
+}
+
+.curr-timeframe h1 {
+    font-weight: bold;
+}

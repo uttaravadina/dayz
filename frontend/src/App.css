@@ -8,20 +8,26 @@
   font-family: 'Open Sans', sans-serif !important;
 }
 
-.left {
+.left-side {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
 }
 
-.right {
-  
+.right-side {
+  display: flex;
   flex-grow: 1;
 }
 
 .divider {
   margin-left: 2em;
   margin-right: 2em;
-  border-left: 1px solid black;
+  border-left: 1px solid #D9D9D9;
   height: auto;
+}
+
+hr {
+  background-color: #D9D9D9; 
+  height: 1px; 
+  border: 0;
 }

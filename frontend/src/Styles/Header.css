@@ -5,6 +5,7 @@
 .header h1 {
     text-align: left;
     color: #737373;
+    font-weight: bold;
 }
 
 .header p {
