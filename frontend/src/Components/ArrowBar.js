@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Styles/ArrowBar.css'
-import { Button, Glyphicon } from 'react-bootstrap';
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
 	<div 

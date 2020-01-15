@@ -1,8 +1,6 @@
 import React from 'react';
 import '../Styles/TimeFrameBar.css'
  
-
-
 class TimeFrameBar extends React.Component {
 
     state = {

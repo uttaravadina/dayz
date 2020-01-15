@@ -5,15 +5,35 @@ const WeekModule = ({ day, date, color }) => (
     <div className="week-module">
         <h3>{day}</h3>
         <h2>{date}</h2>
+        <div style={{height: '10px'}}/>
         <div className="week-colorbox"
             style={{backgroundColor: color}}
         />
     </div>
 );
+
+function weekRange(date)
+{
+    let start = date.getDate() - date.getDay() + (date.getDay() === 6 ? -6 : 0);
+    let end = date.getDate() - (date.getDay() - 1) + 6;
+
+    return [new Date(date.setDate(start)), new Date(date.setDate(end))];
+ 
+}
     
 class WeekView extends React.Component {
 
     render() {
+
+        const yest = new Date('August 31, 1975 23:15:30');
+
+        let today = new Date();
+        console.log(today)
+        console.log(today.getDate())
+        console.log(today.getDay())
+
+        console.log(weekRange(today))
+
         return (
             <>
                 <div className="week">
