@@ -17,6 +17,7 @@
 .week-module h3{
     color: #737373;
     font-weight: bold;
+    font-size: large;
 }
 
 .week-colorbox {
@@ -24,5 +25,5 @@
     width: 70px;
     border-radius: 10px;
     padding: 10px;
-    text-align: center;
+    display: inline-block;
 }

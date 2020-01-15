@@ -14,7 +14,6 @@ const WeekModule = ({ day, date, color }) => (
 class WeekView extends React.Component {
 
     render() {
-        
         return (
             <>
                 <div className="week">
