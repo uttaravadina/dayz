@@ -1,7 +1,8 @@
 import React from 'react';
-import WeekArrowBar from './WeekArrowBar'
-import WeekView from './WeekView'
-import '../Styles/Week.css'
+import ArrowBar from './ArrowBar'
+import View from './View'
+import TimeframeBar from './TimeframeBar'
+import '../../Styles/Week/Page.css'
 
 function weekRange(date) {
     let start = new Date(date.setDate(date.getDate() - date.getDay()));
@@ -56,7 +57,8 @@ function getInfo(range) {
         "September", 
         "October", 
         "November", 
-        "December" ];
+        "December" 
+    ];
 
     let output = {};
     output.dates = getDates(range);
@@ -132,13 +134,16 @@ class Week extends React.Component {
         return (
             <>
                 <div>
-                    <WeekArrowBar
+                    <TimeframeBar/>
+                    <div style={{height: '5px'}}/>
+                    <hr/>
+                    <ArrowBar
                         handleLeftClick = { this.setPrev }
                         handleRightClick = { this.setNext }
                         year = { this.state.year}
                         month = { this.state.month }
                     />
-                    <WeekView
+                    <View
                         dates = {this.state.dates}
                         isToday = {this.state.isToday}
                     />

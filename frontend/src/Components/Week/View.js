@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/WeekView.css'
+import '../../Styles/Week/View.css'
 
 const WeekModule = ({ day, date, isToday, color }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
@@ -22,7 +22,7 @@ const WeekModule = ({ day, date, isToday, color }) => {
     )
 };
     
-class WeekView extends React.Component {
+class View extends React.Component {
 
     render() {
         
@@ -77,4 +77,4 @@ class WeekView extends React.Component {
     }
 }
 
-export default WeekView;
+export default View;

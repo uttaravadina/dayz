@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-
 router.post('/', async (req, res) => {
     const mood = new Mood({
         mood: req.body.mood,

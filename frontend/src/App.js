@@ -1,47 +1,44 @@
 import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './Components/Header'
 import Legend from './Components/Legend'
-import TimeFrameBar from './Components/TimeFrameBar'
-import Week from './Components/Week'
-
+import Week from './Components/Week/Page'
+import Month from './Components/Month/Page'
 
 class App extends React.Component {
-	state = {
-		selected: "week",
-	}
-
-	timeframeCallback = (timeframe) => {
-		this.setState({ selected: timeframe })
-		console.log(timeframe)
-	}
 
 	render() {
 		return (
 			<>
-				<div className="App">
-					<div className="left-side">
-						<div className="top">
-							<Header />
-							<div style={{height: '25px'}}/>
-							<TimeFrameBar
-								getTimeframe={this.timeframeCallback}
-							/>
-							<div style={{height: '5px'}}/>
-							<hr/>
-							<div style={{height: '5px'}}/>
-							<Week/>
+				<BrowserRouter>
+					<div className="App">
+						<div className="left-side">
+							<div className="top">
+								<Header />
+								<div style={{height: '25px'}}/>
+								<div style={{height: '5px'}}/>
+								<Route exact={true} path='/' render={() => (
+									<Week/>
+								)}/>
+								<Route exact={true} path='/week' render={() => (
+									<Week/>
+								)}/>
+								<Route exact={true} path='/month' render={() => (
+									<Month/>
+								)}/>
+							</div>
+							<div className="bottom">
+							</div>
 						</div>
-						<div className="bottom">
+						<div className="divider"/>
+						<div className="right-side">
+							<Legend />
 						</div>
+						
 					</div>
-					<div className="divider"/>
-					<div className="right-side">
-						<Legend />
-					</div>
-					
-				</div>
+				</BrowserRouter>
 			</>
 		);
 	}
