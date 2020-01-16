@@ -4,31 +4,38 @@ import '../Styles/TimeFrameBar.css'
 class TimeFrameBar extends React.Component {
 
     state = {
-        selected: 'week',
-        
+        selected: "week",   
     }
 
     handleDayClick = () => {
-        this.setState({ selected: 'day'})
+        this.setState({ selected: "day" });
+        this.setTimeframe();
     }
 
     handleWeekClick = () => {
-        this.setState({ selected: 'week'})
+        this.setState({ selected: "week" });
+        this.setTimeframe();
     }
 
     handleMonthClick = () => {
-        this.setState({ selected: 'month'})
+        this.setState({ selected: "month" });
+        this.setTimeframe();
     }
 
     handleYearClick = () => {
-        this.setState({ selected: 'year'})
+        this.setState({ selected: "year" });
+        this.setTimeframe();
+    }
+
+    setTimeframe = () => {
+        this.props.getTimeframe(this.state.selected);
     }
 
     render() {
-        let dayActive = this.state.selected === 'day' ? "timeframe-active" : "timeframe-inactive";
-        let weekActive = this.state.selected === 'week' ? "timeframe-active" : "timeframe-inactive";
-        let monthActive = this.state.selected === 'month' ? "timeframe-active" : "timeframe-inactive";
-        let yearActive = this.state.selected === 'year' ? "timeframe-active" : "timeframe-inactive";
+        let dayActive = this.state.selected === "day" ? "timeframe-active" : "timeframe-inactive";
+        let weekActive = this.state.selected === "week" ? "timeframe-active" : "timeframe-inactive";
+        let monthActive = this.state.selected === "month" ? "timeframe-active" : "timeframe-inactive";
+        let yearActive = this.state.selected === "year" ? "timeframe-active" : "timeframe-inactive";
 
         return (
             <>

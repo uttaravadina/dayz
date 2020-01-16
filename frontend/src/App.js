@@ -8,6 +8,15 @@ import Week from './Components/Week'
 
 
 class App extends React.Component {
+	state = {
+		selected: "week",
+	}
+
+	timeframeCallback = (timeframe) => {
+		this.setState({ selected: timeframe })
+		console.log(timeframe)
+	}
+
 	render() {
 		return (
 			<>
@@ -16,7 +25,9 @@ class App extends React.Component {
 						<div className="top">
 							<Header />
 							<div style={{height: '25px'}}/>
-							<TimeFrameBar/>
+							<TimeFrameBar
+								getTimeframe={this.timeframeCallback}
+							/>
 							<div style={{height: '5px'}}/>
 							<hr/>
 							<div style={{height: '5px'}}/>

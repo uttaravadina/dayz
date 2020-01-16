@@ -3,8 +3,6 @@ import '../Styles/WeekView.css'
 
 const WeekModule = ({ day, date, isToday, color }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
-    console.log(todayActive)
-
     
     return (
         <div className="week-module">
@@ -27,7 +25,7 @@ const WeekModule = ({ day, date, isToday, color }) => {
 class WeekView extends React.Component {
 
     render() {
-        console.log(this.props.isToday)
+        
         return (
             <>
                 <div className="week">
