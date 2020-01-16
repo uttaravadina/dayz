@@ -2,10 +2,13 @@ import React from 'react';
 import '../Styles/ArrowBar.css'
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
+    
 	<div 
 		className={ `arrow ${direction}` } 
 		onClick={ clickFunction }>
-		<h1>{ glyph } </h1>
+            
+            <h1>{ glyph } </h1>
+            
 	</div>
 );
 
@@ -25,7 +28,7 @@ class WeekArrowBar extends React.Component {
                         glyph="&#8250;"
                         clickFunction={this.props.handleRightClick}/>
                     <div className="curr-timeframe">
-                        <strong><h1>{this.props.month} {this.props.year}</h1></strong>
+                        <h1>{this.props.month} {this.props.year}</h1>
                     </div>
                 </div>
             </>

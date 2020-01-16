@@ -25,10 +25,10 @@ class TimeFrameBar extends React.Component {
     }
 
     render() {
-        let dayActive = this.state.selected === 'day' ? "timeframe-active" : "timeframe-inactive"
-        let weekActive = this.state.selected === 'week' ? "timeframe-active" : "timeframe-inactive"
-        let monthActive = this.state.selected === 'month' ? "timeframe-active" : "timeframe-inactive"
-        let yearActive = this.state.selected === 'year' ? "timeframe-active" : "timeframe-inactive"
+        let dayActive = this.state.selected === 'day' ? "timeframe-active" : "timeframe-inactive";
+        let weekActive = this.state.selected === 'week' ? "timeframe-active" : "timeframe-inactive";
+        let monthActive = this.state.selected === 'month' ? "timeframe-active" : "timeframe-inactive";
+        let yearActive = this.state.selected === 'year' ? "timeframe-active" : "timeframe-inactive";
 
         return (
             <>

@@ -19,6 +19,7 @@
     width: 125px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }   
 
 .timeframe-active {
@@ -29,15 +30,18 @@
     background-color: #737373;
     align-items: center;
     color: white;
+    justify-content: center;
 }
 
 .timeframe-active h2 {
     font-weight: bold;
     margin: 0;
     padding: 0;
+    
 }
 
 .timeframe-inactive h2 { 
     margin: 0;
     padding: 0;
+    
 }

@@ -12,6 +12,8 @@
     flex-direction: column;
     flex-grow: 1;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .week-module h3{
@@ -20,10 +22,41 @@
     font-size: large;
 }
 
+.week-module h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.today-active {
+    background-color: #737373;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today-inactive {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today-active h2{
+    font-weight: bold;
+    color: white;
+}
+
 .week-colorbox {
     height: 70px;
     width: 70px;
     border-radius: 10px;
     padding: 10px;
     display: inline-block;
+}
+
+.week-colorbox-container {
+    text-align: center;
 }

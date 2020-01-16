@@ -8,8 +8,8 @@
 
 .arrow {
 	color: black;
-	cursor: pointer;
-    font-size: 3rem;
+    cursor: pointer;
+    font-size: 5em;
     width: 35px;
     height: 35px;
     border-style: solid;
@@ -18,11 +18,12 @@
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: center;
+   
 }
 
 .arrow h1 {
     text-align: center;
-    
 }
 
 .arrow.right {

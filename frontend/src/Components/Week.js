@@ -72,19 +72,25 @@ class Week extends React.Component {
         month: null,
         year: null,
         weekRange: [],
+        isToday: [],
     }
 
     componentDidMount = () => {
         let today = new Date();
-        let currWeek = weekRange(today);
+
+        let currWeek = weekRange(today);        
         let info = getInfo(currWeek);
+
+        let todayy = new Date();
+        let isToday = info.dates.map(x => x === todayy.getDate());
 
         this.setState({ 
             dates: info.dates, 
             month: info.month, 
             year: info.year,
             weekRange: currWeek,
-        });
+            isToday: isToday,
+        }); 
     }
 
     setNext = () => {
@@ -92,11 +98,15 @@ class Week extends React.Component {
         let nextWeek = getNext(currWeek)
         let info = getInfo(nextWeek);
 
+        let todayy = new Date();
+        let isToday = info.dates.map(x => x === todayy.getDate());
+
         this.setState({ 
             dates: info.dates, 
             month: info.month, 
             year: info.year,
             weekRange: currWeek,
+            isToday: isToday,
         });
     }
 
@@ -105,11 +115,15 @@ class Week extends React.Component {
         let prevWeek = getPrev(currWeek)
         let info = getInfo(prevWeek);
         
+        let todayy = new Date();
+        let isToday = info.dates.map(x => x === todayy.getDate());
+        
         this.setState({ 
             dates: info.dates, 
             month: info.month, 
             year: info.year,
             weekRange: currWeek,
+            isToday: isToday,
         });
     }
 
@@ -126,6 +140,7 @@ class Week extends React.Component {
                     />
                     <WeekView
                         dates = {this.state.dates}
+                        isToday = {this.state.isToday}
                     />
                 </div>
             </>
