@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/WeekArrowBar.css'
+import '../Styles/ArrowBar.css'
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
 	<div 
@@ -16,10 +16,16 @@ class WeekArrowBar extends React.Component {
         return (
             <>
                 <div className="arrow-bar">
-                    <Arrow direction="left" glyph="&#8249;"/>
-                    <Arrow direction="right" glyph="&#8250;"/>
+                    <Arrow 
+                        direction="left" 
+                        glyph="&#8249;"
+                        clickFunction={this.props.handleLeftClick}/>
+                    <Arrow 
+                        direction="right" 
+                        glyph="&#8250;"
+                        clickFunction={this.props.handleRightClick}/>
                     <div className="curr-timeframe">
-                        <strong><h1>January 2020</h1></strong>
+                        <strong><h1>{this.props.month} {this.props.year}</h1></strong>
                     </div>
                 </div>
             </>
