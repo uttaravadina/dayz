@@ -12,64 +12,95 @@ const WeekModule = ({ day, date, color }) => (
     </div>
 );
 
-function weekRange(date)
-{
-    let start = date.getDate() - date.getDay() + (date.getDay() === 6 ? -6 : 0);
-    let end = date.getDate() - (date.getDay() - 1) + 6;
+function weekRange(date) {
+    let start = new Date(date.setDate(date.getDate() - date.getDay()));
+    let end = new Date(date.setDate(date.getDate() + (6 - date.getDay())));
 
-    return [new Date(date.setDate(start)), new Date(date.setDate(end))];
- 
+    return [start, end];
 }
+
+function nextWeek(currWeek) {
+    
+    let start = new Date(currWeek[0].setDate(currWeek[0].getDate()+7));
+    let end = new Date(currWeek[1].setDate(currWeek[1].getDate()+7));
+
+    return [start, end];
+}
+
+function lastWeek(currWeek) {
+    let start = new Date(currWeek[0].setDate(currWeek[0].getDate()-7));
+    let end = new Date(currWeek[1].setDate(currWeek[1].getDate()-7));
+
+    return [start, end];
+}
+
+var getDates = function(range) {
+    var dates = [],
+        currentDate = range[0],
+        addDays = function(days) {
+          var date = new Date(this.valueOf());
+          date.setDate(date.getDate() + days);
+          return date;
+        };
+    while (currentDate <= range[1]) {
+      dates.push(currentDate.getDate());
+      currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+};
     
 class WeekView extends React.Component {
 
-    render() {
+    state = {
+        dates: [],
+    }
 
-        const yest = new Date('August 31, 1975 23:15:30');
-
+    componentDidMount = () => {
         let today = new Date();
-        console.log(today)
-        console.log(today.getDate())
-        console.log(today.getDay())
+        let curr_week = weekRange(today);
+        this.setState({ dates: getDates(curr_week)})
+    }
 
-        console.log(weekRange(today))
+    render() {
+        const {dates} = this.state;
+        console.log(dates)
 
         return (
             <>
                 <div className="week">
                     <WeekModule 
                         day="SUN"
-                        date="5"
+                        date={dates[0]}
                         color="#8C52FF"
                     />
                     <WeekModule 
                         day="MON"
-                        date="6"
+                        date={dates[1]}
                         color="#CB6BE7"
                     />
                     <WeekModule 
                         day="TUE"
-                        date="7"
+                        date={dates[2]}
                         color="#8C52FF"
                     />
                     <WeekModule 
                         day="WED"
-                        date="8"
+                        date={dates[3]}
                         color="#D9D9D9"
                     />
                     <WeekModule 
                         day="THU"
-                        date="9"
+                        date={dates[4]}
                         color="#D9D9D9"
                     />
                     <WeekModule 
                         day="FRI"
-                        date="10"
+                        date={dates[5]}
                         color="#D9D9D9"
                     />
                     <WeekModule 
                         day="SAT"
-                        date="11"
+                        date={dates[6]}
                         color="#D9D9D9"
                     />
                 </div>
