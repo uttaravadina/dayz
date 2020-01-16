@@ -19,21 +19,23 @@ function weekRange(date) {
     return [start, end];
 }
 
-function nextWeek(currWeek) {
-    
+// every time press left arrow, take current week and update it with this function call
+function getNext(currWeek) {
     let start = new Date(currWeek[0].setDate(currWeek[0].getDate()+7));
     let end = new Date(currWeek[1].setDate(currWeek[1].getDate()+7));
 
     return [start, end];
 }
 
-function lastWeek(currWeek) {
+function getPrev(currWeek) {
     let start = new Date(currWeek[0].setDate(currWeek[0].getDate()-7));
     let end = new Date(currWeek[1].setDate(currWeek[1].getDate()-7));
 
     return [start, end];
 }
 
+// range = [start, end]
+// returns only the number dates in the range
 var getDates = function(range) {
     var dates = [],
         currentDate = range[0],
@@ -43,22 +45,67 @@ var getDates = function(range) {
           return date;
         };
     while (currentDate <= range[1]) {
-      dates.push(currentDate.getDate());
+        dates.push(currentDate.getDate());
       currentDate = addDays.call(currentDate, 1);
     }
     return dates;
+}
+
+// range = [start, end]
+var getInfo = function(range) {
+    let output = {}
+    output.dates = getDates(range)
+    output.month = range[0].getMonth()
+    output.year = range[0].getYear()
+
+    return output;
 };
     
 class WeekView extends React.Component {
-
     state = {
         dates: [],
+        month: null,
+        year: null,
+        weekRange: [],
     }
 
     componentDidMount = () => {
         let today = new Date();
-        let curr_week = weekRange(today);
-        this.setState({ dates: getDates(curr_week)})
+        let currWeek = weekRange(today);
+        let info = getInfo(currWeek);
+
+        this.setState({ 
+            dates: info.dates, 
+            month: info.month, 
+            year: info.year,
+            weekRange: currWeek,
+        });
+    }
+
+    setNext = () => {
+        let currWeek = this.weekRange;
+        let nextWeek = getNext(currWeek)
+        let info = getInfo(nextWeek);
+
+        this.setState({ 
+            dates: info.dates, 
+            month: info.month, 
+            year: info.year,
+            weekRange: currWeek,
+        });
+    }
+
+    setPrev = () => {
+        let currWeek = this.weekRange;
+        let prevWeek = getPrev(currWeek)
+        let info = getInfo(prevWeek);
+        
+        this.setState({ 
+            dates: info.dates, 
+            month: info.month, 
+            year: info.year,
+            weekRange: currWeek,
+        });
     }
 
     render() {
