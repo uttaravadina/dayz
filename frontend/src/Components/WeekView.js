@@ -36,27 +36,27 @@ function getPrev(currWeek) {
 
 // range = [start, end]
 // returns only the number dates in the range
-var getDates = function(range) {
+function getDates(range) {
     var dates = [],
         currentDate = range[0],
         addDays = function(days) {
-          var date = new Date(this.valueOf());
-          date.setDate(date.getDate() + days);
-          return date;
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
         };
     while (currentDate <= range[1]) {
         dates.push(currentDate.getDate());
-      currentDate = addDays.call(currentDate, 1);
+        currentDate = addDays.call(currentDate, 1);
     }
     return dates;
 }
 
 // range = [start, end]
-var getInfo = function(range) {
-    let output = {}
-    output.dates = getDates(range)
-    output.month = range[0].getMonth()
-    output.year = range[0].getYear()
+function getInfo(range) {
+    let output = {};
+    output.dates = getDates(range);
+    output.month = range[0].getMonth();
+    output.year = range[0].getYear();
 
     return output;
 };

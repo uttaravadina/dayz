@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/ArrowBar.css'
+import '../Styles/WeekArrowBar.css'
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
 	<div 
@@ -9,7 +9,7 @@ const Arrow = ({ direction, clickFunction, glyph }) => (
 	</div>
 );
 
-class ArrowBar extends React.Component {
+class WeekArrowBar extends React.Component {
 
     render() {
         
@@ -27,4 +27,4 @@ class ArrowBar extends React.Component {
     }
 }
 
-export default ArrowBar;
+export default WeekArrowBar;

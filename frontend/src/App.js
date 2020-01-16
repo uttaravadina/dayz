@@ -4,8 +4,7 @@ import './App.css';
 import Header from './Components/Header'
 import Legend from './Components/Legend'
 import TimeFrameBar from './Components/TimeFrameBar'
-import ArrowBar from './Components/ArrowBar'
-import WeekView from './Components/WeekView'
+import Week from './Components/Week'
 
 
 class App extends React.Component {
@@ -21,10 +20,7 @@ class App extends React.Component {
 							<div style={{height: '5px'}}/>
 							<hr/>
 							<div style={{height: '5px'}}/>
-							<ArrowBar/>
-							<div>
-								<WeekView/>
-							</div>
+							<Week/>
 						</div>
 						<div className="bottom">
 						</div>
