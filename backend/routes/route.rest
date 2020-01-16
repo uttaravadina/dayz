@@ -1,0 +1,11 @@
+GET http://localhost:4000/mood
+
+###
+
+POST http://localhost:4000/mood
+Content-Type: application/json
+
+{
+  "mood": "great",
+  "hex": "#5171FF"
+}
