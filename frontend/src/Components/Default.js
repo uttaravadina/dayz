@@ -1,7 +1,6 @@
 import React from 'react';
-import '../Styles/DayView.css'
 
-class DayView extends React.Component {
+class Component extends React.Component {
 
     render() {
         
@@ -15,4 +14,4 @@ class DayView extends React.Component {
     }
 }
 
-export default DayView;
+export default Component;
