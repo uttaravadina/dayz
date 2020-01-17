@@ -1,11 +1,19 @@
-GET http://localhost:4000/mood
+GET http://localhost:4000/day
 
 ###
 
-POST http://localhost:4000/mood
+POST http://localhost:4000/day
 Content-Type: application/json
 
 {
-  "mood": "great",
-  "hex": "#5171FF"
+  "day" : "2020-01-17",
+  "mood" :"Great"
 }
+
+###
+
+GET http://localhost:4000/day/2020-01-17T00:00:00.000Z
+
+###
+
+DELETE http://localhost:4000/day/2020-01-17T00:00:00.000Z

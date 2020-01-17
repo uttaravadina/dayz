@@ -11,7 +11,7 @@ db.once('open', () => console.log('connected to database'))
 
 app.use(express.json())
 
-const moodRouter = require('./routes/mood')
-app.use('/mood', moodRouter)
+const dayRouter = require('./routes/day')
+app.use('/day', dayRouter)
 
 app.listen(4000, () => console.log('server started'))
