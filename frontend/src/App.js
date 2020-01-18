@@ -18,8 +18,7 @@ class App extends React.Component {
 					<div className="App">
 						<div className="left-side">
 								<Header />
-								<div style={{height: '25px'}}/>
-								<div style={{height: '5px'}}/>
+								<div style={{height: '20px'}}/>
 								<Switch>
 									<Route exact={true} path='/' render={() => (
 										<Week/>

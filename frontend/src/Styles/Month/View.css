@@ -1,8 +1,50 @@
-.month {
+.month-wrapper {
     display: flex;
     flex-direction: row;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    justify-content: center;
+}
+
+
+.month-module {
+    cursor: pointer;
+    padding: 3px;
+}
+
+.month-colorbox {
+    border-radius: 7px;
+    background-color: #8C52FF;
+    width: 4.5vw;
+    height: 4.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month-colorbox h2 { 
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    color: white;
+    
+}
+
+.month-today {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #737373;
+}
+
+#table {
+    display: grid;
+    grid-template-columns: repeat(6, auto) 1fr;
+}
+
+#table h3 {
+    color: #737373;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
 }

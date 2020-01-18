@@ -1,6 +1,6 @@
 import React from 'react';
 import ArrowBar from './ArrowBar';
-// import View from './View;'
+import View from './View';
 import TimeframeBar from './TimeframeBar';
 import '../../Styles/Month/Page.css';
 
@@ -46,6 +46,9 @@ class Month extends React.Component {
     }
 
     render() {
+        let firstDay = new Date(this.state.year, this.state.month, 1);
+        let lastDay = new Date(this.state.year, this.state.month + 1, 0);
+
         
         return (
             <>
@@ -56,6 +59,12 @@ class Month extends React.Component {
                     <ArrowBar
                         handleLeftClick = { this.setPrev }
                         handleRightClick = { this.setNext }
+                        year = { this.state.year}
+                        month = { this.state.month }
+                    />
+                    <View
+                        numFill = {firstDay.getDay()}
+                        lastDay = {lastDay.getDate()}
                         year = { this.state.year}
                         month = { this.state.month }
                     />
