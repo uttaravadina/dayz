@@ -6,15 +6,14 @@ const Day = ({ date, color, isToday }) => {
     
     return (
         <div className="month-module">
-            <div className="month-colorbox"
-                style={{backgroundColor: color}}
-            >
-                <div className={monthToday}>
+            <div className={monthToday}>
+                <div className="month-colorbox"
+                    style={{backgroundColor: color}}
+                >
                     <h2>{date}</h2>
                 </div>
             </div>
         </div>
-        
     )
 };
 
@@ -37,7 +36,6 @@ class View extends React.Component {
         let todayDate = today.getDate();
         let todayMonth = today.getMonth();
         let todayYear = today.getFullYear();
-
 
         for (let i = 0; i < this.props.lastDay; i++) {
             let isToday = (i === todayDate & this.props.month === todayMonth && this.props.year === todayYear) 
@@ -65,7 +63,6 @@ class View extends React.Component {
                         <h3>SAT</h3>
                         {fill}
                         {days}
-
                     </div>
                 </div>
             </>
