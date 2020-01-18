@@ -17,7 +17,6 @@ class App extends React.Component {
 				<Router>
 					<div className="App">
 						<div className="left-side">
-							<div className="top">
 								<Header />
 								<div style={{height: '25px'}}/>
 								<div style={{height: '5px'}}/>
@@ -35,7 +34,6 @@ class App extends React.Component {
 										<Error/>
 									)}/>
 								</Switch>
-							</div>
 						</div>
 						<div className="divider"/>
 						<div className="right-side">
