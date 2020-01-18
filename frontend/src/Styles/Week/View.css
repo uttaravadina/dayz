@@ -8,6 +8,7 @@
 }
 
 .week-module {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     flex-grow: 1;

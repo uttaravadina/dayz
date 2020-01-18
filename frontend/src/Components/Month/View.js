@@ -1,11 +1,14 @@
 import React from 'react';
 import '../../Styles/Month/View.css';
 
-const Day = ({ date, color, isToday }) => {
+const Day = ({ date, color, isToday, titleText }) => {
     let monthToday = isToday ? "month-today" : "month-notToday";
     
     return (
-        <div className="month-module">
+        <div 
+            className="month-module"
+            title={titleText}
+        >
             <div className={monthToday}>
                 <div className="month-colorbox"
                     style={{backgroundColor: color}}
@@ -31,21 +34,28 @@ class View extends React.Component {
             )
         }
 
-        let days = [];
+        let month = [];
         let today = new Date ();
         let todayDate = today.getDate();
         let todayMonth = today.getMonth();
         let todayYear = today.getFullYear();
 
         for (let i = 0; i < this.props.lastDay; i++) {
-            let isToday = (i === todayDate & this.props.month === todayMonth && this.props.year === todayYear) 
+            let isToday = (i === todayDate 
+                & this.props.month === todayMonth 
+                && this.props.year === todayYear)
+
+            let titleText = this.props.year + "-" 
+                + (this.props.month + 1).toString().padStart(2, '0') 
+                + "-" + (i+ 1).toString().padStart(2, '0')
                 
-            fill.push(
+            month.push(
                 <Day
                     date={i+1}
                     color="#D9D9D9"
                     key={this.props.numFill + i}
                     isToday={isToday}
+                    titleText={titleText}
                 />
             )
         }
@@ -62,7 +72,7 @@ class View extends React.Component {
                         <h3>FRI</h3>
                         <h3>SAT</h3>
                         {fill}
-                        {days}
+                        {month}
                     </div>
                 </div>
             </>

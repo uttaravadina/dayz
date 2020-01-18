@@ -1,16 +1,18 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
 
-const WeekModule = ({ day, date, isToday, color }) => {
+const WeekModule = ({ day, date, isToday, color, titleText }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
     
     return (
-        <div className="week-module">
+        <div 
+            className="week-module"
+            title={titleText}
+        >
             <h3>{day}</h3>
             <div className={todayActive}>
                 <h2>{date}</h2>
             </div>
-            
             <div style={{height: '10px'}}/>
             <div className="week-colorbox-container">
                 <div className="week-colorbox"
@@ -25,6 +27,21 @@ const WeekModule = ({ day, date, isToday, color }) => {
 class View extends React.Component {
 
     render() {
+
+        let week = [];
+        let days = [
+            "SUN",
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT"
+        ]
+        for (let i = 0; i < 7; i++) {
+            
+        }
+
         
         return (
             <>
@@ -37,7 +54,7 @@ class View extends React.Component {
                     />
                     <WeekModule 
                         day="MON"
-                        isToay={this.props.isToday[1]}
+                        isToday={this.props.isToday[1]}
                         date={this.props.dates[1]}
                         color="#CB6BE7"
                     />
