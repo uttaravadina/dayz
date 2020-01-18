@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeframeBar from './TimeframeBar'
+import TimeframeBar from './TimeframeBar';
 
 class Error extends React.Component {
 

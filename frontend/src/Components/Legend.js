@@ -1,6 +1,6 @@
 import React from 'react';
 import LegendModule from './LegendModule';
-import '../Styles/Legend.css'
+import '../Styles/Legend.css';
 
 class Legend extends React.Component {
 

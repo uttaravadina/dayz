@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/Week/View.css'
+import '../../Styles/Week/View.css';
 
 const WeekModule = ({ day, date, isToday, color }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";

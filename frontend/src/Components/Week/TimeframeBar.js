@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/TimeframeBar.css'
+import '../../Styles/TimeframeBar.css';
 import {Redirect} from 'react-router-dom';
  
 class TimeframeBar extends React.Component {

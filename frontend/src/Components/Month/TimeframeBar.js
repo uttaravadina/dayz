@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/TimeframeBar.css'
+import '../../Styles/TimeframeBar.css';
  
 class TimeframeBar extends React.Component {
 

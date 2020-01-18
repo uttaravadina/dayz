@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/ArrowBar.css'
+import '../../Styles/ArrowBar.css';
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
 	<div 

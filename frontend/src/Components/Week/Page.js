@@ -62,9 +62,16 @@ function getInfo(range) {
 
     let output = {};
     output.dates = getDates(range);
-    output.month = monthList[range[0].getMonth()];
-    output.year = range[0].getFullYear();
 
+    if (range[0].getMonth() !== range[1].getMonth()) {
+        let month = monthList[range[0].getMonth()].slice(0, 3) 
+            + ' - ' + monthList[range[1].getMonth()].slice(0, 3);
+        output.month = month;
+    } else {
+        output.month = monthList[range[0].getMonth()];
+    }
+    
+    output.year = range[0].getFullYear();
     return output;
 };
 
