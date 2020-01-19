@@ -6,6 +6,7 @@ import Header from './Components/Header'
 import Legend from './Components/Legend'
 import Week from './Components/Week/Page'
 import Month from './Components/Month/Page'
+import Year from './Components/Year/Page'
 import Error from './Components/404'
 
 class App extends React.Component {
@@ -28,6 +29,9 @@ class App extends React.Component {
 									)}/>
 									<Route path='/month' render={() => (
 										<Month/>
+									)}/>
+									<Route path='/year' render={() => (
+										<Year/>
 									)}/>
 									<Route path="*" render={() => (
 										<Error/>

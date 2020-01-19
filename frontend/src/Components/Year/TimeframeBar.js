@@ -8,16 +8,16 @@ class TimeframeBar extends React.Component {
         
     }
 
+    handleWEekClick = () => {
+        
+    }
+
     handleMonthClick = () => {
         return <Redirect to='/month' />
     }
 
-    handleYearClick = () => {
-        
-    }
-
     render() {
-
+       
         return (
             <>
                 <div className="timeframe-bar">
@@ -27,7 +27,7 @@ class TimeframeBar extends React.Component {
                         </div>
                     </div>
                     <div className="timeframe-container" >
-                        <div className="timeframe-active">
+                        <div className="timeframe-inactive">
                             <h2>Week</h2>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ class TimeframeBar extends React.Component {
                         </div>
                     </div>
                     <div className="timeframe-container" onClick={this.handleYearClick}>
-                        <div className="timeframe-inactive">
+                        <div className="timeframe-active">
                             <h2>Year</h2>
                         </div>
                     </div>
