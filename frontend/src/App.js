@@ -8,10 +8,10 @@ import Week from './Components/Week/Page'
 import Month from './Components/Month/Page'
 import Error from './Components/404'
 
-
 class App extends React.Component {
 
 	render() {
+		
 		return (
 			<>
 				<Router>

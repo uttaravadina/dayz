@@ -4,6 +4,7 @@ import View from './View'
 import TimeframeBar from './TimeframeBar'
 import '../../Styles/Week/Page.css'
 
+// start and end are the start and end of week given a date
 function weekRange(date) {
     let start = new Date(date.setDate(date.getDate() - date.getDay()));
     let end = new Date(date.setDate(date.getDate() + (6 - date.getDay())));
@@ -37,107 +38,53 @@ function getDates(range) {
             return date;
         };
     while (currentDate <= range[1]) {
-        dates.push(currentDate.getDate());
+        dates.push(currentDate);
         currentDate = addDays.call(currentDate, 1);
     }
     return dates;
 }
 
-// range = [start, end]
-function getInfo(range) {
-    let monthList = [ 
-        "January", 
-        "February", 
-        "March", 
-        "April", 
-        "May", 
-        "June", 
-        "July", 
-        "August", 
-        "September", 
-        "October", 
-        "November", 
-        "December" 
-    ];
-
-    let output = {};
-    output.dates = getDates(range);
-
-    if (range[0].getMonth() !== range[1].getMonth()) {
-        let month = monthList[range[0].getMonth()].slice(0, 3) 
-            + ' - ' + monthList[range[1].getMonth()].slice(0, 3);
-        output.month = month;
-    } else {
-        output.month = monthList[range[0].getMonth()];
-    }
-    
-    output.year = range[0].getFullYear();
-    return output;
-};
-
 class Week extends React.Component {
     state = {
         dates: [],
-        month: null,
-        year: null,
         weekRange: [],
-        isToday: [],
     }
 
     componentDidMount = () => {
         let today = new Date();
-
         let currWeek = weekRange(today);        
-        let info = getInfo(currWeek);
-
-        let todayy = new Date();
-        let isToday = info.dates.map(x => x === todayy.getDate());
+        let dates = getDates(currWeek);
 
         this.setState({ 
-            dates: info.dates, 
-            month: info.month, 
-            year: info.year,
+            dates: dates, 
             weekRange: currWeek,
-            isToday: isToday,
         }); 
     }
-
+    
     setNext = () => {
         let currWeek = this.state.weekRange;
-        let nextWeek = getNext(currWeek)
-        let info = getInfo(nextWeek);
-
-        let todayy = new Date();
-        let isToday = info.dates.map(x => x === todayy.getDate());
+        let nextWeek = getNext(currWeek);
+        let dates = getDates(nextWeek);
 
         this.setState({ 
-            dates: info.dates, 
-            month: info.month, 
-            year: info.year,
+            dates: dates, 
             weekRange: currWeek,
-            isToday: isToday,
         });
     }
 
     setPrev = () => {
         let currWeek = this.state.weekRange;
-        let prevWeek = getPrev(currWeek)
-        let info = getInfo(prevWeek);
-        
-        let todayy = new Date();
-        let isToday = info.dates.map(x => x === todayy.getDate());
+        let prevWeek = getPrev(currWeek);
+        let dates = getDates(prevWeek);
         
         this.setState({ 
-            dates: info.dates, 
-            month: info.month, 
-            year: info.year,
+            dates: dates, 
             weekRange: currWeek,
-            isToday: isToday,
         });
     }
 
     render() {
-        
+
         return (
             <>
                 <div>
@@ -147,12 +94,11 @@ class Week extends React.Component {
                     <ArrowBar
                         handleLeftClick = { this.setPrev }
                         handleRightClick = { this.setNext }
-                        year = { this.state.year}
-                        month = { this.state.month }
+                        dates = { this.state.dates}
                     />
+                    
                     <View
                         dates = {this.state.dates}
-                        isToday = {this.state.isToday}
                     />
                 </div>
             </>

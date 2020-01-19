@@ -35,7 +35,7 @@ class View extends React.Component {
         }
 
         let month = [];
-        let today = new Date ();
+        let today = new Date();
         let todayDate = today.getDate();
         let todayMonth = today.getMonth();
         let todayYear = today.getFullYear();

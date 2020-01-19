@@ -9,10 +9,50 @@ const Arrow = ({ direction, clickFunction, glyph }) => (
 	</div>
 );
 
+function getTimeframe(firstDay, lastDay) {
+    let timeframe;
+    let monthList = [ 
+        "January", 
+        "February", 
+        "March", 
+        "April", 
+        "May", 
+        "June", 
+        "July", 
+        "August", 
+        "September", 
+        "October", 
+        "November", 
+        "December" 
+    ];
+
+    if (firstDay.getMonth() !== lastDay.getMonth()) {
+        let firstMonth = monthList[firstDay.getMonth()].slice(0, 3)
+        let lastMonth = monthList[lastDay.getMonth()].slice(0, 3)
+        if (firstDay.getFullYear() !== lastDay.getFullYear()) {
+            timeframe = firstMonth + " " + firstDay.getFullYear() 
+                + " - "+ lastMonth + " " + lastDay.getFullYear();
+        } else {
+            timeframe = firstMonth + " - " + lastMonth + " " + firstDay.getFullYear();
+        }
+    } else {
+        timeframe = monthList[firstDay.getMonth()] + " " + firstDay.getFullYear()
+    }
+
+    return timeframe;
+}
+
 class ArrowBar extends React.Component {
 
     render() {
         
+        const {dates} = this.props;
+        let timeframe = null;
+
+        if (dates.length) {
+            timeframe = getTimeframe(dates[0], dates[6]);
+        } 
+
         return (
             <>
                 <div className="arrow-bar">
@@ -25,7 +65,7 @@ class ArrowBar extends React.Component {
                         glyph="&#8250;"
                         clickFunction={this.props.handleRightClick}/>
                     <div className="curr-timeframe">
-                        <h1>{this.props.month} {this.props.year}</h1>
+                        <h1>{timeframe}</h1>
                     </div>
                 </div>
             </>
