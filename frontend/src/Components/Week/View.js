@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
 
-const WeekModule = ({ day, date, isToday, color, titleText }) => {
+const Day = ({ day, date, isToday, color, titleText }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
     
     return (
@@ -49,7 +49,7 @@ class View extends React.Component {
                 + "-" + (dates[i].getDate()).toString().padStart(2, '0')
 
                 week.push(
-                    <WeekModule 
+                    <Day 
                         day={days[i]}
                         isToday={isToday}
                         date={dates[i].getDate()}

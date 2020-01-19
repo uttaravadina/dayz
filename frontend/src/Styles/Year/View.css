@@ -1,0 +1,42 @@
+.year-module {
+    cursor: pointer;
+    padding: 1px;
+    align-items: center;
+    justify-content: center;
+}
+.year-colorbox {
+    border-radius: 2px;
+    width: 14px;
+    height: 14px;
+}
+
+.year-table {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(6, auto) 1fr;
+    padding: 25px;
+}
+
+.year-table h3 {
+    color: #737373;
+    font-weight: bold;
+    font-size: x-small;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.year-wrapper {
+    padding-top: 30px;
+}
+
+.year-today {
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #737373;
+    border-width: 1px;
+    width: 16px;
+    height: 16px;
+
+}
+

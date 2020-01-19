@@ -24,9 +24,9 @@ class View extends React.Component {
     
     render() {
 
-        let fill = [];
+        let month = [];
         for (let i = 0; i < this.props.numFill; i++) {
-            fill.push(
+            month.push(
                 <Day
                     color="white"
                     key={i}
@@ -34,7 +34,6 @@ class View extends React.Component {
             )
         }
 
-        let month = [];
         let today = new Date();
         let todayDate = today.getDate();
         let todayMonth = today.getMonth();
@@ -63,7 +62,7 @@ class View extends React.Component {
         return (
             <>
                 <div className="month-wrapper">
-                    <div id="table">
+                    <div className="month-table">
                         <h3>SUN</h3>
                         <h3>MON</h3>
                         <h3>TUE</h3>
@@ -71,7 +70,6 @@ class View extends React.Component {
                         <h3>THU</h3>
                         <h3>FRI</h3>
                         <h3>SAT</h3>
-                        {fill}
                         {month}
                     </div>
                 </div>

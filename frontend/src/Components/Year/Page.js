@@ -1,6 +1,6 @@
 import React from 'react';
 import ArrowBar from './ArrowBar';
-// import View from './View';
+import View from './View';
 import TimeframeBar from './TimeframeBar';
 import '../../Styles/Year/Page.css';
 
@@ -40,6 +40,9 @@ class Year extends React.Component {
                     <ArrowBar
                         handleLeftClick = { this.setPrev }
                         handleRightClick = { this.setNext }
+                        year = { this.state.year}
+                    />
+                    <View
                         year = { this.state.year}
                     />
                 </div>
