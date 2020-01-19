@@ -31,7 +31,7 @@ class View extends React.Component {
                     color="white"
                     key={i}
                 />
-            )
+            );
         }
 
         let today = new Date();
@@ -56,7 +56,7 @@ class View extends React.Component {
                     isToday={isToday}
                     titleText={titleText}
                 />
-            )
+            );
         }
         
         return (

@@ -1,20 +1,13 @@
 import React from 'react';
 import '../../Styles/TimeframeBar.css';
-import {Redirect} from 'react-router-dom';
  
 class TimeframeBar extends React.Component {
 
-    handleDayClick = () => {
-        
-    }
+    handleDayClick = () => {}
 
-    handleMonthClick = () => {
-        return <Redirect to='/month' />
-    }
+    handleMonthClick = () => {}
 
-    handleYearClick = () => {
-        
-    }
+    handleYearClick = () => {}
 
     render() {
 

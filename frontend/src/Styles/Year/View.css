@@ -4,30 +4,47 @@
     align-items: center;
     justify-content: center;
 }
+
 .year-colorbox {
     border-radius: 2px;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
 }
 
 .year-table {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(6, auto) 1fr;
-    padding: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7x;
 }
 
 .year-table h3 {
     color: #737373;
     font-weight: bold;
     font-size: x-small;
-    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.month-header {
+    display: grid;
+    grid-template-columns: repeat(53, auto) 1fr;
+    padding-bottom: 0px;
+    padding-left: 70px;
+}
+
+.month-header h3 {
+    color: #737373;
+    font-weight: bold;
+    font-size: x-small;
     padding: 0px;
     margin: 0px;
 }
 
 .year-wrapper {
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
 .year-today {
@@ -35,8 +52,7 @@
     border-style: solid;
     border-color: #737373;
     border-width: 1px;
-    width: 16px;
-    height: 16px;
-
+    width: 18px;
+    height: 18px;
 }
 
