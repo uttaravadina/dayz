@@ -47,7 +47,7 @@ class ArrowBar extends React.Component {
     render() {
         
         const {dates} = this.props;
-        let timeframe = null;
+        let timeframe;
 
         if (dates.length) {
             timeframe = getTimeframe(dates[0], dates[6]);

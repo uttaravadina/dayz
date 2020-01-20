@@ -2,12 +2,13 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Header from './Components/Header'
-import Legend from './Components/Legend'
-import Week from './Components/Week/Page'
-import Month from './Components/Month/Page'
-import Year from './Components/Year/Page'
-import Error from './Components/404'
+import Header from './Components/Header';
+import Legend from './Components/Legend';
+import Day from './Components/Day/Page';
+import Week from './Components/Week/Page';
+import Month from './Components/Month/Page';
+import Year from './Components/Year/Page';
+import Error from './Components/404';
 
 class App extends React.Component {
 
@@ -21,6 +22,9 @@ class App extends React.Component {
 								<Header />
 								<div style={{height: '10px'}}/>
 								<Switch>
+									<Route path='/day' render={() => (
+										<Day/>
+									)}/>
 									<Route exact={true} path='/' render={() => (
 										<Week/>
 									)}/>

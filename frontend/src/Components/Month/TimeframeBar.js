@@ -20,11 +20,11 @@ class TimeframeBar extends React.Component {
                         </div>
                     </div>
                     <div className="timeframe-container" >
-                        <div className="timeframe-inactive">
+                        <div className="timeframe-inactive" onClick={this.handleWeekClick}>
                             <h2>Week</h2>
                         </div>
                     </div>
-                    <div className="timeframe-container" onClick={this.handleMonthClick}>
+                    <div className="timeframe-container">
                         <div className="timeframe-active">
                             <h2>Month</h2>
                         </div>
