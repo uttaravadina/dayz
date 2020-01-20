@@ -15,8 +15,8 @@
 
 .month-colorbox {
     border-radius: 7px;
-    width: 4.5vw;
-    height: 4.5vw;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,6 +34,11 @@
     border-style: solid;
     border-color: #737373;
     border-width: 2px;
+}
+
+.month-today .month-colorbox {
+    width: 56px;
+    height: 56px;
 }
 
 .month-table {

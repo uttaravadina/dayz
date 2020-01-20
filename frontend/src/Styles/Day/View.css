@@ -14,7 +14,7 @@
     margin: 0px;
 }
 
-.day-bar h3{
+.day-wrapper h3{
     color: #737373;
     font-weight: bold;
     font-size: large;
@@ -52,6 +52,8 @@
 
 .day-colorbox-wrapper {
     padding: 10px;
+    display: flex;
+    display: row;
 }
 
 .day-colorbox {
@@ -59,4 +61,20 @@
     width: 300px;
     border-radius: 15px;
     background-color: #D9D9D9;
+}
+
+.day-notes {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.day-notes-good {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-notes-bad {
+    display: flex;
+    flex-direction: column;
 }

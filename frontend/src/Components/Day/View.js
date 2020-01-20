@@ -39,7 +39,18 @@ class View extends React.Component {
                     <div className="day-content">
                         <div className="day-colorbox-wrapper">
                             <div className="day-colorbox">
-
+                            </div>
+                            <div className="day-notes">
+                                <div className="day-notes-good">
+                                    <h3>
+                                        THE GOOD:
+                                    </h3>
+                                </div>
+                                <div className="day-notes-bad">
+                                    <h3>
+                                        THE BAD:
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
