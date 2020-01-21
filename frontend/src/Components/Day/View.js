@@ -18,6 +18,7 @@ class View extends React.Component {
         let date;
         let isToday;
         let todayActive;
+        let titleText;
 
         if (day) {
             dayOfWeek = days[day.getDay()];
@@ -25,6 +26,9 @@ class View extends React.Component {
             let today = new Date();
             isToday = (day.setHours(0,0,0,0) === today.setHours(0,0,0,0));
             todayActive = isToday ? "day-today-active" : "day-today-inactive"
+            titleText = day.getFullYear() + "-" 
+                + (day.getMonth() + 1).toString().padStart(2, '0') 
+                + "-" + date.toString().padStart(2, '0');
         }
         
         return (
@@ -38,9 +42,13 @@ class View extends React.Component {
                     </div>
                     <div className="day-content">
                         <div className="day-colorbox-wrapper">
-                            <div className="day-colorbox">
+                            <div 
+                                className="day-colorbox"
+                                title={titleText}
+                            >
                             </div>
                             <div className="day-notes">
+                                {/* notes are changing size of legend :(*/}
                                 <div className="day-notes-good">
                                     <h3>THE GOOD:</h3>
                                     <div className="day-notes-good-text">
