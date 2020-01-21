@@ -48,7 +48,7 @@
 }
 
 .year-today {
-    border-radius: 3px;
+    border-radius: 2px;
     border-style: solid;
     border-color: #737373;
     border-width: 1px;
@@ -59,6 +59,7 @@
 .year-today .year-colorbox {
     width: 14px;
     height: 14px;
+    border-radius: 1px;
 }
 
 

@@ -42,14 +42,24 @@ class View extends React.Component {
                             </div>
                             <div className="day-notes">
                                 <div className="day-notes-good">
-                                    <h3>
-                                        THE GOOD:
-                                    </h3>
+                                    <h3>THE GOOD:</h3>
+                                    <div className="day-notes-good-text">
+                                        <p>
+                                            • Saw Vic for first time in 45 days!!! <br/>
+                                            • <br/>
+                                            • 
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="day-notes-bad">
-                                    <h3>
-                                        THE BAD:
-                                    </h3>
+                                    <h3>THE BAD:</h3>
+                                    <div className="day-notes-bad-text">
+                                        <p>
+                                            • Didn't sleep much on flight <br/>
+                                            • <br/>
+                                            • 
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

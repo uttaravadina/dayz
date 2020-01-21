@@ -78,3 +78,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.day-notes h3 {
+    text-align: left;
+    text-decoration: underline;
+}
+
+.day-notes-good-text {
+   
+}
+
+.day-notes-bad-text {
+}

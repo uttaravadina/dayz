@@ -30,7 +30,7 @@
 }
 
 .month-today {
-    border-radius: 9px;
+    border-radius: 7px;
     border-style: solid;
     border-color: #737373;
     border-width: 2px;
@@ -39,6 +39,7 @@
 .month-today .month-colorbox {
     width: 56px;
     height: 56px;
+    border-radius: 5px;
 }
 
 .month-table {
