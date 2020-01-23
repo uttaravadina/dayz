@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
+import ColorsPopup from '../ColorsPopup'
 
-const Day = ({ day, date, isToday, color, titleText }) => {
+const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
     
     return (
@@ -17,6 +18,7 @@ const Day = ({ day, date, isToday, color, titleText }) => {
             <div className="week-colorbox-container">
                 <div className="week-colorbox"
                     style={{backgroundColor: color}}
+                    onClick={clickFunction}
                 />
             </div>
             
@@ -25,6 +27,19 @@ const Day = ({ day, date, isToday, color, titleText }) => {
 };
     
 class View extends React.Component {
+    
+    state = {
+        showColorsPopup: false,
+    }
+
+    showColorsPopup = () => {
+        this.setState({ showColorsPopup: true});
+        console.log('hi')
+    }
+
+    closeColorsPopup = () => {
+        this.setState({ showColorsPopup: false});
+    }
 
     render() {
         const {dates} = this.props;
@@ -56,6 +71,7 @@ class View extends React.Component {
                         color="#D9D9D9"
                         key={i}
                         titleText = {titleText}
+                        clickFunction = {this.showColorsPopup}
                     />
                 )
             }
@@ -66,6 +82,11 @@ class View extends React.Component {
                 <div className="week">
                     {week}
                 </div>
+                {(this.state.showColorsPopup) ? (
+                    <ColorsPopup
+                        closePopup = {this.state.closeColorsPopup}
+                    />
+                ) : null}
             </>
         );
     }
