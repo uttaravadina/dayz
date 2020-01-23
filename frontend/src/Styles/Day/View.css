@@ -14,7 +14,7 @@
     margin: 0px;
 }
 
-.day-wrapper h3{
+.day-wrapper h3 {
     color: #737373;
     font-weight: bold;
     font-size: large;
@@ -38,7 +38,7 @@
     justify-content: center;
 }
 
-.day-today-active h2{
+.day-today-active h2 {
     font-weight: bold;
     color: white;
 }
@@ -84,9 +84,6 @@
     text-decoration: underline;
 }
 
-.day-notes-good-text {
-   
-}
+.day-notes-good-text {}
 
-.day-notes-bad-text {
-}
+.day-notes-bad-text {}

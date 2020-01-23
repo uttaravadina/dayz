@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/Year/View.css';
 
-const Day = ({ color, isToday, titleText }) => {
+const Day = ({color, isToday, titleText}) => {
     let yearToday = isToday ? "year-today" : "year-notToday";
     
     return (
@@ -50,7 +50,7 @@ class View extends React.Component {
         );
 
         for (let i = 0; i < 7; i++) {
-            yearList.push(<div key = {800 + i} style={{width: "10px"}}/>)
+            yearList.push(<div key = {800 + i} style={{width: "10px"}}/>);
         }
 
         for (let i = 0; i < numFill; i++) {
@@ -69,7 +69,7 @@ class View extends React.Component {
         while (currDay.getFullYear() === year) {
             let titleText = currDay.getFullYear() + "-" 
                 + (currDay.getMonth() + 1).toString().padStart(2, "0") 
-                + "-" + (currDay.getDate()).toString().padStart(2, "0")
+                    + "-" + (currDay.getDate()).toString().padStart(2, "0");
             
             let today = new Date();
             let isToday = (currDay.setHours(0,0,0,0) === today.setHours(0,0,0,0));
@@ -124,7 +124,7 @@ class View extends React.Component {
                 >
                     <h3>{monthList[i]}</h3>
                 </div>
-            )
+            );
 
             for (let j = 0; j < (monthCounts[i]-1); j++) {
                 monthHeader.push(
@@ -132,7 +132,7 @@ class View extends React.Component {
                         key={500 * j + i}
                         style={{height: "17px", width: "17px"}}
                     />
-                )
+                );
             }
         }
 

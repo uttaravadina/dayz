@@ -17,7 +17,7 @@
     justify-content: center;
 }
 
-.week-module h3{
+.week-module h3 {
     color: #737373;
     font-weight: bold;
     font-size: large;
@@ -45,7 +45,7 @@
     justify-content: center;
 }
 
-.today-active h2{
+.today-active h2 {
     font-weight: bold;
     color: white;
 }

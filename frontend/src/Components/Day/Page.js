@@ -26,7 +26,7 @@ class Day extends React.Component {
     setPrev = () => {
         let today = this.state.day;
         let yest = new Date(today.setDate(today.getDate() - 1));
-        this.setState({ day: yest});
+        this.setState({day: yest});
     }
 
     render() {
@@ -38,12 +38,12 @@ class Day extends React.Component {
                     <div style={{height: '5px'}}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
-                        day = { this.state.day}
+                        handleLeftClick = {this.setPrev}
+                        handleRightClick = {this.setNext}
+                        day = {this.state.day}
                     />
                     <View
-                        day = { this.state.day}
+                        day = {this.state.day}
                     />
                 </div>
             </>

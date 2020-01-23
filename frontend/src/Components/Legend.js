@@ -1,6 +1,20 @@
 import React from 'react';
-import LegendModule from './LegendModule';
 import '../Styles/Legend.css';
+
+const LegendModule = ({color, mood}) => {
+    return (
+        <div className="legend-module">
+            <div className="colorbox-container">
+                <div className="colorbox"
+                    style={{backgroundColor: color}}
+                />
+            </div>
+            <div className="colorbox-label">
+                <p>{mood} day</p>
+            </div>
+        </div>
+    )
+};
 
 class Legend extends React.Component {
 
@@ -10,6 +24,7 @@ class Legend extends React.Component {
             <>
                 <div className="legend">
                     <h1>Legend</h1>
+                    <div style={{height: '10px'}}/>
                     <LegendModule color="#5171FF" mood="Great"/>
                     <LegendModule color="#8C52FF" mood="Good"/>
                     <LegendModule color="#CB6BE7" mood="Normal"/>

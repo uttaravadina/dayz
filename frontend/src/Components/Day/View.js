@@ -14,21 +14,17 @@ class View extends React.Component {
             "FRI",
             "SAT"
         ];
-        let dayOfWeek;
-        let date;
-        let isToday;
-        let todayActive;
-        let titleText;
+        let dayOfWeek, date, isToday, todayActive, titleText;
 
         if (day) {
             dayOfWeek = days[day.getDay()];
             date = day.getDate();
             let today = new Date();
             isToday = (day.setHours(0,0,0,0) === today.setHours(0,0,0,0));
-            todayActive = isToday ? "day-today-active" : "day-today-inactive"
+            todayActive = isToday ? "day-today-active" : "day-today-inactive";
             titleText = day.getFullYear() + "-" 
                 + (day.getMonth() + 1).toString().padStart(2, '0') 
-                + "-" + date.toString().padStart(2, '0');
+                    + "-" + date.toString().padStart(2, '0');
         }
         
         return (

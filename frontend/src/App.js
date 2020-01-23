@@ -22,24 +22,12 @@ class App extends React.Component {
 								<Header />
 								<div style={{height: '10px'}}/>
 								<Switch>
-									<Route path='/day' render={() => (
-										<Day/>
-									)}/>
-									<Route exact={true} path='/' render={() => (
-										<Week/>
-									)}/>
-									<Route path='/week' render={() => (
-										<Week/>
-									)}/>
-									<Route path='/month' render={() => (
-										<Month/>
-									)}/>
-									<Route path='/year' render={() => (
-										<Year/>
-									)}/>
-									<Route path="*" render={() => (
-										<Error/>
-									)}/>
+									<Route path='/day' render={() => (<Day/>)}/>
+									<Route exact={true} path='/' render={() => (<Week/>)}/>
+									<Route path='/week' render={() => (<Week/>)}/>
+									<Route path='/month' render={() => (<Month/>)}/>
+									<Route path='/year' render={() => (<Year/>)}/>
+									<Route path="*" render={() => (<Error/>)}/>
 								</Switch>
 						</div>
 						<div className="divider"/>

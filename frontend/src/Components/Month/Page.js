@@ -24,11 +24,11 @@ class Month extends React.Component {
             this.setState({ 
                 month: 0,
                 year: this.state.year + 1,
-            })
+            });
         } else {
             this.setState({ 
                 month: this.state.month + 1,
-            })
+            });
         }
     }
 
@@ -37,11 +37,11 @@ class Month extends React.Component {
             this.setState({ 
                 month: 11,
                 year: this.state.year - 1,
-            })
+            });
         } else {
             this.setState({ 
                 month: this.state.month - 1,
-            })
+            });
         }
     }
 
@@ -49,7 +49,6 @@ class Month extends React.Component {
         let firstDay = new Date(this.state.year, this.state.month, 1);
         let lastDay = new Date(this.state.year, this.state.month + 1, 0);
 
-        
         return (
             <>
                 <div>
@@ -57,16 +56,16 @@ class Month extends React.Component {
                     <div style={{height: '5px'}}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
-                        year = { this.state.year}
-                        month = { this.state.month }
+                        handleLeftClick = {this.setPrev}
+                        handleRightClick = {this.setNext}
+                        year = {this.state.year}
+                        month = {this.state.month}
                     />
                     <View
                         numFill = {firstDay.getDay()}
                         lastDay = {lastDay.getDate()}
-                        year = { this.state.year}
-                        month = { this.state.month }
+                        year = {this.state.year}
+                        month = {this.state.month}
                     />
                 </div>
             </>

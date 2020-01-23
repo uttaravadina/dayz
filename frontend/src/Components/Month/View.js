@@ -35,18 +35,15 @@ class View extends React.Component {
         }
 
         let today = new Date();
-        let todayDate = today.getDate();
-        let todayMonth = today.getMonth();
-        let todayYear = today.getFullYear();
 
         for (let i = 0; i < this.props.lastDay; i++) {
-            let isToday = (i === todayDate 
-                & this.props.month === todayMonth 
-                && this.props.year === todayYear)
+            let isToday = (i === today.getDate() 
+                & this.props.month === today.getMonth() 
+                    && this.props.year === today.getFullYear());
 
             let titleText = this.props.year + "-" 
                 + (this.props.month + 1).toString().padStart(2, '0') 
-                + "-" + (i+ 1).toString().padStart(2, '0')
+                    + "-" + (i+ 1).toString().padStart(2, '0');
                 
             month.push(
                 <Day

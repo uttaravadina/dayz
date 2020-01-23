@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../Styles/ArrowBar.css';
 
-const Arrow = ({ direction, clickFunction, glyph }) => (
+const Arrow = ({direction, clickFunction, glyph}) => (
 	<div 
-		className={ `arrow ${direction}` } 
-		onClick={ clickFunction }>
-            <h1>{ glyph }</h1>
+		className={`arrow ${direction}`} 
+		onClick={clickFunction}>
+            <h1>{glyph}</h1>
 	</div>
 );
 
@@ -27,7 +27,7 @@ class ArrowBar extends React.Component {
             "December" 
         ];
 
-        let month = monthList[this.props.month]
+        let month = monthList[this.props.month];
         
         return (
             <>

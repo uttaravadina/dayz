@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../Styles/ArrowBar.css';
 
-const Arrow = ({ direction, clickFunction, glyph }) => (
+const Arrow = ({direction, clickFunction, glyph}) => (
 	<div 
-		className={ `arrow ${direction}` } 
-		onClick={ clickFunction }>
-            <h1>{ glyph } </h1>
+		className={`arrow ${direction}`} 
+		onClick={clickFunction}>
+            <h1>{glyph}</h1>
 	</div>
 );
 
@@ -36,7 +36,7 @@ function getTimeframe(firstDay, lastDay) {
             timeframe = firstMonth + " - " + lastMonth + " " + firstDay.getFullYear();
         }
     } else {
-        timeframe = monthList[firstDay.getMonth()] + " " + firstDay.getFullYear()
+        timeframe = monthList[firstDay.getMonth()] + " " + firstDay.getFullYear();
     }
 
     return timeframe;

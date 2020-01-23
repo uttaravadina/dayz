@@ -20,13 +20,13 @@ class Year extends React.Component {
     setNext = () => {
         this.setState({ 
             year: this.state.year + 1,
-        })
+        });
     }
 
     setPrev = () => {
         this.setState({ 
             year: this.state.year - 1,
-        })
+        });
     }
 
     render() {
@@ -38,12 +38,12 @@ class Year extends React.Component {
                     <div style={{height: '5px'}}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
+                        handleLeftClick = {this.setPrev}
+                        handleRightClick = {this.setNext}
                         year = { this.state.year}
                     />
                     <View
-                        year = { this.state.year}
+                        year = {this.state.year}
                     />
                 </div>
             </>

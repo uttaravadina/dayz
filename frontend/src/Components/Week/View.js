@@ -34,7 +34,6 @@ class View extends React.Component {
 
     showColorsPopup = () => {
         this.setState({ showColorsPopup: true});
-        console.log('hi')
     }
 
     closeColorsPopup = () => {
@@ -60,8 +59,8 @@ class View extends React.Component {
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));
 
                 let titleText = dates[i].getFullYear() + "-" 
-                + (dates[i].getMonth() + 1).toString().padStart(2, '0') 
-                + "-" + (dates[i].getDate()).toString().padStart(2, '0')
+                    + (dates[i].getMonth() + 1).toString().padStart(2, '0') 
+                        + "-" + (dates[i].getDate()).toString().padStart(2, '0');
 
                 week.push(
                     <Day 
@@ -73,7 +72,7 @@ class View extends React.Component {
                         titleText = {titleText}
                         clickFunction = {this.showColorsPopup}
                     />
-                )
+                );
             }
         }
         
@@ -82,7 +81,7 @@ class View extends React.Component {
                 <div className="week">
                     {week}
                 </div>
-                {(this.state.showColorsPopup) ? (
+                {this.state.showColorsPopup ? (
                     <ColorsPopup
                         closePopup = {this.state.closeColorsPopup}
                     />
