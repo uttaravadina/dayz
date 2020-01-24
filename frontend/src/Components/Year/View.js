@@ -17,7 +17,7 @@ const Day = ({color, isToday, titleText}) => {
             </div>
         </div>
     )
-};
+}
 
 class View extends React.Component {
     
@@ -92,7 +92,7 @@ class View extends React.Component {
             currDay.setDate(currDay.getDate() + 1);
         }
 
-        let monthCounts = {};
+        let monthCounts = {}
 
         for (let i = 0; i < weeksOfMonths.length; i++) {
             let num = weeksOfMonths[i];
@@ -130,7 +130,7 @@ class View extends React.Component {
                 monthHeader.push(
                     <div
                         key={500 * j + i}
-                        style={{height: "17px", width: "17px"}}
+                        style={{height: '17px', width: '17px'}}
                     />
                 );
             }

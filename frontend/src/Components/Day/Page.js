@@ -15,19 +15,19 @@ class Day extends React.Component {
         this.setState({ 
             day: today,
         });
-    }
+    };
 
     setNext = () => {
         let today = this.state.day;
         let tmr = new Date(today.setDate(today.getDate() + 1));
         this.setState({ day: tmr});
-    }
+    };
 
     setPrev = () => {
         let today = this.state.day;
         let yest = new Date(today.setDate(today.getDate() - 1));
         this.setState({day: yest});
-    }
+    };
 
     render() {
 

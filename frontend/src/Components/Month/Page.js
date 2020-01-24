@@ -17,7 +17,7 @@ class Month extends React.Component {
             month: today.getMonth(),
             year: today.getFullYear(),
         });
-    }
+    };
 
     setNext = () => {
         if (this.state.month === 11) {
@@ -30,7 +30,7 @@ class Month extends React.Component {
                 month: this.state.month + 1,
             });
         }
-    }
+    };
 
     setPrev = () => {
         if (this.state.month === 0) {
@@ -43,7 +43,7 @@ class Month extends React.Component {
                 month: this.state.month - 1,
             });
         }
-    }
+    };
 
     render() {
         let firstDay = new Date(this.state.year, this.state.month, 1);

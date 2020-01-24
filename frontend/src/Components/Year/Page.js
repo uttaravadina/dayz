@@ -15,19 +15,19 @@ class Year extends React.Component {
         this.setState({ 
             year: today.getFullYear(),
         });
-    }
+    };
 
     setNext = () => {
         this.setState({ 
             year: this.state.year + 1,
         });
-    }
+    };
 
     setPrev = () => {
         this.setState({ 
             year: this.state.year - 1,
         });
-    }
+    };
 
     render() {
         

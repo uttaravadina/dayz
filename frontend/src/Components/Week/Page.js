@@ -59,7 +59,7 @@ class Week extends React.Component {
             dates: dates, 
             weekRange: currWeek,
         }); 
-    }
+    };
     
     setNext = () => {
         let currWeek = this.state.weekRange;
@@ -70,7 +70,7 @@ class Week extends React.Component {
             dates: dates, 
             weekRange: currWeek,
         });
-    }
+    };
 
     setPrev = () => {
         let currWeek = this.state.weekRange;
@@ -81,7 +81,7 @@ class Week extends React.Component {
             dates: dates, 
             weekRange: currWeek,
         });
-    }
+    };
 
     render() {
 

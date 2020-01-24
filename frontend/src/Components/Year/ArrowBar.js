@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../Styles/ArrowBar.css';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Arrow = ({direction, clickFunction, glyph}) => (
 	<div 
@@ -18,11 +19,11 @@ class ArrowBar extends React.Component {
                 <div className="arrow-bar">
                     <Arrow 
                         direction="left" 
-                        glyph="&#8249;"
+                        glyph={<FaChevronLeft size="25px"/>}
                         clickFunction={this.props.handleLeftClick}/>
                     <Arrow 
                         direction="right" 
-                        glyph="&#8250;"
+                        glyph={<FaChevronRight size="25px"/>}
                         clickFunction={this.props.handleRightClick}/>
                     <div className="curr-timeframe">
                         <h1>{this.props.year}</h1>

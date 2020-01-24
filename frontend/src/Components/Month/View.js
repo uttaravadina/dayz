@@ -18,7 +18,7 @@ const Day = ({ date, color, isToday, titleText }) => {
             </div>
         </div>
     )
-};
+}
 
 class View extends React.Component {
     
@@ -37,17 +37,17 @@ class View extends React.Component {
         let today = new Date();
 
         for (let i = 0; i < this.props.lastDay; i++) {
-            let isToday = (i === today.getDate() 
+            let isToday = (i + 1 === today.getDate() 
                 & this.props.month === today.getMonth() 
                     && this.props.year === today.getFullYear());
 
             let titleText = this.props.year + "-" 
                 + (this.props.month + 1).toString().padStart(2, '0') 
-                    + "-" + (i+ 1).toString().padStart(2, '0');
+                    + "-" + (i + 1).toString().padStart(2, '0');
                 
             month.push(
                 <Day
-                    date={i+1}
+                    date={i + 1}
                     color="#D9D9D9"
                     key={this.props.numFill + i}
                     isToday={isToday}

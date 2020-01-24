@@ -14,7 +14,7 @@ const LegendModule = ({color, mood}) => {
             </div>
         </div>
     )
-};
+}
 
 class Legend extends React.Component {
 

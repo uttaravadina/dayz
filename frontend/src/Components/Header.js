@@ -12,12 +12,12 @@ class Header extends React.Component {
     }
 
     componentDidMount = () => {
-        this.updateTime()
+        this.updateTime();
         this.timerID = setInterval(
             () => this.updateTime(),
             60000
         );
-    }
+    };
 
     updateTime = () => {
         let currHour = new Date().getHours();
@@ -40,11 +40,11 @@ class Header extends React.Component {
         let minsTill = 59 - currMin;
 
         this.setState({hrsTill, minsTill});
-    }
+    };
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         clearInterval(this.timerID);
-    }
+    };
 
     render() {
         const {timeframe, emoji, hrsTill, minsTill} = this.state;

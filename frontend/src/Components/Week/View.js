@@ -24,7 +24,7 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
             
         </div>
     )
-};
+}
     
 class View extends React.Component {
     
@@ -34,11 +34,11 @@ class View extends React.Component {
 
     showColorsPopup = () => {
         this.setState({ showColorsPopup: true});
-    }
+    };
 
     closeColorsPopup = () => {
         this.setState({ showColorsPopup: false});
-    }
+    };
 
     render() {
         const {dates} = this.props;

@@ -3,13 +3,13 @@ import '../Styles/TimeframeBar.css';
  
 class TimeframeBar extends React.Component {
 
-    handleDayClick = () => {}
+    handleDayClick = () => {};
 
-    handleWeekClick = () => {}
+    handleWeekClick = () => {};
 
-    handleMonthClick = () => {}
+    handleMonthClick = () => {};
 
-    handleYearClick = () => {}
+    handleYearClick = () => {};
 
     render() {
        
