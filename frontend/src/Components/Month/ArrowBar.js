@@ -36,11 +36,13 @@ class ArrowBar extends React.Component {
                     <Arrow 
                         direction="left" 
                         glyph={<FaChevronLeft size="25px"/>}
-                        clickFunction={this.props.handleLeftClick}/>
+                        clickFunction={this.props.handleLeftClick}
+                    />
                     <Arrow 
                         direction="right" 
                         glyph={<FaChevronRight size="25px"/>}
-                        clickFunction={this.props.handleRightClick}/>
+                        clickFunction={this.props.handleRightClick}
+                    />
                     <div className="curr-timeframe">
                         <h1>{month} {this.props.year}</h1>
                     </div>

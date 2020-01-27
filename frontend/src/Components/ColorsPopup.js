@@ -23,12 +23,11 @@ const PopupModule = ({color, mood}) => {
 class ColorsPopup extends React.Component {
 
     render() {
-        
+
         return (
             <>
                 <div
                     className="popup-container"
-                    onclick={this.props.closePopup}
                 >
                     <div className="popup-close-container" style={{textAlign: 'right'}}>
                         <div className="popup-close" style={{paddingTop: '8px', paddingRight: '8px'}}>
@@ -38,9 +37,10 @@ class ColorsPopup extends React.Component {
                                 style={{
                                     paddingBottom: '0px', 
                                     borderRadius: '50%',
-                                }}/>
+                                }}
+                                onClick={this.props.closePopup}
+                            /> 
                         </div>
-                        
                     </div>
                     <div className="popup-content">
                         <div className="popup-header">

@@ -49,9 +49,9 @@ class View extends React.Component {
                                     <h3>THE GOOD:</h3>
                                     <div className="day-notes-good-text">
                                         <p>
-                                            • Saw Vic for first time in 45 days!!! <br/>
-                                            • <br/>
-                                            • 
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit
                                         </p>
                                     </div>
                                 </div>
@@ -59,9 +59,9 @@ class View extends React.Component {
                                     <h3>THE BAD:</h3>
                                     <div className="day-notes-bad-text">
                                         <p>
-                                            • Didn't sleep much on flight <br/>
-                                            • <br/>
-                                            • 
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
+                                            • Lorem ipsum dolor sit amet, consectetur adipiscing elit
                                         </p>
                                     </div>
                                 </div>

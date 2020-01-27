@@ -64,7 +64,8 @@ class View extends React.Component {
 
         let currDay = firstDay;
         let j = 0;
-        let weeksOfMonths = [0];
+        let Jan1st = new Date(year, 0, 1);
+        let weeksOfMonths = Jan1st.getDay() === 0 ? [] : [0];
 
         while (currDay.getFullYear() === year) {
             let titleText = currDay.getFullYear() + "-" 
@@ -73,9 +74,9 @@ class View extends React.Component {
             
             let today = new Date();
             let isToday = (currDay.setHours(0,0,0,0) === today.setHours(0,0,0,0));
-            let firstDayy = new Date(year, 0, 1);
+            
 
-            if (currDay.getDay() === 0 & currDay !== firstDayy) {
+            if (currDay.getDay() === 0 & currDay !== Jan1st) {
                 weeksOfMonths.push(currDay.getMonth());
             }
 
@@ -98,6 +99,8 @@ class View extends React.Component {
             let num = weeksOfMonths[i];
             monthCounts[num] = monthCounts[num] ? monthCounts[num] + 1 : 1;
         }
+
+        console.log(monthCounts);
 
         let monthList = [ 
             "JAN", 

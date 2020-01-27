@@ -83,7 +83,7 @@ class View extends React.Component {
                 </div>
                 {this.state.showColorsPopup ? (
                     <ColorsPopup
-                        closePopup = {this.state.closeColorsPopup}
+                        closePopup = {this.closeColorsPopup}
                     />
                 ) : null}
             </>

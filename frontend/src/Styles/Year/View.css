@@ -18,6 +18,7 @@
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 7x;
+    max-width: 95%;
 }
 
 .year-table h3 {
@@ -32,7 +33,7 @@
     display: grid;
     grid-template-columns: repeat(53, auto) 1fr;
     padding-bottom: 0px;
-    padding-left: 70px;
+    padding-left: 60px;
 }
 
 .month-header h3 {
