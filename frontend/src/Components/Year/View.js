@@ -100,8 +100,6 @@ class View extends React.Component {
             monthCounts[num] = monthCounts[num] ? monthCounts[num] + 1 : 1;
         }
 
-        console.log(monthCounts);
-
         let monthList = [ 
             "JAN", 
             "FEB", 
@@ -116,7 +114,6 @@ class View extends React.Component {
             "NOV", 
             "DEC" 
         ];
-
         let monthHeader = [];
 
         for (let i = 0; i < 12; i++) {

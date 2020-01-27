@@ -34,12 +34,21 @@ class View extends React.Component {
 
     showColorsPopup = (date) => {
         this.setState({ dateSelected: date});
-        console.log(date)
     };
 
     closeColorsPopup = () => {
         this.setState({ dateSelected: null});
     };
+
+    /*
+    componentWillMount = () => {
+        document.addEventListener('mousedown', this.handleClickOutside, false);
+    }
+
+    componentWillUnmount = () => {
+        document.removeEventListener('mousedown', this.handleClickOutside, false);
+    } */
+
 
     render() {
 
