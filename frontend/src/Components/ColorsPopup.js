@@ -26,9 +26,7 @@ class ColorsPopup extends React.Component {
 
         return (
             <>
-                <div
-                    className="popup-container"
-                >
+                <div className="popup-container">
                     <div className="popup-close-container" style={{textAlign: 'right'}}>
                         <div className="popup-close" style={{paddingTop: '8px', paddingRight: '8px'}}>
                             <IoIosClose 
@@ -46,7 +44,7 @@ class ColorsPopup extends React.Component {
                         <div className="popup-header">
                             <h3>RATE YOUR DAY</h3>
                         </div>
-                        <hr style={{marginTop: '5px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px'}}/>
+                        <hr style={{marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px'}}/>
                         <PopupModule color="#5171FF" mood="Great"/>
                         <PopupModule color="#8C52FF" mood="Good"/>
                         <PopupModule color="#CB6BE7" mood="Normal"/>

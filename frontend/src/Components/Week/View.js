@@ -29,18 +29,20 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
 class View extends React.Component {
     
     state = {
-        showColorsPopup: false,
+        dateSelected: null,
     }
 
-    showColorsPopup = () => {
-        this.setState({ showColorsPopup: true});
+    showColorsPopup = (date) => {
+        this.setState({ dateSelected: date});
+        console.log(date)
     };
 
     closeColorsPopup = () => {
-        this.setState({ showColorsPopup: false});
+        this.setState({ dateSelected: null});
     };
 
     render() {
+
         const {dates} = this.props;
         let week = [];
         let days = [
@@ -70,7 +72,7 @@ class View extends React.Component {
                         color="#D9D9D9"
                         key={i}
                         titleText = {titleText}
-                        clickFunction = {this.showColorsPopup}
+                        clickFunction ={() => this.showColorsPopup(titleText)}
                     />
                 );
             }
@@ -81,7 +83,7 @@ class View extends React.Component {
                 <div className="week">
                     {week}
                 </div>
-                {this.state.showColorsPopup ? (
+                {this.state.dateSelected ? (
                     <ColorsPopup
                         closePopup = {this.closeColorsPopup}
                     />
