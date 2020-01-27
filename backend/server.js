@@ -4,14 +4,16 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+mongoose.connect(
+    `mongodb+srv://admin:${process.env.DAYZ_DB_PASSWORD}@dev-5wcoz.mongodb.net/test?retryWrites=true&w=majority`,
+);
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
 app.use(express.json())
 
-const dayRouter = require('./routes/day')
-app.use('/day', dayRouter)
+const userRoute = require('./routes/User')
+app.use('/user', userRoute)
 
 app.listen(4000, () => console.log('server started'))
