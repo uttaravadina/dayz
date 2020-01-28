@@ -12,7 +12,7 @@ class Day extends React.Component {
     componentDidMount = () => {
         let today = new Date();
 
-        this.setState({ 
+        this.setState({
             day: today,
         });
     };
@@ -20,13 +20,13 @@ class Day extends React.Component {
     setNext = () => {
         let today = this.state.day;
         let tmr = new Date(today.setDate(today.getDate() + 1));
-        this.setState({ day: tmr});
+        this.setState({ day: tmr });
     };
 
     setPrev = () => {
         let today = this.state.day;
         let yest = new Date(today.setDate(today.getDate() - 1));
-        this.setState({day: yest});
+        this.setState({ day: yest });
     };
 
     render() {
@@ -35,15 +35,15 @@ class Day extends React.Component {
             <>
                 <div>
                     <TimeframeBar/>
-                    <div style={{height: '5px'}}/>
+                    <div style={{ height: '5px' }}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = {this.setPrev}
-                        handleRightClick = {this.setNext}
-                        day = {this.state.day}
+                        handleLeftClick = { this.setPrev } 
+                        handleRightClick = { this.setNext }
+                        day = { this.state.day } 
                     />
                     <View
-                        day = {this.state.day}
+                        day = { this.state.day }
                     />
                 </div>
             </>

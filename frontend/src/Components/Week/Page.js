@@ -89,15 +89,15 @@ class Week extends React.Component {
             <>
                 <div>
                     <TimeframeBar/>
-                    <div style={{height: '5px'}}/>
+                    <div style={{ height: '5px' }}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = {this.setPrev}
-                        handleRightClick = {this.setNext}
-                        dates = {this.state.dates}
+                        handleLeftClick = { this.setPrev }
+                        handleRightClick = { this.setNext }
+                        dates = { this.state.dates }
                     />
                     <View
-                        dates = {this.state.dates}
+                        dates = { this.state.dates }
                     />
                 </div>
             </>

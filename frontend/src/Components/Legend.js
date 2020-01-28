@@ -1,21 +1,21 @@
 import React from 'react';
 import '../Styles/Legend.css';
 
-const LegendModule = ({color, mood, count}) => {
+const LegendModule = ({ color, mood, count }) => {
     // change counts depending on which timeframe view selected
     return (
         <div className="legend-module">
             <div className="colorbox-container">
                 <div 
                     className="colorbox"
-                    style={{backgroundColor: color}}
+                    style={{ backgroundColor: color }}
                 >
-                    <h2>{count}</h2>
+                    <h2>{ count }</h2>
                 </div>
                 
             </div>
             <div className="colorbox-label">
-                <p>{mood} day</p>
+                <p>{ mood } day</p>
             </div>
         </div>
     )
@@ -29,7 +29,7 @@ class Legend extends React.Component {
             <>
                 <div className="legend">
                     <h1>Legend</h1>
-                    <div style={{height: '10px'}}/>
+                    <div style={{ height: '10px' }}/>
                     <LegendModule color="#5171FF" mood="Great" count="6"/>
                     <LegendModule color="#8C52FF" mood="Good" count="9"/>
                     <LegendModule color="#CB6BE7" mood="Normal" count="11"/>

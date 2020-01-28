@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
-import ColorsPopup from '../ColorsPopup'
+import ColorsPopup from '../ColorsPopup';
+import { postDay } from '../../Axios/axios_getter'
 
 const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
@@ -8,17 +9,17 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     return (
         <div 
             className="week-module"
-            title={titleText}
+            title={ titleText }
         >
-            <h3>{day}</h3>
-            <div className={todayActive}>
-                <h2>{date}</h2>
+            <h3>{ day }</h3>
+            <div className={ todayActive }>
+                <h2>{ date }</h2>
             </div>
-            <div style={{height: '10px'}}/>
+            <div style={{ height: '10px' }}/>
             <div className="week-colorbox-container">
                 <div className="week-colorbox"
-                    style={{backgroundColor: color}}
-                    onClick={clickFunction}
+                    style={{ backgroundColor: color }}
+                    onClick={ clickFunction }
                 />
             </div>
             
@@ -33,11 +34,11 @@ class View extends React.Component {
     }
 
     showColorsPopup = (date) => {
-        this.setState({ dateSelected: date});
+        this.setState({ dateSelected: date });
     };
 
     closeColorsPopup = () => {
-        this.setState({ dateSelected: null});
+        this.setState({ dateSelected: null });
     };
 
     /*
@@ -52,7 +53,7 @@ class View extends React.Component {
 
     render() {
 
-        const {dates} = this.props;
+        const { dates } = this.props;
         let week = [];
         let days = [
             "SUN",
@@ -69,19 +70,17 @@ class View extends React.Component {
                 let today = new Date();
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));
 
-                let titleText = dates[i].getFullYear() + "-" 
-                    + (dates[i].getMonth() + 1).toString().padStart(2, '0') 
-                        + "-" + (dates[i].getDate()).toString().padStart(2, '0');
+                let titleText = dates[i].toISOString().substr(0,10);
 
                 week.push(
                     <Day 
-                        day={days[i]}
-                        isToday={isToday}
-                        date={dates[i].getDate()}
+                        day={ days[i] }
+                        isToday={ isToday }
+                        date={ dates[i].getDate() }
                         color="#D9D9D9"
-                        key={i}
-                        titleText = {titleText}
-                        clickFunction ={() => this.showColorsPopup(titleText)}
+                        key={ i }
+                        titleText = { titleText }
+                        clickFunction ={ () => this.showColorsPopup(titleText) }
                     />
                 );
             }
@@ -90,11 +89,11 @@ class View extends React.Component {
         return (
             <>
                 <div className="week">
-                    {week}
+                    { week }
                 </div>
                 {this.state.dateSelected ? (
                     <ColorsPopup
-                        closePopup = {this.closeColorsPopup}
+                        closePopup = { this.closeColorsPopup }
                     />
                 ) : null}
             </>

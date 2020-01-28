@@ -53,19 +53,19 @@ class Month extends React.Component {
             <>
                 <div>
                     <TimeframeBar/>
-                    <div style={{height: '5px'}}/>
+                    <div style={{ height: '5px' }}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = {this.setPrev}
-                        handleRightClick = {this.setNext}
-                        year = {this.state.year}
-                        month = {this.state.month}
+                        handleLeftClick = { this.setPrev }
+                        handleRightClick = { this.setNext }
+                        year = { this.state.year }
+                        month = { this.state.month }
                     />
                     <View
-                        numFill = {firstDay.getDay()}
-                        lastDay = {lastDay.getDate()}
-                        year = {this.state.year}
-                        month = {this.state.month}
+                        numFill = { firstDay.getDay() }
+                        lastDay = { lastDay.getDate() }
+                        year = { this.state.year }
+                        month = { this.state.month }
                     />
                 </div>
             </>

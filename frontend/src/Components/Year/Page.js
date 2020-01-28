@@ -35,15 +35,15 @@ class Year extends React.Component {
             <>
                 <div>
                     <TimeframeBar/>
-                    <div style={{height: '5px'}}/>
+                    <div style={{ height: '5px' }}/>
                     <hr/>
                     <ArrowBar
-                        handleLeftClick = {this.setPrev}
-                        handleRightClick = {this.setNext}
-                        year = { this.state.year}
+                        handleLeftClick = { this.setPrev }
+                        handleRightClick = { this.setNext }
+                        year = { this.state.year }
                     />
                     <View
-                        year = {this.state.year}
+                        year = { this.state.year }
                     />
                 </div>
             </>

@@ -24,22 +24,22 @@ class Header extends React.Component {
         let currMin = new Date().getMinutes();
         
         if (currHour >= 6 && currHour <= 12) {
-            this.setState({timeframe: 'morning', emoji: '🌅'});
+            this.setState({ timeframe: 'morning', emoji: '🌅' });
         }
         else if (currHour >= 13 && currHour <= 16) {
-            this.setState({timeframe: 'afternoon', emoji: '☀️'});
+            this.setState({ timeframe: 'afternoon', emoji: '☀️' });
         }
         else if (currHour >= 17 && currHour <= 20) {
-            this.setState({timeframe: 'evening', emoji: '🌄'});
+            this.setState({ timeframe: 'evening', emoji: '🌄' });
         }
         else {
-            this.setState({timeframe: 'night', emoji: '🌙'});
+            this.setState({ timeframe: 'night', emoji: '🌙' });
         }
 
         let hrsTill = 23 - currHour;
         let minsTill = 59 - currMin;
 
-        this.setState({hrsTill, minsTill});
+        this.setState({ hrsTill, minsTill });
     };
 
     componentWillUnmount = () => {
@@ -47,13 +47,13 @@ class Header extends React.Component {
     };
 
     render() {
-        const {timeframe, emoji, hrsTill, minsTill} = this.state;
+        const { timeframe, emoji, hrsTill, minsTill } = this.state;
 
         return (
             <>
                 <div className="header">
-                    <h1>Good {timeframe}, Karen {emoji}</h1>
-                    <p>{hrsTill} hrs {minsTill} mins till day ends</p>
+                    <h1>Good { timeframe }, Karen {emoji}</h1>
+                    <p>{ hrsTill } hrs { minsTill } mins till day ends</p>
                 </div>
             </>
         );

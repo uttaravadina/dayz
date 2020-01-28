@@ -9,11 +9,20 @@ import Week from './Components/Week/Page';
 import Month from './Components/Month/Page';
 import Year from './Components/Year/Page';
 import Error from './Components/404';
+import { getDays, postDay } from './Axios/axios_getter';
+
+async function test() {
+	const post = await postDay("2020-1-28", 2, "Vic", [], []);
+	const result = await getDays();
+	console.log(result)
+}
 
 class App extends React.Component {
 
 	render() {
 		
+		test();
+
 		return (
 			<>
 				<Router>

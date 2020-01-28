@@ -7,14 +7,14 @@ const Day = ({ date, color, isToday, titleText }) => {
     return (
         <div 
             className="month-module"
-            title={titleText}
+            title={ titleText }
         >
-            <div className={monthToday}>
+            <div className={ monthToday }>
                 <div 
                     className="month-colorbox"
-                    style={{backgroundColor: color}}
+                    style={{ backgroundColor: color }}
                 >
-                    <h2>{date}</h2>
+                    <h2>{ date }</h2>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ class View extends React.Component {
             month.push(
                 <Day
                     color="white"
-                    key={i}
+                    key={ i }
                 />
             );
         }
@@ -48,11 +48,11 @@ class View extends React.Component {
                 
             month.push(
                 <Day
-                    date={i + 1}
+                    date={ i + 1 }
                     color="#D9D9D9"
-                    key={this.props.numFill + i}
-                    isToday={isToday}
-                    titleText={titleText}
+                    key={ this.props.numFill + i }
+                    isToday={ isToday }
+                    titleText={ titleText }
                 />
             );
         }
@@ -68,7 +68,7 @@ class View extends React.Component {
                         <h3>THU</h3>
                         <h3>FRI</h3>
                         <h3>SAT</h3>
-                        {month}
+                        { month }
                     </div>
                 </div>
             </>
