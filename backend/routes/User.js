@@ -5,10 +5,10 @@ const User = require('../models/User')
 // get all users
 router.get('/', async (req, res) => {
     try {
-        const users = await User.find()
-        res.json(users)
+        const users = await User.find();
+        res.json(users);
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.status(500).json({ message: err.message });
     } 
 })
 
@@ -16,13 +16,13 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const user = new User({
         username: req.body.username,
-    })
+    });
 
     try {
-        const newUser = await user.save()
-        res.status(201).json(newUser)
+        const newUser = await user.save();
+        res.status(201).json(newUser);
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json({ message: err.message });
     }
 })
 
