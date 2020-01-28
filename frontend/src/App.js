@@ -12,7 +12,6 @@ import Error from './Components/404';
 import { getDays, postDay } from './Axios/axios_getter';
 
 async function test() {
-	const post = await postDay("2020-1-28", 2, "Vic", [], []);
 	const result = await getDays();
 	console.log(result)
 }

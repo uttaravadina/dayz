@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
 import ColorsPopup from '../ColorsPopup';
-import { postDay } from '../../Axios/axios_getter'
 
 const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
@@ -94,6 +93,7 @@ class View extends React.Component {
                 {this.state.dateSelected ? (
                     <ColorsPopup
                         closePopup = { this.closeColorsPopup }
+                        date={ this.state.dateSelected}
                     />
                 ) : null}
             </>
