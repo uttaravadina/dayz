@@ -1,8 +1,8 @@
 import React from 'react';
-import ArrowBar from './ArrowBar'
-import View from './View'
-import TimeframeBar from './TimeframeBar'
-import '../../Styles/Week/Page.css'
+import ArrowBar from './ArrowBar';
+import View from './View';
+import TimeframeBar from './TimeframeBar';
+import '../../Styles/Week/Page.css';
 
 // start and end are the start and end of week given a date
 function weekRange(date) {

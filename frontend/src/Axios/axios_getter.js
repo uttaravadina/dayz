@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-export const getDays = (username) => {
-    return axios.get(`http://localhost:4000/day?username=${encodeURIComponent(username)}`)
+export const getDays = (username, start, end) => {
+    let url =`http://localhost:4000/day?username=${encodeURIComponent(username)}&start=${encodeURIComponent(start)}`;
+    if (end) {
+        url+=`&end=${encodeURIComponent(end)}`;
+    }
+    console.log(url);
+    return axios.get(url)
         .then(res => {
             return res.data;
         });

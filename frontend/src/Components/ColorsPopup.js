@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/ColorsPopup.css';
 import { IoIosClose } from 'react-icons/io';
-import { postDay } from '../Axios/axios_getter'
+import { postDay } from '../Axios/axios_getter';
 
 const PopupModule = ({ color, mood, date, username, close}) => {
     let moodToNum = {
@@ -13,7 +13,7 @@ const PopupModule = ({ color, mood, date, username, close}) => {
     }
 
     async function submitDay(e) {
-        await postDay(date, moodToNum[mood], "Karen", [], []);
+        await postDay(date, moodToNum[mood], "karenying", [], []);
         close();
     }
     
