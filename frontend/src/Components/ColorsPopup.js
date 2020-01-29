@@ -3,7 +3,7 @@ import '../Styles/ColorsPopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter'
 
-const PopupModule = ({ color, mood, date, username}) => {
+const PopupModule = ({ color, mood, date, username, close}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -14,6 +14,7 @@ const PopupModule = ({ color, mood, date, username}) => {
 
     async function submitDay(e) {
         await postDay(date, moodToNum[mood], "Karen", [], []);
+        close();
     }
     
     return (
@@ -60,11 +61,11 @@ class ColorsPopup extends React.Component {
                             <h3>RATE YOUR DAY</h3>
                         </div>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
-                        <PopupModule color="#5171FF" mood="Great" date={this.props.date}/>
-                        <PopupModule color="#8C52FF" mood="Good" date={this.props.date}/>
-                        <PopupModule color="#CB6BE7" mood="Normal" date={this.props.date}/>
-                        <PopupModule color="#FF66C5" mood="Off" date={this.props.date}/>
-                        <PopupModule color="#FF5757" mood="Bad" date={this.props.date}/>
+                        <PopupModule color="#5171FF" mood="Great" date={ this.props.date } close={ this.props.closePopup }/>
+                        <PopupModule color="#8C52FF" mood="Good" date={ this.props.date } close={ this.props.closePopup }/>
+                        <PopupModule color="#CB6BE7" mood="Normal" date={ this.props.date } close={ this.props.closePopup }/>
+                        <PopupModule color="#FF66C5" mood="Off" date={ this.props.date } close={ this.props.closePopup }/>
+                        <PopupModule color="#FF5757" mood="Bad" date={ this.props.date } close={ this.props.closePopup }/>
                     </div>
                     
                 </div>

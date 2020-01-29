@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getDays = () => {
-    return axios.get('http://localhost:4000/day')
+export const getDays = (username) => {
+    return axios.get(`http://localhost:4000/day?username=${encodeURIComponent(username)}`)
         .then(res => {
             return res.data;
         });
@@ -9,11 +9,11 @@ export const getDays = () => {
 
 export const postDay = (day, mood, username, good, bad) => {
     return axios.post('http://localhost:4000/day', {
-        day: day,
-        mood: mood,
-        username: username,
-        good: good,
-        bad: bad,
+        day,
+        mood,
+        username,
+        good,
+        bad,
     })
         .then(function (response) {
             console.log(response);

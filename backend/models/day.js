@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const daySchema = new mongoose.Schema({
     day: Date,
@@ -6,6 +6,6 @@ const daySchema = new mongoose.Schema({
     username: String,
     good: [String],
     bad: [String],    
-})
+});
 
-module.exports = mongoose.model('Day', daySchema)
+module.exports = mongoose.model('Day', daySchema);

@@ -1,16 +1,17 @@
-const express = require('express')
-const router = express.Router()
-const Day = require('../models/Day')
+const express = require('express');
+const router = express.Router();
+const Day = require('../models/Day');
 
-// get all days
+// get data given username
 router.get('/', async (req, res) => {
+    const { username } = req.query;
     try {
-        const days = await Day.find()
-        res.json(days)
+        const days = await Day.find({ username });
+        res.json(days);
     } catch (err) {
-        res.status(500).json({ message: err.message })
-    }
-})
+        res.status(500).json({ message: err.message });
+    };
+});
 
 // creating one day
 router.post('/', async (req, res) => {
@@ -20,45 +21,23 @@ router.post('/', async (req, res) => {
         username: req.body.username,
         good: req.body.good,
         bad: req.body.bad
-    })
+    });
 
     try {
-        const newDay = await day.save()
-        res.status(201).json(newDay)
+        const newDay = await day.save();
+        res.status(201).json(newDay);
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json({ message: err.message });
     }
-})
+});
 
+/* get day data between date A and B
+return it as array
+number of elements in array correspond to number of dates between
+A and B inclusive unless A equals B
+if date doesn't have data, leave it null in the array
+*/
 
-router.get('/:user/:day', getDay, (req, res) => {
-    res.json(res.day)
-})
+// edit day 
 
-async function getDay(req, res, next) {
-    try {
-        day = await Day.find( { username: { $eq: req.params.day }, day: { $eq: req.params.day } })
-        if (username == null) {
-            return res.status(404).json({ message: 'Username does not exist' })
-        }
-        if (day == null) {
-            return res.status(404).json({ message: 'Date has not been rated' })
-        }
-        
-    } catch (err) {
-        return res.status(500).json({ message: err.message })
-    }
-
-    res.day = day
-    next()
-}
-
-// get day between A and B
-
-// add day
-
-// edit day
-
-
-
-module.exports = router
+module.exports = router;

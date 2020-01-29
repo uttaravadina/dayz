@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const User = require('../models/User')
+const express = require('express');
+const router = express.Router();
+const User = require('../models/User');
 
 // get all users
 router.get('/', async (req, res) => {
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     } 
-})
+});
 
 // create a new user
 router.post('/', async (req, res) => {
@@ -26,4 +26,4 @@ router.post('/', async (req, res) => {
     }
 })
 
-module.exports = router
+module.exports = router;

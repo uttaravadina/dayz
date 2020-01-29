@@ -12,7 +12,7 @@ import Error from './Components/404';
 import { getDays, postDay } from './Axios/axios_getter';
 
 async function test() {
-	const result = await getDays();
+	const result = await getDays("Victor");
 	console.log(result)
 }
 

@@ -17,6 +17,6 @@ const userRoute = require('./routes/User');
 app.use('/user', userRoute);
 
 const dayRoute = require('./routes/Day');
-app.use('/day', dayRoute)
+app.use('/day', dayRoute);
 
 app.listen(4000, () => console.log('server started'));

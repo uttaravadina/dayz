@@ -4,10 +4,10 @@ import '../Styles/Header.css';
 class Header extends React.Component {
 
     state = {
-        timeframe: '',
-        emoji: '',
-        hrsTill: '',
-        minsTill: '',
+        timeframe: null,
+        emoji: null,
+        hrsTill: null,
+        minsTill: null,
         timerID: null,
     }
 
