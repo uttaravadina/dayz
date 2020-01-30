@@ -52,7 +52,7 @@ class View extends React.Component {
     render() {
 
         const { dates, map } = this.props;
-        console.log(map)
+        
         let week = [];
         let days = [
             "SUN",
@@ -83,7 +83,6 @@ class View extends React.Component {
                     }
                 }
                 else {
-                    console.log('hi')
                     color = "#D9D9D9";
                 }
 

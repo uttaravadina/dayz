@@ -87,24 +87,38 @@ class Week extends React.Component {
                 }); 
             }
         );
-
-        
     };
     
     setNext = () => {
         let currWeek = this.state.weekRange;
         let nextWeek = getNext(currWeek);
         let dates = getDates(nextWeek);
-
-        this.setState({ dates });
+        let map;
+        getData("karenying", nextWeek[0], nextWeek[1])
+            .then(output => {
+                map = dataToMap(output);
+                this.setState({ 
+                    dates, 
+                    data: map,
+                }); 
+            }
+        );
     };
 
     setPrev = () => {
         let currWeek = this.state.weekRange;
         let prevWeek = getPrev(currWeek);
         let dates = getDates(prevWeek);
-        
-        this.setState({ dates });
+        let map;
+        getData("karenying", prevWeek[0], prevWeek[1])
+            .then(output => {
+                map = dataToMap(output);
+                this.setState({ 
+                    dates, 
+                    data: map,
+                }); 
+            }
+        );
     };
 
     render() {
