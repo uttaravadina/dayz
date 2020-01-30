@@ -9,7 +9,6 @@ import Week from './Components/Week/Page';
 import Month from './Components/Month/Page';
 import Year from './Components/Year/Page';
 import Error from './Components/404';
-import { getDays, postDay } from './Axios/axios_getter';
 
 class App extends React.Component {
 

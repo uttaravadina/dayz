@@ -25,9 +25,12 @@ class View extends React.Component {
     
     render() {
 
-        let month = [];
-        for (let i = 0; i < this.props.numFill; i++) {
-            month.push(
+        const { map, numFill, lastDay, year, month } = this.props;
+
+        let monthList = [];
+       
+        for (let i = 0; i < numFill; i++) {
+            monthList.push(
                 <Day
                     color="white"
                     key={ i }
@@ -37,20 +40,34 @@ class View extends React.Component {
 
         let today = new Date();
 
-        for (let i = 0; i < this.props.lastDay; i++) {
+        for (let i = 0; i < lastDay; i++) {
             let isToday = (i + 1 === today.getDate() 
-                & this.props.month === today.getMonth() 
-                    && this.props.year === today.getFullYear());
+                & month === today.getMonth() 
+                    && year === today.getFullYear());
 
-            let titleText = this.props.year + "-" 
-                + (this.props.month + 1).toString().padStart(2, '0') 
+            let titleText = year + "-" 
+                + (month + 1).toString().padStart(2, '0') 
                     + "-" + (i + 1).toString().padStart(2, '0');
-                
-            month.push(
+            
+            const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
+            let color;
+            if (map) {
+                if (titleText in map) {
+                    color = moodToColor[map[titleText]];
+                }
+                else {
+                    color = "#D9D9D9";
+                }
+            }
+            else {
+                color = "#D9D9D9";
+                console.log('hi')
+            }
+            monthList.push(
                 <Day
                     date={ i + 1 }
-                    color="#D9D9D9"
-                    key={ this.props.numFill + i }
+                    color={ color }
+                    key={ numFill + i }
                     isToday={ isToday }
                     titleText={ titleText }
                 />
@@ -68,7 +85,7 @@ class View extends React.Component {
                         <h3>THU</h3>
                         <h3>FRI</h3>
                         <h3>SAT</h3>
-                        { month }
+                        { monthList }
                     </div>
                 </div>
             </>
