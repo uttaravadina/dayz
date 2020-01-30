@@ -66,7 +66,7 @@ class View extends React.Component {
         
         if (dates.length) {
             for (let i = 0; i < 7; i++) {
-                const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"]
+                const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
 
                 let today = new Date();
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));

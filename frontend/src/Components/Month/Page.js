@@ -67,13 +67,20 @@ class Month extends React.Component {
         
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
+        let map;
 
-        this.setState({ 
-            month,
-            year,
-            firstDay,
-            lastDay,
-        });
+        getData("karenying", firstDay, lastDay)
+            .then(output => {
+                map = dataToMap(output);
+                this.setState({ 
+                    month,
+                    year,
+                    firstDay,
+                    lastDay,
+                    data: map,
+                }); 
+            }
+        );
     };
 
     setPrev = () => {
@@ -90,13 +97,20 @@ class Month extends React.Component {
 
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
+        let map;
 
-        this.setState({ 
-            month,
-            year,
-            firstDay,
-            lastDay,
-        });
+        getData("karenying", firstDay, lastDay)
+            .then(output => {
+                map = dataToMap(output);
+                this.setState({ 
+                    month,
+                    year,
+                    firstDay,
+                    lastDay,
+                    data: map,
+                }); 
+            }
+        );
     };
 
     render() {
