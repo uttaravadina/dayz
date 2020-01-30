@@ -22,7 +22,7 @@ const Day = ({ color, isToday, titleText }) => {
 class View extends React.Component {
     
     render() {
-        const { year } = this.props;
+        const { year, map } = this.props;
         let yearList = [];
         let firstDay = new Date(year, 0, 1);
         let numFill = firstDay.getDay();
@@ -77,9 +77,24 @@ class View extends React.Component {
                 weeksOfMonths.push(currDay.getMonth());
             }
 
+            const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
+            let color;
+            if (map) {
+                if (titleText in map) {
+                    color = moodToColor[map[titleText]];
+                }
+                else {
+                    color = "#D9D9D9";
+                }
+            }
+            else {
+                color = "#D9D9D9";
+                console.log('hi')
+            }
+
             yearList.push(
                 <Day
-                    color="#D9D9D9"
+                    color={ color }
                     key={ 7 + numFill + j} 
                     titleText={ titleText }
                     isToday={ isToday }
