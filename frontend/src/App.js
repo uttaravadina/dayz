@@ -11,17 +11,10 @@ import Year from './Components/Year/Page';
 import Error from './Components/404';
 import { getDays, postDay } from './Axios/axios_getter';
 
-async function test() {
-	const result = await getDays("karenying", "2020-01-29", "2020-01-30");
-	console.log(result)
-}
-
 class App extends React.Component {
 
 	render() {
 		
-		//test();
-
 		return (
 			<>
 				<Router>

@@ -21,7 +21,6 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
                     onClick={ clickFunction }
                 />
             </div>
-            
         </div>
     )
 }
@@ -52,7 +51,8 @@ class View extends React.Component {
 
     render() {
 
-        const { dates } = this.props;
+        const { dates, map } = this.props;
+        console.log(map)
         let week = [];
         let days = [
             "SUN",
@@ -66,17 +66,33 @@ class View extends React.Component {
         
         if (dates.length) {
             for (let i = 0; i < 7; i++) {
+                const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"]
+
                 let today = new Date();
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));
-
                 let titleText = dates[i].toISOString().substr(0,10);
+                let color;
+
+                console.log(map)
+                if (map) {
+                    if (titleText in map) {
+                        color = moodToColor[map[titleText]];
+                    }
+                    else {
+                        color = "#D9D9D9";
+                    }
+                }
+                else {
+                    console.log('hi')
+                    color = "#D9D9D9";
+                }
 
                 week.push(
                     <Day 
                         day={ days[i] }
                         isToday={ isToday }
                         date={ dates[i].getDate() }
-                        color="#D9D9D9"
+                        color={ color }
                         key={ i }
                         titleText = { titleText }
                         clickFunction ={ () => this.showColorsPopup(titleText) }

@@ -2,21 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Day = require('../models/Day');
 
-function getDates(range) {
-    var dates = [],
-        currentDate = range[0],
-        addDays = function(days) {
-            var date = new Date(this.valueOf());
-            date.setDate(date.getDate() + days);
-            return date;
-        };
-    while (currentDate <= range[1]) {
-        dates.push(currentDate);
-        currentDate = addDays.call(currentDate, 1);
-    }
-    return dates;
-}
-
 // get data given username
 router.get('/', async (req, res) => {
     const { username, start, end } = req.query;
@@ -38,7 +23,7 @@ router.get('/', async (req, res) => {
                 { mood: 1, good: 1, bad: 1, day: 1, _id: 0  }
             );
         }
-        
+        console.log(data);
         res.json(data);
     
     } catch (err) {

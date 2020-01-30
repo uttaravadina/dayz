@@ -52,27 +52,43 @@ function getDates(range) {
     return dates;
 }
 
+function dataToMap(data) {
+    let map = {};
+    
+    data.forEach(x => {
+        let day = new Date(x.day).toISOString().substr(0,10);
+        let mood = x.mood;
+        map[day] = mood;
+    });
+
+    console.log(map);
+    return map;
+}
+
 class Week extends React.Component {
     state = {
         dates: [],
         weekRange: [],
-        data: [],
+        data: null,
     }
 
     componentDidMount = () => {
         let today = new Date();
         let currWeek = weekRange(today);        
         let dates = getDates(currWeek);
-        let moodsList = [];
-        getData("karenying", currWeek[0], currWeek[1]).then(output => {
-            console.log(output)
-        });
+        let map;
+        getData("karenying", currWeek[0], currWeek[1])
+            .then(output => {
+                map = dataToMap(output);
+                this.setState({ 
+                    dates, 
+                    weekRange: currWeek,
+                    data: map,
+                }); 
+            }
+        );
 
-        this.setState({ 
-            dates, 
-            weekRange: currWeek,
-            moodsList,
-        }); 
+        
     };
     
     setNext = () => {
@@ -92,7 +108,7 @@ class Week extends React.Component {
     };
 
     render() {
-        console.log(this.state);
+
         return (
             <>
                 <div>
@@ -104,8 +120,10 @@ class Week extends React.Component {
                         handleRightClick = { this.setNext }
                         dates = { this.state.dates }
                     />
+                    
                     <View
                         dates = { this.state.dates }
+                        map = { this.state.data }
                     />
                 </div>
             </>
