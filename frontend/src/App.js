@@ -20,7 +20,7 @@ class App extends React.Component {
 
 	render() {
 		
-		test();
+		//test();
 
 		return (
 			<>

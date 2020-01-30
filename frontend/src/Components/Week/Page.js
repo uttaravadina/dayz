@@ -3,6 +3,14 @@ import ArrowBar from './ArrowBar';
 import View from './View';
 import TimeframeBar from './TimeframeBar';
 import '../../Styles/Week/Page.css';
+import { getDays } from '../../Axios/axios_getter';
+
+async function getData(username, start, end) {
+    start = start.toISOString().substr(0,10);
+    end = end.toISOString().substr(0,10);
+    return getDays("karenying", start, end);
+}
+
 
 // start and end are the start and end of week given a date
 function weekRange(date) {
@@ -48,16 +56,22 @@ class Week extends React.Component {
     state = {
         dates: [],
         weekRange: [],
+        data: [],
     }
 
     componentDidMount = () => {
         let today = new Date();
         let currWeek = weekRange(today);        
         let dates = getDates(currWeek);
+        let moodsList = [];
+        getData("karenying", currWeek[0], currWeek[1]).then(output => {
+            console.log(output)
+        });
 
         this.setState({ 
-            dates: dates, 
+            dates, 
             weekRange: currWeek,
+            moodsList,
         }); 
     };
     
@@ -66,10 +80,7 @@ class Week extends React.Component {
         let nextWeek = getNext(currWeek);
         let dates = getDates(nextWeek);
 
-        this.setState({ 
-            dates: dates, 
-            weekRange: currWeek,
-        });
+        this.setState({ dates });
     };
 
     setPrev = () => {
@@ -77,14 +88,11 @@ class Week extends React.Component {
         let prevWeek = getPrev(currWeek);
         let dates = getDates(prevWeek);
         
-        this.setState({ 
-            dates: dates, 
-            weekRange: currWeek,
-        });
+        this.setState({ dates });
     };
 
     render() {
-
+        console.log(this.state);
         return (
             <>
                 <div>

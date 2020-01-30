@@ -12,9 +12,7 @@ class Day extends React.Component {
     componentDidMount = () => {
         let today = new Date();
 
-        this.setState({
-            day: today,
-        });
+        this.setState({ day: today });
     };
 
     setNext = () => {

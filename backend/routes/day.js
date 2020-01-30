@@ -2,12 +2,45 @@ const express = require('express');
 const router = express.Router();
 const Day = require('../models/Day');
 
+function getDates(range) {
+    var dates = [],
+        currentDate = range[0],
+        addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        };
+    while (currentDate <= range[1]) {
+        dates.push(currentDate);
+        currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+}
+
 // get data given username
 router.get('/', async (req, res) => {
-    const { username } = req.query;
+    const { username, start, end } = req.query;
+    let data;
     try {
-        const days = await Day.find({ username });
-        res.json(days);
+        // only looking for one date
+        if (username && start && !end) {
+            data = await Day.find({ username, day: new Date(start) }, { mood: 1, good: 1, bad: 1, day: 1, _id: 0 });
+        }
+        else {
+            data = await Day.find(
+                { 
+                    username, 
+                    day: {
+                        $gte: new Date(start),
+                        $lte: new Date(end),
+                    }
+                },
+                { mood: 1, good: 1, bad: 1, day: 1, _id: 0  }
+            );
+        }
+        
+        res.json(data);
+    
     } catch (err) {
         res.status(500).json({ message: err.message });
     };
@@ -30,13 +63,6 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
-
-/* get day data between date A and B
-return it as array
-number of elements in array correspond to number of dates between
-A and B inclusive unless A equals B
-if date doesn't have data, leave it null in the array
-*/
 
 // edit day 
 

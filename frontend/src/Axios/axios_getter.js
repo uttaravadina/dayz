@@ -5,7 +5,6 @@ export const getDays = (username, start, end) => {
     if (end) {
         url+=`&end=${encodeURIComponent(end)}`;
     }
-    console.log(url);
     return axios.get(url)
         .then(res => {
             return res.data;
