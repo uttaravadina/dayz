@@ -48,9 +48,7 @@ class View extends React.Component {
         document.removeEventListener('mousedown', this.handleClickOutside, false);
     } */
 
-
     render() {
-
         const { dates, map } = this.props;
         
         let week = [];

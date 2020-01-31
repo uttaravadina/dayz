@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/Header.css';
 
 class Header extends React.Component {
-
     state = {
         timeframe: null,
         emoji: null,

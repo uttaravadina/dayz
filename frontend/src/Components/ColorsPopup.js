@@ -9,7 +9,7 @@ const PopupModule = ({ color, mood, date, username, close}) => {
         "Good": 3, 
         "Normal": 2,
         "Off": 1,
-        "Bad": 0
+        "Bad": 0,
     }
 
     async function submitDay(e) {
@@ -20,7 +20,7 @@ const PopupModule = ({ color, mood, date, username, close}) => {
     return (
         <div 
             className="popup-module"
-            onClick={submitDay}
+            onClick={ submitDay }
         >
             <div className="popup-module-colorbox-container">
                 <div 
@@ -67,7 +67,6 @@ class ColorsPopup extends React.Component {
                         <PopupModule color="#FF66C5" mood="Off" date={ this.props.date } close={ this.props.closePopup }/>
                         <PopupModule color="#FF5757" mood="Bad" date={ this.props.date } close={ this.props.closePopup }/>
                     </div>
-                    
                 </div>
             </>
         );

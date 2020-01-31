@@ -16,7 +16,7 @@
 
 .day-wrapper h3 {
     color: #737373;
-    font-weight: bold;
+    font-weight: 900;
     font-size: large;
     text-align: center;
 }
@@ -82,6 +82,7 @@
 .day-notes h3 {
     text-align: left;
     text-decoration: underline;
+    font-weight: 900;
 }
 
 .day-notes-good-text {}

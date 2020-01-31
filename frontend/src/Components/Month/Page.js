@@ -85,11 +85,11 @@ class Month extends React.Component {
 
     setPrev = () => {
         let month, year;
+
         if (this.state.month === 0) {
             month = 11;
             year = this.state.year - 1;
         } else {
-            
             month = this.state.month - 1;
             year = this.state.year;
 
@@ -116,9 +116,7 @@ class Month extends React.Component {
     render() {
         let firstDay = new Date(this.state.year, this.state.month, 1);
         let lastDay = new Date(this.state.year, this.state.month + 1, 0);
-
-        console.log(this.state);
-
+        
         return (
             <>
                 <div>

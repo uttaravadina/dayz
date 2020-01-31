@@ -2,7 +2,6 @@ import React from 'react';
 import '../../Styles/ArrowBar.css';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-
 const Arrow = ({ direction, clickFunction, glyph }) => (
 	<div 
 		className={ `arrow ${ direction }` } 

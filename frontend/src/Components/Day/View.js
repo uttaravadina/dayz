@@ -2,7 +2,7 @@ import React from 'react';
 import '../../Styles/Day/View.css';
 
 class View extends React.Component {
-
+    
     render() {
         let { day } = this.props;
         let days = [
@@ -24,7 +24,7 @@ class View extends React.Component {
             todayActive = isToday ? "day-today-active" : "day-today-inactive";
             titleText = day.toISOString().substr(0,10);
         }
-        
+
         return (
             <>
                 <div className="day-wrapper">
