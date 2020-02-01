@@ -5,7 +5,6 @@ const Day = require('../models/Day');
 // get data given username
 router.get('/', async (req, res) => {
     const { username, start, end } = req.query;
-    console.log(start);
     let data;
     try {
         // only looking for one date

@@ -9,7 +9,7 @@ async function getData(username, start, end) {
     start = start.toISOString().substr(0,10);
     end = end.toISOString().substr(0,10);
     // start and end are in greenwich time
-
+  
     return getDays("karenying", start, end);
 }
 
@@ -74,6 +74,7 @@ class Week extends React.Component {
 
     componentDidMount = () => {
         let today = new Date();
+        today.setHours(0);
         let currWeek = weekRange(today);
         let dates = getDates(currWeek);
         let map;

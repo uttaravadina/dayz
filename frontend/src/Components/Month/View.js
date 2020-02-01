@@ -61,7 +61,6 @@ class View extends React.Component {
             }
             else {
                 color = "#D9D9D9";
-                console.log('hi')
             }
             monthList.push(
                 <Day

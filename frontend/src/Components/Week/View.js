@@ -71,7 +71,6 @@ class View extends React.Component {
                 let titleText = dates[i].toISOString().substr(0,10);
                 let color;
 
-                console.log(map)
                 if (map) {
                     if (titleText in map) {
                         color = moodToColor[map[titleText]];
