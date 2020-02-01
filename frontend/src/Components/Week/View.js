@@ -4,10 +4,13 @@ import ColorsPopup from '../ColorsPopup';
 
 const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
-    
+    let fullDate = new Date(titleText);
+    let today = new Date();
+    let clickable = fullDate <= today ? "week-module-clickable" : "week-module-not-clickable";
+
     return (
         <div 
-            className="week-module"
+            className={ clickable }
             title={ titleText }
         >
             <h3>{ day }</h3>
@@ -70,6 +73,8 @@ class View extends React.Component {
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));
                 let titleText = dates[i].toISOString().substr(0,10);
                 let color;
+                let fullDate = new Date(titleText);
+                let arg = fullDate <= today ? titleText : null;
 
                 if (map) {
                     if (titleText in map) {
@@ -91,7 +96,7 @@ class View extends React.Component {
                         color={ color }
                         key={ i }
                         titleText = { titleText }
-                        clickFunction ={ () => this.showColorsPopup(titleText) }
+                        clickFunction ={ () => this.showColorsPopup(arg) }
                     />
                 );
             }

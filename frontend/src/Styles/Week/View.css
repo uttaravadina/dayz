@@ -7,7 +7,7 @@
     padding-bottom: 50px;
 }
 
-.week-module {
+.week-module-clickable {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -17,13 +17,22 @@
     justify-content: center;
 }
 
-.week-module h3 {
+.week-module-not-clickable {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.week h3 {
     color: #737373;
     font-weight: 900;
     font-size: large;
 }
 
-.week-module h2 {
+.week h2 {
     margin: 0px;
     padding: 0px;
 }
