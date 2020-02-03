@@ -39,7 +39,6 @@ class Month extends React.Component {
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
         let map;
-
         getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
@@ -68,19 +67,22 @@ class Month extends React.Component {
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
         let map;
+        let today = new Date();
 
-        getData("karenying", firstDay, lastDay)
+        if (firstDay <= today) {
+            getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
-                this.setState({ 
-                    month,
-                    year,
-                    firstDay,
-                    lastDay,
-                    data: map,
-                }); 
-            }
-        );
+                this.setState({ data: map }); 
+            });
+        } 
+    
+        this.setState({ 
+            month,
+            year,
+            firstDay,
+            lastDay,
+        });
     };
 
     setPrev = () => {
@@ -99,18 +101,21 @@ class Month extends React.Component {
         let lastDay = new Date(year, month + 1, 0);
         let map;
 
-        getData("karenying", firstDay, lastDay)
+        let today = new Date();
+        if (firstDay <= today) {
+            getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
-                this.setState({ 
-                    month,
-                    year,
-                    firstDay,
-                    lastDay,
-                    data: map,
-                }); 
-            }
-        );
+                this.setState({ data: map }); 
+            });
+        } 
+    
+        this.setState({ 
+            month,
+            year,
+            firstDay,
+            lastDay,
+        });
     };
 
     render() {

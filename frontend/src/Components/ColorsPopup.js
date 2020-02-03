@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/ColorsPopup.css';
 import { IoIosClose } from 'react-icons/io';
+import { FiCheck } from 'react-icons/fi';
 import { postDay } from '../Axios/axios_getter';
 
 const PopupModule = ({ color, mood, date, username, close}) => {
@@ -26,6 +27,7 @@ const PopupModule = ({ color, mood, date, username, close}) => {
                 <div 
                     className="popup-module-colorbox"
                     style={{ backgroundColor: color }}>
+                        <FiCheck color='white'/>
                 </div>
             </div>
             <div className="popup-module-text">

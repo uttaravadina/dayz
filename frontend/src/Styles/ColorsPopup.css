@@ -48,6 +48,9 @@
     height: 30px;
     width: 30px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .popup-module-text {
@@ -61,6 +64,6 @@
     font-size: small;
 }
 
-.popup-container svg:hover {
+.popup-close svg:hover {
     background: #f2f3f4;
 }

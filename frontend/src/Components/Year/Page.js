@@ -52,16 +52,17 @@ class Year extends React.Component {
         let map;
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
+        let today = new Date();
 
-        getData("karenying", firstDay, lastDay)
+        if (firstDay <= today) {
+            getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
-                this.setState({ 
-                    year,
-                    data: map,
-                }); 
-            }
-        );
+                this.setState({ data: map }); 
+            });
+        } 
+
+        this.setState({ year })
     };
 
     setPrev = () => {
@@ -69,16 +70,17 @@ class Year extends React.Component {
         let map;
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
+        let today = new Date();
 
-        getData("karenying", firstDay, lastDay)
+        if (firstDay <= today) {
+            getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
-                this.setState({ 
-                    year,
-                    data: map,
-                }); 
-            }
-        );
+                this.setState({ data: map }); 
+            });
+        } 
+
+        this.setState({ year })
     };
 
     render() {

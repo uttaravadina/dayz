@@ -95,15 +95,18 @@ class Week extends React.Component {
         let nextWeek = getNext(currWeek);
         let dates = getDates(nextWeek);
         let map;
-        getData("karenying", nextWeek[0], nextWeek[1])
+        let today = new Date();
+        if (nextWeek[0] <= today) {
+            getData("karenying", nextWeek[0], nextWeek[1])
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
-                    dates, 
                     data: map,
                 }); 
-            }
-        );
+            });
+        } 
+        
+        this.setState({ dates });
     };
 
     setPrev = () => {
@@ -111,15 +114,18 @@ class Week extends React.Component {
         let prevWeek = getPrev(currWeek);
         let dates = getDates(prevWeek);
         let map;
-        getData("karenying", prevWeek[0], prevWeek[1])
+        let today = new Date();
+        if (prevWeek[0] <= today) {
+            getData("karenying", prevWeek[0], prevWeek[1])
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
-                    dates, 
                     data: map,
                 }); 
-            }
-        );
+            });
+        } 
+        
+        this.setState({ dates });
     };
 
     render() {
