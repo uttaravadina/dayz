@@ -54,7 +54,7 @@
     width: 100px;
     border-radius: 15px;
     display: inline-block;
-    transition: transform .2s;
+    transition: transform .15s;
     cursor: pointer;
 }
 

@@ -126,11 +126,11 @@ class View extends React.Component {
                 </div>
                 { (this.state.dateSelected && !this.state.moodSelected) ? 
                     <RatePopup
-                        closePopup = { this.closeRatePopup }
+                        closePopup = { this.closeRatePopup } 
                         date={ this.state.dateSelected}
                     /> 
                 : null }
-                { this.state.moodSelected ? 
+                { (this.state.moodSelected != null) ? 
                     <EditPopup
                         closePopup = { this.closeEditPopup }
                         date={ this.state.dateSelected}

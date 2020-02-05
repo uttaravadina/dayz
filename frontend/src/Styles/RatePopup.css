@@ -62,6 +62,10 @@
     cursor: pointer;
 }
 
+.rate-module:hover .rate-module-colorbox {
+    transform: scale(1.075);
+}
+
 .rate-module:hover {
     background: #f2f3f4;
 }
@@ -77,6 +81,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform .15s;
 }
 
 .rate-module-text {

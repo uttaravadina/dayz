@@ -92,6 +92,10 @@
     background: #f2f3f4;
 }
 
+.edit-module:hover .edit-module-colorbox {
+    transform: scale(1.075);
+}
+
 .edit-module-colorbox-container {
     padding-right: 10px;
 }
@@ -103,6 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform .15s;
 }
 
 .edit-module-text {

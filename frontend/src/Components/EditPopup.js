@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/EditPopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
-import { IoIosAdd } from 'react-icons/io'
 import { FaTrashAlt } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 // import { postDay } from '../Axios/axios_getter';
