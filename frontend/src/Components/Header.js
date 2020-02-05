@@ -8,7 +8,7 @@ class Header extends React.Component {
         hrsTill: null,
         minsTill: null,
         timerID: null,
-    }
+    };
 
     componentDidMount = () => {
         this.updateTime();

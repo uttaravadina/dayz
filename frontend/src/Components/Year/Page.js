@@ -27,7 +27,7 @@ class Year extends React.Component {
     state = {
         year: null,
         data: null,
-    }
+    };
 
     componentDidMount = () => {
         let today = new Date();

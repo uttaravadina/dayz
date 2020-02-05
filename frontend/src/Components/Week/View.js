@@ -21,7 +21,8 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
             </div>
             <div style={{ height: '10px' }}/>
             <div className="week-colorbox-container">
-                <div className="week-colorbox"
+                <div 
+                    className="week-colorbox"
                     style={{ backgroundColor: color }}
                     onClick={ clickFunction }
                 />
@@ -31,11 +32,11 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
 }
     
 class View extends React.Component {
-    
+
     state = {
         dateSelected: null,
         moodSelected: null,
-    }
+    };
 
     showPopup = (date, map) => {
         this.setState({ 

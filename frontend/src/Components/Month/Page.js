@@ -24,13 +24,14 @@ function dataToMap(data) {
 }
 
 class Month extends React.Component {
+    
     state = {
         month: null,
         year: null,
         firstDay: null,
         lastDay: null,
         data: null,
-    }
+    };
 
     componentDidMount = () => {
         let today = new Date();

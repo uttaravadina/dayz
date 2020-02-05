@@ -10,7 +10,7 @@ const LegendModule = ({ color, mood, count }) => {
                     className="colorbox"
                     style={{ backgroundColor: color }}
                 >
-                    <h2>{ count }</h2>
+                    {/* <h2>{ count }</h2> */}
                 </div>
             </div>
             <div className="colorbox-label">

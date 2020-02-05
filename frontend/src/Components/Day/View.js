@@ -4,7 +4,7 @@ import '../../Styles/Day/View.css';
 class View extends React.Component {
     
     render() {
-        let { day } = this.props;
+        let { day, data } = this.props;
         let days = [
             "SUN",
             "MON",
@@ -14,7 +14,8 @@ class View extends React.Component {
             "FRI",
             "SAT"
         ];
-        let dayOfWeek, date, isToday, todayActive, titleText;
+        let dayOfWeek, date, isToday, todayActive, titleText, color; 
+        const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
 
         if (day) {
             dayOfWeek = days[day.getDay()];
@@ -23,6 +24,12 @@ class View extends React.Component {
             isToday = (day.setHours(0,0,0,0) === today.setHours(0,0,0,0));
             todayActive = isToday ? "day-today-active" : "day-today-inactive";
             titleText = day.toISOString().substr(0,10);
+            if (data) {
+                color = moodToColor[data.mood];
+            }
+            else {
+                color = "#D9D9D9";
+            }
         }
 
         return (
@@ -39,6 +46,7 @@ class View extends React.Component {
                             <div 
                                 className="day-colorbox"
                                 title={ titleText }
+                                style={{ backgroundColor: color }}
                             >
                             </div>
                             <div className="day-notes">

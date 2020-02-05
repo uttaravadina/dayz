@@ -66,11 +66,12 @@ function dataToMap(data) {
 }
 
 class Week extends React.Component {
+    
     state = {
         dates: [],
         weekRange: [],
         data: null,
-    }
+    };
 
     componentDidMount = () => {
         let today = new Date();
