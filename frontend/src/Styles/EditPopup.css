@@ -1,0 +1,105 @@
+.edit-container {
+    height: auto;
+    width: 200px;
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+
+.edit-container h3 {
+    color: #737373;
+    font-weight: 900;
+    font-size: small;
+    padding: 0px;
+    margin: 0px;
+}
+
+.edit-header {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.edit-notes {
+    display: flex;
+    padding-left: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.edit-notes:hover {
+    background: #f2f3f4;
+}
+
+.edit-notes p {
+    padding: 0px;
+    margin: 0px;
+    font-size: small;
+}
+
+.edit-trash {
+    display: flex;
+    padding-left: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.edit-trash:hover {
+    background: #f2f3f4;
+}
+
+.edit-trash p {
+    padding: 0px;
+    margin: 0px;
+    font-size: small;
+}
+
+.edit-module {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.edit-module:hover {
+    background: #f2f3f4;
+}
+
+.edit-module-colorbox-container {
+    padding-right: 10px;
+}
+
+.edit-module-colorbox {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-module-text {
+    display: flex;
+    align-items: center;
+}
+
+.edit-module-text p{
+    padding: 0px;
+    margin: 0px;
+    font-size: small;
+}
+
+.edit-close svg:hover {
+    background: #f2f3f4;
+}

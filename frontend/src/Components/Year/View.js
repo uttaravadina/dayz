@@ -133,7 +133,7 @@ class View extends React.Component {
                     className="month-header-month"
                     key={ 400 + i } 
                 >
-                    <h3 style={{paddingRight: '3px'}}>{ monthList[i] }</h3>
+                    <h3 style={{paddingRight: '2px'}}>{ monthList[i] }</h3>
                 </div>
             );
 

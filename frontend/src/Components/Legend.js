@@ -12,7 +12,6 @@ const LegendModule = ({ color, mood, count }) => {
                 >
                     <h2>{ count }</h2>
                 </div>
-                
             </div>
             <div className="colorbox-label">
                 <p>{ mood } day</p>
@@ -22,7 +21,7 @@ const LegendModule = ({ color, mood, count }) => {
 }
 
 class Legend extends React.Component {
-
+ 
     render() {
         
         return (

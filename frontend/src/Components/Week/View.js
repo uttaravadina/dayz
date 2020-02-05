@@ -1,11 +1,13 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
-import ColorsPopup from '../ColorsPopup';
+import RatePopup from '../RatePopup';
+import EditPopup from '../EditPopup'
 
 const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let todayActive = isToday ? "today-active" : "today-inactive";
     let fullDate = new Date(titleText);
     let today = new Date();
+    today.setHours(0);
     let clickable = fullDate <= today ? "week-module-clickable" : "week-module-not-clickable";
 
     return (
@@ -108,7 +110,7 @@ class View extends React.Component {
                     { week }
                 </div>
                 {this.state.dateSelected ? (
-                    <ColorsPopup
+                    <EditPopup
                         closePopup = { this.closeColorsPopup }
                         date={ this.state.dateSelected}
                     />
