@@ -65,10 +65,12 @@ class EditPopup extends React.Component {
                         </div>
                     </div>
                     <div className="edit-content">
+                        {/*
                         <div className="edit-header">
                             <h3>EDIT RATING</h3>
                         </div>
-                            <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
+                        <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
+                        */}
                         <EditModule 
                             color="#5171FF" 
                             mood="Great" 

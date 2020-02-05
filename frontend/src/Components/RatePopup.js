@@ -59,10 +59,12 @@ class RatePopup extends React.Component {
                         </div>
                     </div>
                     <div className="rate-content">
+                        {/*
                         <div className="rate-header">
                             <h3>ADD RATING</h3>
                         </div>
-                            <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
+                        <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
+                        */}
                         <RateModule color="#5171FF" mood="Great" date={ this.props.date } close={ this.props.closePopup }/>
                         <RateModule color="#8C52FF" mood="Good" date={ this.props.date } close={ this.props.closePopup }/>
                         <RateModule color="#CB6BE7" mood="Normal" date={ this.props.date } close={ this.props.closePopup }/>
