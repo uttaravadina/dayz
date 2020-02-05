@@ -62,6 +62,10 @@
     font-size: small;
 }
 
+.edit-trash:hover svg{
+    color: #FF5757;
+}
+
 .edit-module {
     display: flex;
     flex-direction: row;

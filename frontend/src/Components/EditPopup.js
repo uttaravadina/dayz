@@ -32,7 +32,7 @@ const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) =>
                 <div 
                     className="edit-module-colorbox"
                     style={{ backgroundColor: color }}>
-                        { isSelected ? (<FiCheck color='white' size='25px'/>) : null }
+                        { isSelected ? (<FiCheck color='white' size='20px'/>) : null }
                 </div>
             </div>
             <div className="edit-module-text">

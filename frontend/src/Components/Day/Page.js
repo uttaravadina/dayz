@@ -30,27 +30,36 @@ class Day extends React.Component {
     };
 
     setNext = () => {
-        let today = this.state.day;
-        let tmr = new Date(today.setDate(today.getDate() + 1));
-        getData("karenying", tmr)
+        let currDay = this.state.day;
+        let tmr = new Date(currDay.setDate(currDay.getDate() + 1));
+        let today = new Date();
+        today.setHours(0);
+        if (tmr <= today) {
+            getData("karenying", tmr)
             .then(output => {
                 this.setState({ 
                     day: tmr,
                     data: output[0] 
                 });
             });
+        }
+        this.setState({ day: tmr });
     };
 
     setPrev = () => {
-        let today = this.state.day;
-        let yest = new Date(today.setDate(today.getDate() - 1));
-        getData("karenying", yest)
+        let currDay = this.state.day;
+        let yest = new Date(currDay.setDate(currDay.getDate() - 1));
+        let today = new Date();
+        today.setHours(0);
+        if (yest <= today) {
+            getData("karenying", yest)
             .then(output => {
                 this.setState({ 
-                    day: yest,
                     data: output[0] 
                 });
             });
+        }
+        this.setState({ day: yest });
     };
 
     render() {

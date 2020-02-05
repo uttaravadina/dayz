@@ -25,8 +25,8 @@
 .month-colorbox h2 { 
     padding: 0px;
     margin: 0px;
-    font-weight: bold;
     color: white;
+    /* font-weight: bold; */
 }
 
 .month-today {
