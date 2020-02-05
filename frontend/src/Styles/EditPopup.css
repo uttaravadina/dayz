@@ -44,6 +44,14 @@
     font-size: small;
 }
 
+.edit-notes svg {    
+    transition: transform .15s;
+}
+
+.edit-notes:hover svg{
+    transform: scale(1.2);
+}
+
 .edit-trash {
     display: flex;
     padding-left: 20px;
@@ -62,8 +70,12 @@
     font-size: small;
 }
 
+.edit-trash svg {    
+    transition: transform .15s;
+}
+
 .edit-trash:hover svg{
-    color: #FF5757;
+    transform: scale(1.2);
 }
 
 .edit-module {

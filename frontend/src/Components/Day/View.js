@@ -52,7 +52,7 @@ class View extends React.Component {
                             <div className="day-notes">
                                 {/* notes are changing size of legend :(*/}
                                 <div className="day-notes-good">
-                                    <h3>THE GOOD</h3>
+                                    <h3>THE GOOD 👍</h3>
                                     <div className="day-notes-good-text">
                                         <p>
                                             • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
@@ -62,7 +62,7 @@ class View extends React.Component {
                                     </div>
                                 </div>
                                 <div className="day-notes-bad">
-                                    <h3>THE BAD</h3>
+                                    <h3>THE BAD 👎</h3>
                                     <div className="day-notes-bad-text">
                                         <p>
                                             • Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>

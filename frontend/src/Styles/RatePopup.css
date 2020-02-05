@@ -38,6 +38,14 @@
     background: #f2f3f4;
 }
 
+.rate-notes svg {    
+    transition: transform .15s;
+}
+
+.rate-notes:hover svg{
+    transform: scale(1.2);
+}
+
 .rate-notes p {
     padding: 0px;
     margin: 0px;

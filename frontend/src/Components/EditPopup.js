@@ -4,6 +4,7 @@ import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
 import { IoIosAdd } from 'react-icons/io'
 import { FaTrashAlt } from 'react-icons/fa'
+import { GoPencil } from 'react-icons/go'
 // import { postDay } from '../Axios/axios_getter';
 
 const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) => {
@@ -108,11 +109,11 @@ class EditPopup extends React.Component {
                         />
                         <hr style={{ marginTop: '5px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-notes">
-                            <p><IoIosAdd size='20px'/>EDIT NOTES</p>
+                            <p><GoPencil size='15px' style={{ marginRight: '4px', marginBottom: '3px' }}/>EDIT NOTES</p>
                         </div>
                         <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-trash">
-                            <p><FaTrashAlt size='13px' style={{ marginRight: '7px'}}/>DELETE RATING</p>
+                            <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
                         </div>
                     </div>
                 </div>

@@ -72,7 +72,7 @@ class RatePopup extends React.Component {
                         <RateModule color="#FF5757" mood="Bad" date={ this.props.date } close={ this.props.closePopup }/>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="rate-notes">
-                            <p><IoIosAdd size='20px'/> ADD NOTES</p>
+                            <p><IoIosAdd size='25px' style={{ marginBottom: '4px' }}/>ADD NOTES</p>
                         </div>
                     </div>
                 </div>
