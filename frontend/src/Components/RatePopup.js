@@ -1,7 +1,6 @@
 import React from 'react';
 import '../Styles/RatePopup.css';
 import { IoIosClose } from 'react-icons/io';
-import { FiCheck } from 'react-icons/fi';
 import { IoIosAdd } from 'react-icons/io'
 import { postDay } from '../Axios/axios_getter';
 
@@ -61,7 +60,7 @@ class RatePopup extends React.Component {
                     </div>
                     <div className="rate-content">
                         <div className="rate-header">
-                            <h3>RATE YOUR DAY</h3>
+                            <h3>ADD RATING</h3>
                         </div>
                             <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         <RateModule color="#5171FF" mood="Great" date={ this.props.date } close={ this.props.closePopup }/>

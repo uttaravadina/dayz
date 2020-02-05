@@ -34,14 +34,28 @@ class View extends React.Component {
     
     state = {
         dateSelected: null,
+        moodSelected: null,
     }
 
-    showColorsPopup = (date) => {
-        this.setState({ dateSelected: date });
+    showPopup = (date, map) => {
+        this.setState({ 
+            dateSelected: date,
+            moodSelected: map[date], 
+        });
     };
 
-    closeColorsPopup = () => {
-        this.setState({ dateSelected: null });
+    closeRatePopup = () => {
+        this.setState({ 
+            dateSelected: null,
+            moodSelected: null, 
+        });
+    };
+
+    closeEditPopup = () => {
+        this.setState({ 
+            dateSelected: null,
+            moodSelected: null, 
+        });
     };
 
     /*
@@ -98,23 +112,30 @@ class View extends React.Component {
                         color={ color }
                         key={ i }
                         titleText = { titleText }
-                        clickFunction ={ () => this.showColorsPopup(arg) }
+                        clickFunction ={ () => this.showPopup(arg, map) }
                     />
                 );
             }
         }
-        
+
         return (
             <>
                 <div className="week">
                     { week }
                 </div>
-                {this.state.dateSelected ? (
-                    <EditPopup
-                        closePopup = { this.closeColorsPopup }
+                { (this.state.dateSelected && !this.state.moodSelected) ? 
+                    <RatePopup
+                        closePopup = { this.closeRatePopup }
                         date={ this.state.dateSelected}
-                    />
-                ) : null}
+                    /> 
+                : null }
+                { this.state.moodSelected ? 
+                    <EditPopup
+                        closePopup = { this.closeEditPopup }
+                        date={ this.state.dateSelected}
+                        moodSelected = { this.state.moodSelected }
+                    /> 
+                : null }
             </>
         );
     }

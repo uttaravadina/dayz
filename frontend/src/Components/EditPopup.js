@@ -3,10 +3,10 @@ import '../Styles/EditPopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
 import { IoIosAdd } from 'react-icons/io'
-import { IoMdTrash } from 'react-icons/io'
+import { FaTrashAlt } from 'react-icons/fa'
 // import { postDay } from '../Axios/axios_getter';
 
-const EditModule = ({ color, mood, date, username, close}) => {
+const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -15,10 +15,13 @@ const EditModule = ({ color, mood, date, username, close}) => {
         "Bad": 0,
     }
 
+    // WRITE THIS FUNCTION
     async function editDay(e) {
         // await postDay(date, moodToNum[mood], "karenying", [], []);
-        close();
+        closePopup();
     }
+
+    let isSelected = moodSelected === moodToNum[mood];
     
     return (
         <div 
@@ -29,7 +32,7 @@ const EditModule = ({ color, mood, date, username, close}) => {
                 <div 
                     className="edit-module-colorbox"
                     style={{ backgroundColor: color }}>
-                        <FiCheck color='white'/>
+                        { isSelected ? (<FiCheck color='white' size='25px'/>) : null }
                 </div>
             </div>
             <div className="edit-module-text">
@@ -42,6 +45,7 @@ const EditModule = ({ color, mood, date, username, close}) => {
 class EditPopup extends React.Component {
 
     render() {
+        const { moodSelected, date, closePopup } = this.props;
 
         return (
             <>
@@ -65,18 +69,48 @@ class EditPopup extends React.Component {
                             <h3>EDIT RATING</h3>
                         </div>
                             <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
-                        <EditModule color="#5171FF" mood="Great" date={ this.props.date } close={ this.props.closePopup }/>
-                        <EditModule color="#8C52FF" mood="Good" date={ this.props.date } close={ this.props.closePopup }/>
-                        <EditModule color="#CB6BE7" mood="Normal" date={ this.props.date } close={ this.props.closePopup }/>
-                        <EditModule color="#FF66C5" mood="Off" date={ this.props.date } close={ this.props.closePopup }/>
-                        <EditModule color="#FF5757" mood="Bad" date={ this.props.date } close={ this.props.closePopup }/>
-                        <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
+                        <EditModule 
+                            color="#5171FF" 
+                            mood="Great" 
+                            date={ date } 
+                            closePopup={ closePopup }
+                            moodSelected={ moodSelected }
+                        />
+                        <EditModule 
+                            color="#8C52FF" 
+                            mood="Good" 
+                            date={ date } 
+                            closePopup={ closePopup }
+                            moodSelected={ moodSelected }
+                        />
+                        <EditModule 
+                            color="#CB6BE7" 
+                            mood="Normal" 
+                            date={ date } 
+                            closePopup={ closePopup }
+                            moodSelected={ moodSelected }
+                        />
+                        <EditModule 
+                            color="#FF66C5" 
+                            mood="Off" 
+                            date={ date } 
+                            closePopup={ closePopup }
+                            moodSelected={ moodSelected }
+                        />
+                        <EditModule 
+                            color="#FF5757" 
+                            mood="Bad" 
+                            date={ date } 
+                            closePopup={ closePopup }
+                            moodSelected={ moodSelected }
+                        />
+                        <hr style={{ marginTop: '5px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-notes">
-                            <p><IoIosAdd size='20px'/> ADD NOTES</p>
+                            <p><IoIosAdd size='20px'/>EDIT NOTES</p>
                         </div>
                         <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-trash">
-                            <p><IoMdTrash size='20px'/>DELETE MOOD</p>
+                            <p><FaTrashAlt size='13px' style={{ marginRight: '7px'}}/>DELETE RATING</p>
                         </div>
                     </div>
                 </div>
