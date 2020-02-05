@@ -8,11 +8,11 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
     let fullDate = new Date(titleText);
     let today = new Date();
     today.setHours(0);
-    let clickable = fullDate <= today ? "week-module-clickable" : "week-module-not-clickable";
+    let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
 
     return (
         <div 
-            className={ clickable }
+            className="week-module"
             title={ titleText }
         >
             <h3>{ day }</h3>
@@ -22,7 +22,7 @@ const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
             <div style={{ height: '10px' }}/>
             <div className="week-colorbox-container">
                 <div 
-                    className="week-colorbox"
+                    className={clickable}
                     style={{ backgroundColor: color }}
                     onClick={ clickFunction }
                 />
