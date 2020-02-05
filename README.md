@@ -6,7 +6,7 @@ In December 2019, I saw a Reddit post titled ["I decided to keep track of how ea
 
 Concurrently, I've also always loved the idea of bullet journaling but drawing lines and coloring by hand frustrated me to no end -- my lines weren't straight enough and I'd accidentally color out of the box. With `dayz`, I have created my perfect bullet journal. 
 
-Built on a [MERN](https://www.geeksforgeeks.org/mern-stack/) stack, `dayz` utilizes a [RESTful](https://restfulapi.net/) api. This is the Github repo for the open source project `dayz`.
+Built on a [MERN](https://www.geeksforgeeks.org/mern-stack/) stack, `dayz` utilizes a [RESTful](https://restfulapi.net/) api. This is its Github repo.
 
 ## Getting Started
 
