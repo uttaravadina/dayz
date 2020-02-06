@@ -4,6 +4,7 @@ import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
 import { FaTrashAlt } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
+import { deleteRating } from '../Axios/axios_getter';
 // import { postDay } from '../Axios/axios_getter';
 
 const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) => {
@@ -40,6 +41,24 @@ const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) =>
             </div>
         </div>
     )
+}
+
+const DeleteModule = ({ username, date, closePopup }) => {
+
+    async function deleteRatingPopup() {
+        deleteRating(username, date)
+        closePopup();
+    }
+
+    return (
+        <div 
+            className="edit-trash"
+            onClick={deleteRatingPopup()}
+        >
+            <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
+        </div>
+    );
+   
 }
 
 class EditPopup extends React.Component {
@@ -111,7 +130,11 @@ class EditPopup extends React.Component {
                             <p><GoPencil size='15px' style={{ marginRight: '4px', marginBottom: '3px' }}/>EDIT NOTES</p>
                         </div>
                         <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
-                        <div className="edit-trash">
+                        {/*<DeleteModule date={ date } closePopup={ closePopup } username="karenying"/>*/}
+                        <div 
+                            className="edit-trash"
+                            onClick={deleteRating("karenying", date)}
+                        >
                             <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
                         </div>
                     </div>

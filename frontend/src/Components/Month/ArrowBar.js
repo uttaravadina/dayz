@@ -2,11 +2,13 @@ import React from 'react';
 import '../../Styles/ArrowBar.css';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const Arrow = ({ direction, clickFunction, glyph }) => (
+const Arrow = ({ direction, clickFunction, glyph, titleText }) => (
 	<div 
 		className={ `arrow ${ direction }` } 
-		onClick={ clickFunction }>
-            <h1>{ glyph }</h1>
+		onClick={ clickFunction }
+        title={ titleText }
+    >
+        <h1>{ glyph }</h1>
 	</div>
 );
 
@@ -37,11 +39,13 @@ class ArrowBar extends React.Component {
                         direction="left" 
                         glyph={ <FaChevronLeft size="25px"/> }
                         clickFunction={ this.props.handleLeftClick }
+                        titleText={ "Previous month" }
                     />
                     <Arrow 
                         direction="right" 
                         glyph={ <FaChevronRight size="25px"/> }
                         clickFunction={ this.props.handleRightClick }
+                        titleText={ "Next month" }
                     />
                     <div className="curr-timeframe">
                         <h1>{ month } { this.props.year }</h1>

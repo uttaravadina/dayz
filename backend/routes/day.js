@@ -13,19 +13,19 @@ router.get('/', async (req, res) => {
         }
         else {
             data = await Day.find(
-                { 
-                    username, 
+                {
+                    username,
                     day: {
                         $gte: new Date(start),
                         $lte: new Date(end),
                     }
                 },
-                { mood: 1, good: 1, bad: 1, day: 1, _id: 0  }
+                { mood: 1, good: 1, bad: 1, day: 1, _id: 0 }
             );
         }
         console.log(data);
         res.json(data);
-    
+
     } catch (err) {
         res.status(500).json({ message: err.message });
     };
@@ -50,5 +50,20 @@ router.post('/', async (req, res) => {
 });
 
 // edit day 
+
+// delete document given username and date
+router.delete('/', async (req, res) => {
+    const { username, date } = req.query;
+    try {
+        await Day.deleteOne(
+            {
+                username,
+                day: new Date(date)
+            }
+        );
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
 
 module.exports = router;

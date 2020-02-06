@@ -27,3 +27,11 @@ export const postDay = (day, mood, username, good, bad) => {
         });
 }
 
+export const deleteRating = (username, date) => {
+    let url = `http://localhost:4000/day?username=${encodeURIComponent(username)}&date=${encodeURIComponent(date)}`;
+    return axios.delete(url)
+        .then(res => {
+            console.log(res);
+        });    
+}
+

@@ -13,7 +13,7 @@ import Error from './Components/404';
 class App extends React.Component {
 
 	render() {
-		
+
 		return (
 			<>
 				<Router>
