@@ -12,7 +12,7 @@ class Footer extends React.Component {
             <>
                 <div className="footer">
                     <div className="footer-copyright">
-                        <h2>Coded with <GoHeart/> by Karen</h2>
+                        <h2>Coded with <GoHeart /> by Karen</h2>
                         <h4>Copyright © 2020</h4>
                     </div>
                     <div className="footer-links">
@@ -28,17 +28,17 @@ class Footer extends React.Component {
                     <div className="footer-icons">
                         <div title="View source code">
                             <a href="https://github.com/karenying/dayz">
-                                <FaCode style={{marginRight: '10px', marginLeft: '10px'}}/>
+                                <FaCode style={{marginRight: '10px', marginLeft: '10px'}} />
                             </a>
                         </div>
                         <div title="Github"> 
                             <a href="https://github.com/karenying">
-                                <GoMarkGithub style={{marginRight: '10px', marginLeft: '10px'}}/>
+                                <GoMarkGithub style={{marginRight: '10px', marginLeft: '10px'}} />
                             </a>
                         </div>
                         <div title="Twitter">
                             <a href="https://twitter.com/karen_ying_">
-                                <FaTwitter style={{marginRight: '10px', marginLeft: '10px'}}/>
+                                <FaTwitter style={{marginRight: '10px', marginLeft: '10px'}} />
                             </a>
                         </div>
                     </div>

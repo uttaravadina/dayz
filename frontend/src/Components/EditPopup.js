@@ -128,7 +128,7 @@ class EditPopup extends React.Component {
                         />
                         <hr style={{ marginTop: '5px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-notes">
-                            <p><GoPencil size='15px' style={{ marginRight: '4px', marginBottom: '3px' }}/>EDIT NOTES</p>
+                            <p><GoPencil size='15px' style={{ marginRight: '4px', marginBottom: '3px' }} />EDIT NOTES</p>
                         </div>
                         <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         {/*<DeleteModule date={ date } closePopup={ closePopup } username="karenying"/>*/}
@@ -136,7 +136,7 @@ class EditPopup extends React.Component {
                             className="edit-trash"
                             // onClick={deleteRating("karenying", date)}
                         >
-                            <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
+                            <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }} />DELETE RATING</p>
                         </div>
                     </div>
                 </div>

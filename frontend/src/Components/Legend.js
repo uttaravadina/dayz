@@ -26,11 +26,11 @@ class Legend extends React.Component {
                 <div className="legend">
                     <h1>Legend</h1>
                     <div style={{ height: '10px' }}/>
-                    <LegendModule color="#5171FF" mood="Great" count="6"/>
-                    <LegendModule color="#8C52FF" mood="Good" count="9"/>
-                    <LegendModule color="#CB6BE7" mood="Normal" count="11"/>
-                    <LegendModule color="#FF66C5" mood="Off" count="1"/>
-                    <LegendModule color="#FF5757" mood="Bad" count="0"/>
+                    <LegendModule color="#5171FF" mood="Great" count="6" />
+                    <LegendModule color="#8C52FF" mood="Good" count="9" />
+                    <LegendModule color="#CB6BE7" mood="Normal" count="11" />
+                    <LegendModule color="#FF66C5" mood="Off" count="1" />
+                    <LegendModule color="#FF5757" mood="Bad" count="0" />
                 </div>
             </>
         );

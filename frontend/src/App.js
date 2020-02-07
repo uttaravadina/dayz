@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './Components/Header';
@@ -21,24 +21,24 @@ class App extends React.Component {
 					<div className="App">
 						<div className="content">
 							<div className="left-side">
-									<Header />
-									<div style={{height: '10px'}}/>
-									<Switch>
-										<Route path='/day' render={() => (<Day/>)}/>
-										<Route exact={true} path='/' render={() => (<Week/>)}/>
-										<Route path='/week' render={() => (<Week/>)}/>
-										<Route path='/month' render={() => (<Month/>)}/>
-										<Route path='/year' render={() => (<Year/>)}/>
-										<Route path="*" render={() => (<Error/>)}/>
-									</Switch>
+								<Header />
+								<div style={{ height: '10px' }} />
+								<Switch>
+									<Route path='/day' render={ () => (<Day />) } />
+									<Route exact={ true } path='/' render={ () => (<Week />) } />
+									<Route path='/week' render={ () => (<Week />) } />
+									<Route path='/month' render={ () => (<Month />) } />
+									<Route path='/year' render={ () => (<Year />) } />
+									<Route path="*" render={ () => (<Error />) } />
+								</Switch>
 							</div>
-							<div className="divider"/>
+							<div className="divider" />
 							<div className="right-side">
-								<Legend/>
+								<Legend />
 							</div>
 						</div>
 						<div>
-							<Footer/>
+							<Footer />
 						</div>
 					</div>
 				</Router>

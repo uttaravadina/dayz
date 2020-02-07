@@ -61,13 +61,13 @@ class ArrowBar extends React.Component {
                 <div className="arrow-bar">
                     <Arrow 
                         direction="left" 
-                        glyph={ <FaChevronLeft size="25px"/> }
+                        glyph={ <FaChevronLeft size="25px" /> }
                         clickFunction={ this.props.handleLeftClick }
                         titleText = { "Previous week" }
                     />
                     <Arrow 
                         direction="right" 
-                        glyph={ <FaChevronRight size="25px"/> }
+                        glyph={ <FaChevronRight size="25px" /> }
                         clickFunction={ this.props.handleRightClick }
                         titleText = { "Next week" }
                     />

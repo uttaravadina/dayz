@@ -67,9 +67,9 @@ class Day extends React.Component {
         return (
             <>
                 <div>
-                    <TimeframeBar/>
-                    <div style={{ height: '5px' }}/>
-                    <hr/>
+                    <TimeframeBar />
+                    <div style={{ height: '5px' }} />
+                    <hr />
                     <ArrowBar
                         handleLeftClick = { this.setPrev } 
                         handleRightClick = { this.setNext }

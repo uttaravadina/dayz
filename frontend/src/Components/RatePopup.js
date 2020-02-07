@@ -65,12 +65,12 @@ class RatePopup extends React.Component {
                         </div>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         */}
-                        <RateModule color="#5171FF" mood="Great" date={ date } close={ closePopup }/>
-                        <RateModule color="#8C52FF" mood="Good" date={ date } close={ closePopup }/>
-                        <RateModule color="#CB6BE7" mood="Normal" date={ date } close={ closePopup }/>
-                        <RateModule color="#FF66C5" mood="Off" date={ date } close={ closePopup }/>
-                        <RateModule color="#FF5757" mood="Bad" date={ date } close={ closePopup }/>
-                        <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
+                        <RateModule color="#5171FF" mood="Great" date={ date } close={ closePopup } />
+                        <RateModule color="#8C52FF" mood="Good" date={ date } close={ closePopup } />
+                        <RateModule color="#CB6BE7" mood="Normal" date={ date } close={ closePopup } />
+                        <RateModule color="#FF66C5" mood="Off" date={ date } close={ closePopup } />
+                        <RateModule color="#FF5757" mood="Bad" date={ date } close={ closePopup } />
+                        <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }} />
                         <div className="rate-notes">
                             <p><IoIosAdd size='25px' style={{ marginBottom: '4px' }}/>ADD NOTES</p>
                         </div>
