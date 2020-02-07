@@ -5,9 +5,9 @@ import { FiCheck } from 'react-icons/fi';
 import { FaTrashAlt } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 import { deleteRating } from '../Axios/axios_getter';
-// import { postDay } from '../Axios/axios_getter';
+import { editRating } from '../Axios/axios_getter';
 
-const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) => {
+const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -18,8 +18,9 @@ const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) =>
 
     // WRITE THIS FUNCTION
     async function editDay(e) {
-        // await postDay(date, moodToNum[mood], "karenying", [], []);
-        closePopup();
+        await editRating("karenying", date, moodToNum[mood]);
+        console.log('hi')
+        close();
     }
 
     let isSelected = moodSelected === moodToNum[mood];
@@ -30,10 +31,8 @@ const EditModule = ({ color, mood, date, username, closePopup, moodSelected}) =>
             onClick={ editDay }
         >
             <div className="edit-module-colorbox-container">
-                <div 
-                    className="edit-module-colorbox"
-                    style={{ backgroundColor: color }}>
-                        { isSelected ? (<FiCheck color='white' size='20px'/>) : null }
+                <div className="edit-module-colorbox" style={{ backgroundColor: color }}>
+                    { isSelected ? (<FiCheck color='white' size='20px'/>) : null }
                 </div>
             </div>
             <div className="edit-module-text">
@@ -70,7 +69,11 @@ class EditPopup extends React.Component {
             <>
                 <div className="edit-container">
                     <div className="edit-close-container" style={{ textAlign: 'right' }}>
-                        <div className="edit-close" style={{ paddingTop: '8px', paddingRight: '8px' }}>
+                        <div 
+                            className="edit-close" 
+                            style={{ paddingTop: '8px', paddingRight: '8px' }}
+                            title={ "close" }
+                        >
                             <IoIosClose 
                                 size='30px' 
                                 color='#5f6368' 
@@ -79,7 +82,7 @@ class EditPopup extends React.Component {
                                     borderRadius: '50%',
                                     cursor: 'pointer',
                                 }}
-                                onClick={ this.props.closePopup }
+                                onClick={ closePopup }
                             /> 
                         </div>
                     </div>
@@ -94,35 +97,35 @@ class EditPopup extends React.Component {
                             color="#5171FF" 
                             mood="Great" 
                             date={ date } 
-                            closePopup={ closePopup }
+                            close={ closePopup }
                             moodSelected={ moodSelected }
                         />
                         <EditModule 
                             color="#8C52FF" 
                             mood="Good" 
                             date={ date } 
-                            closePopup={ closePopup }
+                            close={ closePopup }
                             moodSelected={ moodSelected }
                         />
                         <EditModule 
                             color="#CB6BE7" 
                             mood="Normal" 
                             date={ date } 
-                            closePopup={ closePopup }
+                            close={ closePopup }
                             moodSelected={ moodSelected }
                         />
                         <EditModule 
                             color="#FF66C5" 
                             mood="Off" 
                             date={ date } 
-                            closePopup={ closePopup }
+                            close={ closePopup }
                             moodSelected={ moodSelected }
                         />
                         <EditModule 
                             color="#FF5757" 
                             mood="Bad" 
                             date={ date } 
-                            closePopup={ closePopup }
+                            close={ closePopup }
                             moodSelected={ moodSelected }
                         />
                         <hr style={{ marginTop: '5px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
@@ -133,7 +136,7 @@ class EditPopup extends React.Component {
                         {/*<DeleteModule date={ date } closePopup={ closePopup } username="karenying"/>*/}
                         <div 
                             className="edit-trash"
-                            onClick={deleteRating("karenying", date)}
+                            // onClick={deleteRating("karenying", date)}
                         >
                             <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
                         </div>

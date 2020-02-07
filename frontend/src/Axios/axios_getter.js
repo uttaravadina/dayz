@@ -35,3 +35,10 @@ export const deleteRating = (username, date) => {
         });    
 }
 
+export const editRating = (username, date, newMood) => {
+    let url = `http://localhost:4000/day?username=${encodeURIComponent(username)}&date=${encodeURIComponent(date)}&newMood=${encodeURIComponent(newMood)}`;
+    return axios.put(url)
+        .then(res => {
+            console.log(res);
+        });  
+}

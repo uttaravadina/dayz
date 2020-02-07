@@ -4,17 +4,14 @@ import RatePopup from '../RatePopup';
 import EditPopup from '../EditPopup'
 
 const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
-    let todayActive = isToday ? "today-active" : "today-inactive";
+    let todayActive = isToday ? "week-today-active" : "week-today-inactive";
     let fullDate = new Date(titleText);
     let today = new Date();
     today.setHours(0);
     let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
 
     return (
-        <div 
-            className="week-module"
-            title={ titleText }
-        >
+        <div className="week-module" title={ titleText }>
             <h3>{ day }</h3>
             <div className={ todayActive }>
                 <h2>{ date }</h2>

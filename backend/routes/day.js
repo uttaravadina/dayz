@@ -50,8 +50,28 @@ router.post('/', async (req, res) => {
 });
 
 // edit day 
+router.put('/', async (req, res) => {
+    const { username, date, newMood } = req.query;
 
-// delete document given username and date
+    try {
+        await Day.update(
+            {
+                username,
+                day: new Date(date)
+            },
+            {
+                $set: {
+                    mood: newMood
+                }
+            }
+        );
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
+
+
+// delete document given username and date, does not just delete rating
 router.delete('/', async (req, res) => {
     const { username, date } = req.query;
     try {

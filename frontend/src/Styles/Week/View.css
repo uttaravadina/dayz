@@ -27,7 +27,7 @@
     padding: 0px;
 }
 
-.today-active {
+.week-today-active {
     background-color: #737373;
     border-radius: 50%;
     width: 50px;
@@ -37,14 +37,14 @@
     justify-content: center;
 }
 
-.today-inactive {
+.week-today-inactive {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.today-active h2 {
+.week-today-active h2 {
     font-weight: bold;
     color: white;
 }

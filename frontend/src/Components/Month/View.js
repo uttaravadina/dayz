@@ -10,10 +10,7 @@ const Day = ({ date, color, isToday, titleText }) => {
             title={ titleText }
         >
             <div className={ monthToday }>
-                <div 
-                    className="month-colorbox"
-                    style={{ backgroundColor: color }}
-                >
+                <div className="month-colorbox" style={{ backgroundColor: color }}>
                     <h2>{ date }</h2>
                 </div>
             </div>

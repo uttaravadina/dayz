@@ -5,14 +5,9 @@ const Day = ({ color, isToday, titleText }) => {
     let yearToday = isToday ? "year-today" : "year-notToday";
     
     return (
-        <div 
-            className="year-module"
-            title={ titleText }
-        >
+        <div className="year-module" title={ titleText }>
             <div className={ yearToday }>
-                <div className="year-colorbox"
-                    style={{ backgroundColor: color }}
-                >
+                <div className="year-colorbox" style={{ backgroundColor: color }}>
                 </div>
             </div>
         </div>
@@ -130,7 +125,7 @@ class View extends React.Component {
         for (let i = 0; i < 12; i++) {
             monthHeader.push(
                 <div 
-                    className="month-header-month"
+                    className="year-month-header-month"
                     key={ 400 + i } 
                 >
                     <h3 style={{paddingRight: '2px'}}>{ monthList[i] }</h3>
@@ -150,7 +145,7 @@ class View extends React.Component {
         return (
             <>
                 <div className="year-wrapper">
-                    <div className="month-header">
+                    <div className="year-month-header">
                         { monthHeader }
                     </div>
                     <div className="year-table">

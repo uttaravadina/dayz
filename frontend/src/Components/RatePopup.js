@@ -19,14 +19,9 @@ const RateModule = ({ color, mood, date, username, close}) => {
     }
     
     return (
-        <div 
-            className="rate-module"
-            onClick={ submitDay }
-        >
+        <div className="rate-module" onClick={ submitDay }>
             <div className="rate-module-colorbox-container">
-                <div 
-                    className="rate-module-colorbox"
-                    style={{ backgroundColor: color }}>
+                <div className="rate-module-colorbox" style={{ backgroundColor: color }}>
                         {/*<FiCheck color='white'/>*/}
                 </div>
             </div>
@@ -40,12 +35,17 @@ const RateModule = ({ color, mood, date, username, close}) => {
 class RatePopup extends React.Component {
 
     render() {
+        const { date, closePopup } = this.props;
 
         return (
             <>
                 <div className="rate-container">
                     <div className="rate-close-container" style={{ textAlign: 'right' }}>
-                        <div className="rate-close" style={{ paddingTop: '8px', paddingRight: '8px' }}>
+                        <div 
+                            className="rate-close" 
+                            style={{ paddingTop: '8px', paddingRight: '8px' }}
+                            title={ "close" }
+                        >
                             <IoIosClose 
                                 size='30px' 
                                 color='#5f6368' 
@@ -54,7 +54,7 @@ class RatePopup extends React.Component {
                                     borderRadius: '50%',
                                     cursor: 'pointer',
                                 }}
-                                onClick={ this.props.closePopup }
+                                onClick={ closePopup }
                             /> 
                         </div>
                     </div>
@@ -65,11 +65,11 @@ class RatePopup extends React.Component {
                         </div>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         */}
-                        <RateModule color="#5171FF" mood="Great" date={ this.props.date } close={ this.props.closePopup }/>
-                        <RateModule color="#8C52FF" mood="Good" date={ this.props.date } close={ this.props.closePopup }/>
-                        <RateModule color="#CB6BE7" mood="Normal" date={ this.props.date } close={ this.props.closePopup }/>
-                        <RateModule color="#FF66C5" mood="Off" date={ this.props.date } close={ this.props.closePopup }/>
-                        <RateModule color="#FF5757" mood="Bad" date={ this.props.date } close={ this.props.closePopup }/>
+                        <RateModule color="#5171FF" mood="Great" date={ date } close={ closePopup }/>
+                        <RateModule color="#8C52FF" mood="Good" date={ date } close={ closePopup }/>
+                        <RateModule color="#CB6BE7" mood="Normal" date={ date } close={ closePopup }/>
+                        <RateModule color="#FF66C5" mood="Off" date={ date } close={ closePopup }/>
+                        <RateModule color="#FF5757" mood="Bad" date={ date } close={ closePopup }/>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="rate-notes">
                             <p><IoIosAdd size='25px' style={{ marginBottom: '4px' }}/>ADD NOTES</p>

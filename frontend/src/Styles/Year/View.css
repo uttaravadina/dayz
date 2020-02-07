@@ -29,14 +29,14 @@
     margin: 0px;
 }
 
-.month-header {
+.year-month-header {
     display: grid;
     grid-template-columns: repeat(53, auto) 1fr;
     padding-bottom: 0px;
     padding-left: 60px;
 }
 
-.month-header h3 {
+.year-month-header h3 {
     color: #737373;
     font-weight: 900;
     font-size: x-small;
