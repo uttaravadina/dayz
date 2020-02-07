@@ -2,8 +2,8 @@ import React from 'react';
 import '../Styles/EditPopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
-import { FaTrashAlt } from 'react-icons/fa'
-import { GoPencil } from 'react-icons/go'
+import { FaTrashAlt } from 'react-icons/fa';
+import { GoPencil } from 'react-icons/go';
 import { deleteRating } from '../Axios/axios_getter';
 import { editRating } from '../Axios/axios_getter';
 
@@ -16,11 +16,9 @@ const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
         "Bad": 0,
     }
 
-    // WRITE THIS FUNCTION
     async function editDay(e) {
         await editRating("karenying", date, moodToNum[mood]);
-        console.log('hi')
-        close();
+        close(); // why doesn't it close automatically :(((
     }
 
     let isSelected = moodSelected === moodToNum[mood];

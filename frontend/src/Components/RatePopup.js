@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/RatePopup.css';
 import { IoIosClose } from 'react-icons/io';
-import { IoIosAdd } from 'react-icons/io'
+import { IoIosAdd } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter';
 
 const RateModule = ({ color, mood, date, username, close}) => {
