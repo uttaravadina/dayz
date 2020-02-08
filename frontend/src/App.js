@@ -10,6 +10,7 @@ import Month from './Components/Month/Page';
 import Year from './Components/Year/Page';
 import Error from './Components/404';
 import Footer from './Components/Footer';
+import SettingsMenu from './Components/SettingsMenu';
 
 class App extends React.Component {
 
@@ -35,6 +36,7 @@ class App extends React.Component {
 							<div className="divider" />
 							<div className="right-side">
 								<Legend />
+								<SettingsMenu />
 							</div>
 						</div>
 						<div>
