@@ -1,9 +1,61 @@
 .settings-menu {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    
 }
 
-.custom-dropdown {
-    color: white;
+.settings-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.settings-button svg {
+    transition: transform .15s;
+    cursor: pointer;
+}
+
+.settings-button:hover svg {
+    transform: scale(1.1);
+}
+
+.settings-popup {
+    height: auto;
+    width: 150px;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    border-radius: 7px;
+    background: white;
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.settings-popup-module {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.settings-popup-module:hover {
+    background: #f2f3f4;
+}
+
+.settings-popup p {
+    padding: 0px;
+    margin: 0px;
+}
+.settings-popup-module svg {
+    transition: transform .15s;
+}
+
+.settings-popup-module:hover svg {
+    transform: scale(1.1);
 }

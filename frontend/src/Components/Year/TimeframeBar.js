@@ -14,17 +14,17 @@ class TimeframeBar extends React.Component {
         return (
             <>
                 <div className="timeframe-bar">
-                    <div className="timeframe-container" onClick={this.handleDayClick}>
+                    <div className="timeframe-container" onClick={ this.handleDayClick }>
                         <div className="timeframe-inactive">
                             <h2>Day</h2>
                         </div>
                     </div>
                     <div className="timeframe-container" >
-                        <div className="timeframe-inactive" onClick={this.handleWeekClick}>
+                        <div className="timeframe-inactive" onClick={ this.handleWeekClick }>
                             <h2>Week</h2>
                         </div>
                     </div>
-                    <div className="timeframe-container" onClick={this.handleMonthClick}>
+                    <div className="timeframe-container" onClick={ this.handleMonthClick }>
                         <div className="timeframe-inactive">
                             <h2>Month</h2>
                         </div>

@@ -38,7 +38,7 @@ const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
             </div>
         </div>
     )
-}
+};
 
 const DeleteModule = ({ username, date, closePopup }) => {
 
@@ -50,13 +50,13 @@ const DeleteModule = ({ username, date, closePopup }) => {
     return (
         <div 
             className="edit-trash"
-            onClick={deleteRatingPopup()}
+            onClick={ deleteRatingPopup() }
         >
             <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
         </div>
     );
    
-}
+};
 
 class EditPopup extends React.Component {
 
