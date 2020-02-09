@@ -62,6 +62,7 @@ class EditPopup extends React.Component {
 
     render() {
         const { moodSelected, date, closePopup } = this.props;
+        console.log(this.props.date);
 
         return (
             <>

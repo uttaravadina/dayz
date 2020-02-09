@@ -4,25 +4,33 @@ import RatePopup from '../RatePopup';
 import EditPopup from '../EditPopup'
 
 class Day extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 
+    // for some reason it doesnt work for prev/next weeks ?
+    componentDidMount = () => {
+        const { titleText, addPosition } = this.props;
+        let position = this.myRef.current.getBoundingClientRect().left;
+        addPosition(titleText, position);
+    }
+    
     render() {
-        const { day, date, isToday, color, titleText, clickFunction, addPosition } = this.props;
+        const { day, date, isToday, color, titleText, clickFunction } = this.props;
         let todayActive = isToday ? "week-today-active" : "week-today-inactive";
         let fullDate = new Date(titleText);
         let today = new Date();
         today.setHours(0);
         let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
+        
 
         return (
             
             <div 
                 className="week-module" 
                 title={ titleText } 
-                ref={ el => {
-                    if (!el) return;
-                    // addPosition(titleText, el.getBoundingClientRect().left);
-                    console.log(el.getBoundingClientRect()); // prints 200px
-                }}
+                ref={this.myRef}
             >
                 <h3>{ day }</h3>
                 <div className={ todayActive }>
@@ -72,12 +80,10 @@ class View extends React.Component {
     };
 
     addPosition = (date, position) => {
-        let positions = {...this.state.positions}
+        let positions = this.state.positions
         positions[date] = position;
         this.setState({positions})
     };
-
-    
 
     /*
     componentWillMount = () => {
@@ -140,7 +146,7 @@ class View extends React.Component {
             }
         }        
 
-        // this.addPosition('hi', 'hi')
+        console.log(this.state.positions);
 
         return (
             <>
@@ -151,6 +157,7 @@ class View extends React.Component {
                     <RatePopup
                         closePopup = { this.closeRatePopup } 
                         date={ this.state.dateSelected}
+                        position={ this.state.positions[this.state.dateSelected] }
                     /> 
                 : null }
                 { (this.state.moodSelected != null) ? 
@@ -158,6 +165,7 @@ class View extends React.Component {
                         closePopup = { this.closeEditPopup }
                         date={ this.state.dateSelected}
                         moodSelected = { this.state.moodSelected }
+                        position={ this.state.positions[this.state.dateSelected] }
                     /> 
                 : null }
             </>
