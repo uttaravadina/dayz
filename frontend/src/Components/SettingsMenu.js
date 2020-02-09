@@ -4,7 +4,7 @@ import { IoIosSettings } from 'react-icons/io';
 import { FaCaretDown } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
 
-const SettingsPopup = ({ }) => {
+const SettingsPopup = () => {
 
     return (
         <div className="settings-popup">
@@ -37,9 +37,7 @@ class SettingsMenu extends React.Component {
                         <IoIosSettings size='25px' />
                         <FaCaretDown size='17px' style={{marginTop: '4px'}} />
                     </div>
-                    { this.state.showSettings ? 
-                    <SettingsPopup /> 
-                : null }
+                    { this.state.showSettings ? <SettingsPopup /> : null }
                 </div>
             </>
         );

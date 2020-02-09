@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/Footer.css';
 import { GoHeart, GoMarkGithub } from 'react-icons/go';
 import { FaCode, FaTwitter } from 'react-icons/fa';
-import { AiFillTwitterCircle } from 'react-icons/ai';
 
 class Footer extends React.Component {
 

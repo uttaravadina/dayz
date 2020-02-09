@@ -3,29 +3,43 @@ import '../../Styles/Week/View.css';
 import RatePopup from '../RatePopup';
 import EditPopup from '../EditPopup'
 
-const Day = ({ day, date, isToday, color, titleText, clickFunction }) => {
-    let todayActive = isToday ? "week-today-active" : "week-today-inactive";
-    let fullDate = new Date(titleText);
-    let today = new Date();
-    today.setHours(0);
-    let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
+class Day extends React.Component {
 
-    return (
-        <div className="week-module" title={ titleText }>
-            <h3>{ day }</h3>
-            <div className={ todayActive }>
-                <h2>{ date }</h2>
+    render() {
+        const { day, date, isToday, color, titleText, clickFunction, addPosition } = this.props;
+        let todayActive = isToday ? "week-today-active" : "week-today-inactive";
+        let fullDate = new Date(titleText);
+        let today = new Date();
+        today.setHours(0);
+        let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
+
+        return (
+            
+            <div 
+                className="week-module" 
+                title={ titleText } 
+                ref={ el => {
+                    if (!el) return;
+                    // addPosition(titleText, el.getBoundingClientRect().left);
+                    console.log(el.getBoundingClientRect()); // prints 200px
+                }}
+            >
+                <h3>{ day }</h3>
+                <div className={ todayActive }>
+                    <h2>{ date }</h2>
+                </div>
+                <div style={{ height: '10px' }}/>
+                <div className="week-colorbox-container">
+                    <div 
+                        className={clickable}
+                        style={{ backgroundColor: color }}
+                        onClick={ clickFunction }
+                    />
+                </div>
             </div>
-            <div style={{ height: '10px' }}/>
-            <div className="week-colorbox-container">
-                <div 
-                    className={clickable}
-                    style={{ backgroundColor: color }}
-                    onClick={ clickFunction }
-                />
-            </div>
-        </div>
-    )
+      
+        );
+    }
 }
     
 class View extends React.Component {
@@ -33,6 +47,7 @@ class View extends React.Component {
     state = {
         dateSelected: null,
         moodSelected: null,
+        positions: {},
     };
 
     showPopup = (date, map) => {
@@ -55,6 +70,14 @@ class View extends React.Component {
             moodSelected: null, 
         });
     };
+
+    addPosition = (date, position) => {
+        let positions = {...this.state.positions}
+        positions[date] = position;
+        this.setState({positions})
+    };
+
+    
 
     /*
     componentWillMount = () => {
@@ -111,10 +134,13 @@ class View extends React.Component {
                         key={ i }
                         titleText = { titleText }
                         clickFunction ={ () => this.showPopup(arg, map) }
+                        addPosition = { this.addPosition }
                     />
                 );
             }
-        }
+        }        
+
+        // this.addPosition('hi', 'hi')
 
         return (
             <>
