@@ -16,7 +16,11 @@
 }
 
 .settings-button:hover svg {
-    transform: scale(1.1);
+    transform: scale(1.15);
+}
+
+.settings-button:hover .settings-button-gear svg {
+    transform: rotate(45deg) scale(1.15);
 }
 
 .settings-popup {

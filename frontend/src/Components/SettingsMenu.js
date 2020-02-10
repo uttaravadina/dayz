@@ -11,6 +11,7 @@ const SettingsPopup = () => {
             <div className="settings-popup-module">
                 <p>Account</p>
             </div>
+            <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
             <div className="settings-popup-module">
                 <p>Logout <FiLogOut style={{ marginLeft: '5px' }} /></p>
             </div>
@@ -34,7 +35,9 @@ class SettingsMenu extends React.Component {
             <>
                 <div className="settings-menu">
                     <div className="settings-button" onClick={this.changeSettings}>
-                        <IoIosSettings size='25px' />
+                        <div className="settings-button-gear">
+                            <IoIosSettings size='25px' />
+                        </div>
                         <FaCaretDown size='17px' style={{marginTop: '4px'}} />
                     </div>
                     { this.state.showSettings ? <SettingsPopup /> : null }

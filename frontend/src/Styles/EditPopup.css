@@ -45,7 +45,7 @@
 }
 
 .edit-notes svg {    
-    transition: transform .15s;
+    transition: transform .15s ;
 }
 
 .edit-notes:hover svg{

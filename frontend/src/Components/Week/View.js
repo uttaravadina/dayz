@@ -24,7 +24,6 @@ class Day extends React.Component {
         today.setHours(0);
         let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
         
-
         return (
             
             <div 
@@ -45,7 +44,6 @@ class Day extends React.Component {
                     />
                 </div>
             </div>
-      
         );
     }
 }
