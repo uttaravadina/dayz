@@ -45,10 +45,10 @@
 }
 
 .edit-notes svg {    
-    transition: transform .15s ;
+    transition: transform .15s;
 }
 
-.edit-notes:hover svg{
+.edit-notes:hover svg {
     transform: scale(1.2);
 }
 
