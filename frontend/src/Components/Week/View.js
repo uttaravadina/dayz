@@ -143,8 +143,6 @@ class View extends React.Component {
             }
         }        
 
-        console.log(this.state.positions);
-
         return (
             <>
                 <div className="week">

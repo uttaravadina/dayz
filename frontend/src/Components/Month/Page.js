@@ -90,7 +90,7 @@ class Month extends React.Component {
             lastDay,
             title
         });
-    }
+    };
 
     render() {
         let firstDay = new Date(this.state.year, this.state.month, 1);

@@ -1,9 +1,10 @@
 import React from 'react';
-import ArrowBar from './ArrowBar';
+import ArrowBar from '../../Components/ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
 import '../../Styles/Week/Page.css';
 import { getDays } from '../../Axios/axios_getter';
+import { MONTH_LIST } from '../../constants';
 
 async function getData(username, start, end) {
     start = start.toISOString().substr(0,10);
@@ -71,6 +72,26 @@ class Week extends React.Component {
         dates: [],
         weekRange: [],
         data: null,
+        title: null,
+    };
+
+    createTitle = (firstDay, lastDay) => {
+        let title;
+
+        if (firstDay.getMonth() !== lastDay.getMonth()) {
+            let firstMonth = MONTH_LIST[firstDay.getMonth()].slice(0, 3)
+            let lastMonth = MONTH_LIST[lastDay.getMonth()].slice(0, 3)
+            if (firstDay.getFullYear() !== lastDay.getFullYear()) {
+                title = firstMonth + " " + firstDay.getFullYear() 
+                    + " - "+ lastMonth + " " + lastDay.getFullYear();
+            } else {
+                title = firstMonth + " - " + lastMonth + " " + firstDay.getFullYear();
+            }
+        } else {
+            title = MONTH_LIST[firstDay.getMonth()] + " " + firstDay.getFullYear();
+        }
+
+        return title;
     };
 
     componentDidMount = () => {
@@ -79,6 +100,7 @@ class Week extends React.Component {
         let currWeek = weekRange(today);
         let dates = getDates(currWeek);
         let map;
+        let title = this.createTitle(dates[0], dates[6])
         getData("karenying", currWeek[0], currWeek[1])
             .then(output => {
                 map = dataToMap(output);
@@ -86,38 +108,20 @@ class Week extends React.Component {
                     dates, 
                     weekRange: currWeek,
                     data: map,
+                    title,
                 }); 
             }
         );
     };
-    
-    setNext = () => {
-        let currWeek = this.state.weekRange;
-        let nextWeek = getNext(currWeek);
-        let dates = getDates(nextWeek);
-        let map;
-        let today = new Date();
-        if (nextWeek[0] <= today) {
-            getData("karenying", nextWeek[0], nextWeek[1])
-            .then(output => {
-                map = dataToMap(output);
-                this.setState({ 
-                    data: map,
-                }); 
-            });
-        } 
-        
-        this.setState({ dates });
-    };
 
-    setPrev = () => {
+    changeWeek = (direction) => {
         let currWeek = this.state.weekRange;
-        let prevWeek = getPrev(currWeek);
-        let dates = getDates(prevWeek);
+        let week = (direction === -1) ? getPrev(currWeek) : getNext(currWeek);
+        let dates = getDates(week);
         let map;
         let today = new Date();
-        if (prevWeek[0] <= today) {
-            getData("karenying", prevWeek[0], prevWeek[1])
+        if (week[0] <= today) {
+            getData("karenying", week[0], week[1])
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
@@ -125,8 +129,8 @@ class Week extends React.Component {
                 }); 
             });
         } 
-        
-        this.setState({ dates });
+        let title = this.createTitle(dates[0], dates[6])
+        this.setState({ dates, title });
     };
 
     render() {
@@ -138,9 +142,9 @@ class Week extends React.Component {
                     <div style={{ height: '5px' }} />
                     <hr />
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
-                        dates = { this.state.dates }
+                        handleLeftClick = { this.changeWeek.bind(this, -1) } 
+                        handleRightClick = { this.changeWeek.bind(this, +1)  }
+                        title = { this.state.title }
                     />
                     <View
                         dates = { this.state.dates }
