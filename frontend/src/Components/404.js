@@ -8,7 +8,7 @@ class Error extends React.Component {
         return (
             <>
                 <div>
-                    <TimeframeBar />
+                    <TimeframeBar/>
                     <div style={{ height: '5px' }}/>
                     <hr/>
                     <div style={{ height: '50px' }}/>

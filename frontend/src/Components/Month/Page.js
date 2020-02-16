@@ -1,7 +1,7 @@
 import React from 'react';
 import ArrowBar from './ArrowBar';
 import View from './View';
-import TimeframeBar from './TimeframeBar';
+import TimeframeBar from '../../Components/TimeframeBar';
 import '../../Styles/Month/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 
@@ -126,7 +126,7 @@ class Month extends React.Component {
         return (
             <>
                 <div>
-                    <TimeframeBar />
+                    <TimeframeBar timeframe="month"/>
                     <div style={{ height: '5px' }} />
                     <hr />
                     <ArrowBar

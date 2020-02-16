@@ -49,3 +49,16 @@
     margin: 0;
     padding: 0;
 }
+
+.timeframe-link {
+    color: black;
+}
+
+.timeframe-link:hover {
+    color: black;
+}
+
+.timeframe-no-link {
+    pointer-events: none;
+    color: white;
+}
