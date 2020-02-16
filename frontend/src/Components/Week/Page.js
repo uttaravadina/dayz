@@ -143,7 +143,7 @@ class Week extends React.Component {
                     <hr />
                     <ArrowBar
                         handleLeftClick = { this.changeWeek.bind(this, -1) } 
-                        handleRightClick = { this.changeWeek.bind(this, +1)  }
+                        handleRightClick = { this.changeWeek.bind(this, +1) }
                         title = { this.state.title }
                     />
                     <View

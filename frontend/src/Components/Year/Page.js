@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowBar from './ArrowBar';
+import ArrowBar from '../../Components/ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
 import '../../Styles/Year/Page.css';
@@ -47,26 +47,8 @@ class Year extends React.Component {
         );
     };
 
-    setNext = () => {
-        let year = this.state.year + 1;
-        let map;
-        let firstDay = new Date(year, 0, 1);
-        let lastDay = new Date(year + 1, 0, 0);
-        let today = new Date();
-
-        if (firstDay <= today) {
-            getData("karenying", firstDay, lastDay)
-            .then(output => {
-                map = dataToMap(output);
-                this.setState({ data: map }); 
-            });
-        } 
-
-        this.setState({ year })
-    };
-
-    setPrev = () => {
-        let year = this.state.year - 1;
+    changeYear = (direction) => {
+        let year = this.state.year + direction;
         let map;
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
@@ -92,9 +74,9 @@ class Year extends React.Component {
                     <div style={{ height: '5px' }} />
                     <hr />
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
-                        year = { this.state.year }
+                        handleLeftClick = { this.changeYear.bind(this, -1) } 
+                        handleRightClick = { this.changeYear.bind(this, +1)  }
+                        title = { this.state.year }
                     />
                     <View
                         year = { this.state.year }

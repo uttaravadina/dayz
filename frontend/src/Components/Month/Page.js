@@ -104,7 +104,7 @@ class Month extends React.Component {
                     <hr />
                     <ArrowBar
                         handleLeftClick = { this.changeMonth.bind(this, -1) } 
-                        handleRightClick = { this.changeMonth.bind(this, +1)  }
+                        handleRightClick = { this.changeMonth.bind(this, +1) }
                         title = { this.state.title }
                     />
                     <View

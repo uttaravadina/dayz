@@ -67,7 +67,7 @@ class Day extends React.Component {
                     <hr />
                     <ArrowBar
                         handleLeftClick = { this.changeDay.bind(this, -1) } 
-                        handleRightClick = { this.changeDay.bind(this, +1)  }
+                        handleRightClick = { this.changeDay.bind(this, +1) }
                         title = { this.state.title } 
                     />
                     <View

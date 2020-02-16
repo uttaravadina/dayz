@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/Week/View.css';
 import RatePopup from '../RatePopup';
-import EditPopup from '../EditPopup'
+import EditPopup from '../EditPopup';
 
 class Day extends React.Component {
     constructor(props) {
