@@ -1,9 +1,10 @@
 import React from 'react';
-import ArrowBar from './ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
+import ArrowBar from '../../Components/ArrowBar';
 import '../../Styles/Day/Page.css';
 import { getDays } from '../../Axios/axios_getter';
+import { MONTH_LIST } from '../../constants';
 
 async function getData(username, date) {
     date = date.toISOString().substr(0,10);
@@ -15,51 +16,45 @@ class Day extends React.Component {
     state = {
         day: null,
         data: null,
+        title: null,
     };
-
+    
     componentDidMount = () => {
         let today = new Date();
         today.setHours(0);
+        let title = this.createTitle(today);
         getData("karenying", today)
             .then(output => {
                 this.setState({ 
                     day: today,
-                    data: output[0] 
+                    data: output[0],
+                    title, 
                 });
             });
     };
 
-    setNext = () => {
-        let currDay = this.state.day;
-        let tmr = new Date(currDay.setDate(currDay.getDate() + 1));
-        let today = new Date();
-        today.setHours(0);
-        if (tmr <= today) {
-            getData("karenying", tmr)
-            .then(output => {
-                this.setState({ 
-                    day: tmr,
-                    data: output[0] 
-                });
-            });
-        }
-        this.setState({ day: tmr });
-    };
+    createTitle = (day) => {
+        let month = MONTH_LIST[day.getMonth()];
+        let year = day.getFullYear();
+        return month + ' ' + year;
+    }
 
-    setPrev = () => {
+    changeDay = (direction) => {
         let currDay = this.state.day;
-        let yest = new Date(currDay.setDate(currDay.getDate() - 1));
+        let day = new Date(currDay.setDate(currDay.getDate() + direction));
         let today = new Date();
         today.setHours(0);
-        if (yest <= today) {
-            getData("karenying", yest)
+        if (day <= today) {
+            getData("karenying", day)
             .then(output => {
                 this.setState({ 
                     data: output[0] 
                 });
             });
         }
-        this.setState({ day: yest });
+
+        let title = this.createTitle(day);
+        this.setState({ day, title });
     };
 
     render() {
@@ -71,9 +66,9 @@ class Day extends React.Component {
                     <div style={{ height: '5px' }} />
                     <hr />
                     <ArrowBar
-                        handleLeftClick = { this.setPrev } 
-                        handleRightClick = { this.setNext }
-                        day = { this.state.day } 
+                        handleLeftClick = { this.changeDay.bind(this, -1) } 
+                        handleRightClick = { this.changeDay.bind(this, +1)  }
+                        title = { this.state.title } 
                     />
                     <View
                         day = { this.state.day }
