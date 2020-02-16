@@ -12,6 +12,7 @@ import Error from './Components/404';
 import Footer from './Components/Footer';
 import SettingsMenu from './Components/SettingsMenu';
 import Signup from './Components/Signup';
+import Signin from './Components/Signin';
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
 					<div className="App">
 						<Switch>
 							<Route path='/signup' component={Signup} />
+							<Route path='/signin' component={Signin} />
 							<Route path='/' render={ () => (
 								<div className="content">
 									<div className="left-side">
