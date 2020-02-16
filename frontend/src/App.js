@@ -11,6 +11,7 @@ import Year from './Components/Year/Page';
 import Error from './Components/404';
 import Footer from './Components/Footer';
 import SettingsMenu from './Components/SettingsMenu';
+import Signup from './Components/Signup';
 
 class App extends React.Component {
 
@@ -20,28 +21,31 @@ class App extends React.Component {
 			<>
 				<Router>
 					<div className="App">
-						<div className="content">
-							<div className="left-side">
-								<Header />
-								<div style={{ height: '10px' }} />
-								<Switch>
-									<Route path='/day' render={ () => (<Day />) } />
-									<Route exact={ true } path='/' render={ () => (<Week />) } />
-									<Route path='/week' render={ () => (<Week />) } />
-									<Route path='/month' render={ () => (<Month />) } />
-									<Route path='/year' render={ () => (<Year />) } />
-									<Route path="*" render={ () => (<Error />) } />
-								</Switch>
-							</div>
-							<div className="divider" />
-							<div className="right-side">
-								<Legend />
-								<SettingsMenu />
-							</div>
-						</div>
-						<div>
-							<Footer />
-						</div>
+						<Switch>
+							<Route path='/signup' component={Signup} />
+							<Route path='/' render={ () => (
+								<div className="content">
+									<div className="left-side">
+										<Header />
+										<div style={{ height: '10px' }} />
+										<Switch>
+											<Route path='/day' component={Day} />
+											<Route exact={ true } path='/' component={Week} />
+											<Route path='/week' component={Week} />
+											<Route path='/month' component={Month} />
+											<Route path='/year' component={Year} />
+											<Route path="*" component={Error} />
+										</Switch>
+									</div>
+									<div className="divider" />
+									<div className="right-side">
+										<Legend />
+										<SettingsMenu />
+									</div>
+								</div>
+							) } />
+						</Switch>
+						<Footer />
 					</div>
 				</Router>
 			</>
