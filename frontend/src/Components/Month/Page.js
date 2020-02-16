@@ -1,9 +1,10 @@
 import React from 'react';
-import ArrowBar from './ArrowBar';
+import ArrowBar from '../../Components/ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
 import '../../Styles/Month/Page.css';
 import { getDays } from '../../Axios/axios_getter';
+import { MONTH_LIST } from '../../constants';
 
 async function getData(username, start, end) {
     start = start.toISOString().substr(0,10);
@@ -31,6 +32,7 @@ class Month extends React.Component {
         firstDay: null,
         lastDay: null,
         data: null,
+        title : null,
     };
 
     componentDidMount = () => {
@@ -40,6 +42,7 @@ class Month extends React.Component {
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
         let map;
+        let title = MONTH_LIST[month] + " " + year;
         getData("karenying", firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
@@ -49,55 +52,24 @@ class Month extends React.Component {
                     firstDay,
                     lastDay,
                     data: map,
+                    title,
                 }); 
             }
         );
     };
 
-    setNext = () => {
-        let month, year;
-        if (this.state.month === 11) {
+    changeMonth = (direction) => {
+        let month = this.state.month + direction, year = this.state.year;
+        if (month === 12) {
             month = 0;
-            year = this.state.year + 1;
-            
-        } else {
-            month = this.state.month + 1;
-            year = this.state.year;
+            year += 1;
         }
-        
-        let firstDay = new Date(year, month, 1);
-        let lastDay = new Date(year, month + 1, 0);
-        let map;
-        let today = new Date();
-
-        if (firstDay <= today) {
-            getData("karenying", firstDay, lastDay)
-            .then(output => {
-                map = dataToMap(output);
-                this.setState({ data: map }); 
-            });
-        } 
-    
-        this.setState({ 
-            month,
-            year,
-            firstDay,
-            lastDay,
-        });
-    };
-
-    setPrev = () => {
-        let month, year;
-
-        if (this.state.month === 0) {
+        if (month === -1) {
             month = 11;
-            year = this.state.year - 1;
-        } else {
-            month = this.state.month - 1;
-            year = this.state.year;
-
+            year -= 1;
         }
 
+        let title = MONTH_LIST[month] + " " + year;
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
         let map;
@@ -116,8 +88,9 @@ class Month extends React.Component {
             year,
             firstDay,
             lastDay,
+            title
         });
-    };
+    }
 
     render() {
         let firstDay = new Date(this.state.year, this.state.month, 1);
@@ -130,10 +103,9 @@ class Month extends React.Component {
                     <div style={{ height: '5px' }} />
                     <hr />
                     <ArrowBar
-                        handleLeftClick = { this.setPrev }
-                        handleRightClick = { this.setNext }
-                        year = { this.state.year }
-                        month = { this.state.month }
+                        handleLeftClick = { this.changeMonth.bind(this, -1) } 
+                        handleRightClick = { this.changeMonth.bind(this, +1)  }
+                        title = { this.state.title }
                     />
                     <View
                         numFill = { firstDay.getDay() }
