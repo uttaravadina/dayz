@@ -1,11 +1,12 @@
 import React from 'react';
 import '../Styles/Signup.css';
 import { postUser } from '../Axios/axios_getter';
+import { Redirect } from 'react-router-dom'
 
 class Signup extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { nickname: '', username: '' };
+        this.state = { nickname: '', username: '', signedUp: false };
 
         this.handleNicknameChange = this.handleNicknameChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -23,11 +24,15 @@ class Signup extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         await postUser(this.state.nickname, this.state.username)
-        .then(() => alert("User created"))
+        .then(() => this.setState(() => ({ signedUp: true })))
         .catch((e) => alert(e))
     }
 
     render() {
+        if (this.state.signedUp === true) {
+            alert("User created");
+            return <Redirect to='/signin' />
+        }
 
         return (
             <div className="signup-container">

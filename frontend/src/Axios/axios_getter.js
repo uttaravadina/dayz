@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 export const getDays = (username, start, end) => {
     let url =`http://localhost:4000/day?username=${encodeURIComponent(username)}&start=${encodeURIComponent(start)}`;
     if (end) {
@@ -57,3 +59,16 @@ export const postUser = (nickname, username) => {
             }
         })
 };
+
+export const postLogin = (username) => {
+    return axios.post('http://localhost:4000/user/signin', { username })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                throw error.response.data.message;
+            }
+        })
+};
+

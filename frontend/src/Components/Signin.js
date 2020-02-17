@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Signin.css';
+import { postLogin } from '../Axios/axios_getter';
 
 class Signin extends React.Component {
     constructor(props) {
@@ -16,6 +17,8 @@ class Signin extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+        await postLogin(this.state.username)
+        .catch((e) => alert(e))
     }
 
     render() {
@@ -29,7 +32,7 @@ class Signin extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div style={{ textAlign: 'center' }}>
                             <input type="text" value={this.state.username} onChange={this.handleUsernameChange} placeholder="Username"/><br/>
-                            <input type="submit" value="Sign In" />
+                            <input type="submit" value="Enter" />
                         </div>
                     </form>
                 </div>
