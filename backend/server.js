@@ -51,4 +51,4 @@ app.use('/user', userRoute);
 const dayRoute = require('./routes/Day');
 app.use('/day', dayRoute);
 
-app.listen(4000, () => console.log('server started'));
+app.listen(process.env.PORT || 4000, () => console.log('server started'));
