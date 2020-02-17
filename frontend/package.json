@@ -16,6 +16,7 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
+    "push-heroku": "cd ../ && git subtree push --prefix frontend/ heroku-frontend master",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
