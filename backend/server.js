@@ -13,7 +13,7 @@ db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('connected to database'));
 
 app.use(express.json());
-app.use(cors({ origin: process.env.NODE_ENV === 'production' ? 'https://dayz-app.herokuapp.com' : 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: process.env.NODE_ENV === 'production' ? 'http://dayz-app.herokuapp.com' : 'http://localhost:3000', credentials: true }));
 app.use(cookieParser());
 
 const publicRoute = require('./routes/Public')
