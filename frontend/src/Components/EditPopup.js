@@ -6,23 +6,17 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { GoPencil } from 'react-icons/go';
 // import { deleteRating } from '../Axios/axios_getter';
 import { editRating } from '../Axios/axios_getter';
+import { MOOD_TO_NUM } from '../constants';
 
 const EditModule = ({ color, mood, date, close, moodSelected, updateMap }) => {
-    let moodToNum = {
-        "Great": 4, 
-        "Good": 3, 
-        "Normal": 2,
-        "Off": 1,
-        "Bad": 0,
-    }
 
     async function editDay(e) {
-        updateMap(date, moodToNum[mood]);
-        await editRating(date, moodToNum[mood]);
+        updateMap(date, MOOD_TO_NUM[mood]);
+        await editRating(date, MOOD_TO_NUM[mood]);
         close(); 
     }
 
-    let isSelected = moodSelected === moodToNum[mood];
+    let isSelected = moodSelected === MOOD_TO_NUM[mood];
     
     return (
         <div 

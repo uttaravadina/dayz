@@ -2,19 +2,13 @@ import React from 'react';
 import '../../Styles/Week/View.css';
 import RatePopup from '../RatePopup';
 import EditPopup from '../EditPopup';
+import { MOOD_TO_HEX, WEEKDAYS, DEFAULT_GRAY } from '../../constants';
 
 class Day extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    // for some reason it doesnt work for prev/next weeks ?
-    componentDidMount = () => {
-        const { titleText, addPosition } = this.props;
-        let position = this.myRef.current.getBoundingClientRect().left;
-        addPosition(titleText, position);
-    }
-    
     render() {
         const { day, date, isToday, color, titleText, clickFunction } = this.props;
         let todayActive = isToday ? "week-today-active" : "week-today-inactive";
@@ -24,7 +18,6 @@ class Day extends React.Component {
         let clickable = fullDate <= today ? "week-colorbox-clickable" : "week-colorbox-not-clickable";
         
         return (
-            
             <div 
                 className="week-module" 
                 title={ titleText } 
@@ -74,54 +67,27 @@ class View extends React.Component {
         });
     };
 
-    /*
-    componentWillMount = () => {
-        document.addEventListener('mousedown', this.handleClickOutside, false);
-    }
-
-    componentWillUnmount = () => {
-        document.removeEventListener('mousedown', this.handleClickOutside, false);
-    } */
-
     render() {
         const { dates, map } = this.props;
         
         let week = [];
-        let days = [
-            "SUN",
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI",
-            "SAT"
-        ];
         
         if (dates.length) {
             for (let i = 0; i < 7; i++) {
-                const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
                 let today = new Date();
                 let isToday = (dates[i].setHours(0,0,0,0) === today.setHours(0,0,0,0));
                 let titleText = dates[i].toISOString().substr(0,10);
-                let color;
                 let fullDate = new Date(titleText);
                 let arg = fullDate <= today ? titleText : null;
 
-                if (map) {
-                    if (titleText in map) {
-                        color = moodToColor[map[titleText]];
-                    }
-                    else {
-                        color = "#D9D9D9";
-                    }
-                }
-                else {
-                    color = "#D9D9D9";
+                let color = DEFAULT_GRAY;
+                if (map && titleText in map) {
+                    color = MOOD_TO_HEX[map[titleText]];
                 }
 
                 week.push(
                     <Day 
-                        day={ days[i] }
+                        day={ WEEKDAYS[i] }
                         isToday={ isToday }
                         date={ dates[i].getDate() }
                         color={ color }

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../Styles/Year/View.css';
+import { MOOD_TO_HEX, DEFAULT_GRAY, MONTH_LIST } from '../../constants';
 
 const Day = ({ color, isToday, titleText }) => {
     let yearToday = isToday ? "year-today" : "year-notToday";
@@ -63,28 +64,17 @@ class View extends React.Component {
         let weeksOfMonths = Jan1st.getDay() === 0 ? [] : [0];
 
         while (currDay.getFullYear() === year) {
-            let titleText = currDay.toISOString().substr(0,10);
-            
-            let today = new Date();
+            let titleText = currDay.toISOString().substr(0,10), today = new Date();
             let isToday = (currDay.setHours(0,0,0,0) === today.setHours(0,0,0,0));
 
             if (currDay.getDay() === 0 & currDay !== Jan1st) {
                 weeksOfMonths.push(currDay.getMonth());
             }
 
-            const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
-            let color;
-            if (map) {
-                if (titleText in map) {
-                    color = moodToColor[map[titleText]];
+            let color = DEFAULT_GRAY;
+                if (map && titleText in map) {
+                    color = MOOD_TO_HEX[map[titleText]];
                 }
-                else {
-                    color = "#D9D9D9";
-                }
-            }
-            else {
-                color = "#D9D9D9";
-            }
 
             yearList.push(
                 <Day
@@ -105,21 +95,6 @@ class View extends React.Component {
             let num = weeksOfMonths[i];
             monthCounts[num] = monthCounts[num] ? monthCounts[num] + 1 : 1;
         }
-
-        let monthList = [ 
-            "JAN", 
-            "FEB", 
-            "MAR", 
-            "APR", 
-            "MAY", 
-            "JUN", 
-            "JUL", 
-            "AUG", 
-            "SEP", 
-            "OCT", 
-            "NOV", 
-            "DEC" 
-        ];
         let monthHeader = [];
 
         for (let i = 0; i < 12; i++) {
@@ -128,7 +103,7 @@ class View extends React.Component {
                     className="year-month-header-month"
                     key={ 400 + i } 
                 >
-                    <h3 style={{paddingRight: '2px'}}>{ monthList[i] }</h3>
+                    <h3 style={{paddingRight: '2px'}}>{ MONTH_LIST[i].substring(0, 3).toUpperCase() }</h3>
                 </div>
             );
 

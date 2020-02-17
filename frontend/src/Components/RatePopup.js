@@ -3,19 +3,13 @@ import '../Styles/RatePopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { IoIosAdd } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter';
+import { MOOD_TO_NUM } from '../constants';
 
 const RateModule = ({ color, mood, date, close, updateMap}) => {
-    let moodToNum = {
-        "Great": 4, 
-        "Good": 3, 
-        "Normal": 2,
-        "Off": 1,
-        "Bad": 0,
-    }
 
     async function submitDay(e) {
-        updateMap(date, moodToNum[mood]);
-        await postDay(date, moodToNum[mood], [], []);
+        updateMap(date, MOOD_TO_NUM[mood]);
+        await postDay(date, MOOD_TO_NUM[mood], [], []);
         close();
     }
     

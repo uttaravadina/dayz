@@ -1,34 +1,25 @@
 import React from 'react';
 import '../../Styles/Day/View.css';
+import { MOOD_TO_HEX, WEEKDAYS, DEFAULT_GRAY } from '../../constants';
 
 class View extends React.Component {
     
     render() {
         let { day, data } = this.props;
-        let days = [
-            "SUN",
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI",
-            "SAT"
-        ];
         let dayOfWeek, date, isToday, todayActive, titleText, color; 
-        const moodToColor = ["#FF5757", "#FF66C5", "#CB6BE7", "#8C52FF", "#5171FF"];
 
         if (day) {
-            dayOfWeek = days[day.getDay()];
+            dayOfWeek = WEEKDAYS[day.getDay()];
             date = day.getDate();
             let today = new Date();
             isToday = (day.setHours(0,0,0,0) === today.setHours(0,0,0,0));
             todayActive = isToday ? "day-today-active" : "day-today-inactive";
             titleText = day.toISOString().substr(0,10);
             if (data) {
-                color = moodToColor[data.mood];
+                color = MOOD_TO_HEX[data.mood];
             }
             else {
-                color = "#D9D9D9";
+                color = DEFAULT_GRAY;
             }
         }
 

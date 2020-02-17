@@ -37,7 +37,7 @@ class Day extends React.Component {
         let month = MONTH_LIST[day.getMonth()];
         let year = day.getFullYear();
         return month + ' ' + year;
-    }
+    };
 
     changeDay = (direction) => {
         let currDay = this.state.day;
