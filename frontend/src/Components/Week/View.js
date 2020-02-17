@@ -153,6 +153,7 @@ class View extends React.Component {
                         closePopup = { this.closeRatePopup } 
                         date={ this.state.dateSelected}
                         position={ this.state.positions[this.state.dateSelected] }
+                        updateMap={this.props.updateMap}
                     /> 
                 : null }
                 { (this.state.moodSelected != null) ? 
@@ -161,6 +162,7 @@ class View extends React.Component {
                         date={ this.state.dateSelected}
                         moodSelected = { this.state.moodSelected }
                         position={ this.state.positions[this.state.dateSelected] }
+                        updateMap={this.props.updateMap}
                     /> 
                 : null }
             </>

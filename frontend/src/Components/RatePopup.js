@@ -4,7 +4,7 @@ import { IoIosClose } from 'react-icons/io';
 import { IoIosAdd } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter';
 
-const RateModule = ({ color, mood, date, close}) => {
+const RateModule = ({ color, mood, date, close, updateMap}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -14,6 +14,7 @@ const RateModule = ({ color, mood, date, close}) => {
     }
 
     async function submitDay(e) {
+        updateMap(date, moodToNum[mood]);
         await postDay(date, moodToNum[mood], [], []);
         close();
     }
@@ -35,7 +36,7 @@ const RateModule = ({ color, mood, date, close}) => {
 class RatePopup extends React.Component {
 
     render() {
-        const { date, closePopup } = this.props;
+        const { date, closePopup, updateMap } = this.props;
 
         return (
             <>
@@ -65,11 +66,11 @@ class RatePopup extends React.Component {
                         </div>
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }}/>
                         */}
-                        <RateModule color="#5171FF" mood="Great" date={ date } close={ closePopup } />
-                        <RateModule color="#8C52FF" mood="Good" date={ date } close={ closePopup } />
-                        <RateModule color="#CB6BE7" mood="Normal" date={ date } close={ closePopup } />
-                        <RateModule color="#FF66C5" mood="Off" date={ date } close={ closePopup } />
-                        <RateModule color="#FF5757" mood="Bad" date={ date } close={ closePopup } />
+                        <RateModule color="#5171FF" mood="Great" date={ date } close={ closePopup } updateMap={updateMap} />
+                        <RateModule color="#8C52FF" mood="Good" date={ date } close={ closePopup } updateMap={updateMap} />
+                        <RateModule color="#CB6BE7" mood="Normal" date={ date } close={ closePopup } updateMap={updateMap} />
+                        <RateModule color="#FF66C5" mood="Off" date={ date } close={ closePopup } updateMap={updateMap} />
+                        <RateModule color="#FF5757" mood="Bad" date={ date } close={ closePopup } updateMap={updateMap} />
                         <hr style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '20px' }} />
                         <div className="rate-notes">
                             <p><IoIosAdd size='25px' style={{ marginBottom: '4px' }}/>ADD NOTES</p>

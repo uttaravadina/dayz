@@ -133,6 +133,15 @@ class Week extends React.Component {
         this.setState({ dates, title });
     };
 
+    updateMap = (date, mood) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                [date]: mood,
+            },
+        });
+    };
+
     render() {
 
         return (
@@ -149,6 +158,7 @@ class Week extends React.Component {
                     <View
                         dates = { this.state.dates }
                         map = { this.state.data }
+                        updateMap={this.updateMap}
                     />
                 </div>
             </>

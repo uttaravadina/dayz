@@ -67,6 +67,7 @@ router.put('/', async (req, res) => {
                 }
             }
         );
+        res.status(200).end();
     } catch (err) {
         res.status(500).json({ message: err.message })
     }

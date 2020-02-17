@@ -7,7 +7,7 @@ import { GoPencil } from 'react-icons/go';
 // import { deleteRating } from '../Axios/axios_getter';
 import { editRating } from '../Axios/axios_getter';
 
-const EditModule = ({ color, mood, date, close, moodSelected}) => {
+const EditModule = ({ color, mood, date, close, moodSelected, updateMap }) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -17,8 +17,9 @@ const EditModule = ({ color, mood, date, close, moodSelected}) => {
     }
 
     async function editDay(e) {
+        updateMap(date, moodToNum[mood]);
         await editRating(date, moodToNum[mood]);
-        close(); // why doesn't it close automatically :(((
+        close(); 
     }
 
     let isSelected = moodSelected === moodToNum[mood];
@@ -62,7 +63,7 @@ const DeleteModule = ({ username, date, closePopup }) => {
 class EditPopup extends React.Component {
 
     render() {
-        const { moodSelected, date, closePopup } = this.props;
+        const { moodSelected, date, closePopup, updateMap } = this.props;
         console.log(this.props.date);
 
         return (
@@ -99,6 +100,7 @@ class EditPopup extends React.Component {
                             date={ date } 
                             close={ closePopup }
                             moodSelected={ moodSelected }
+                            updateMap={updateMap}
                         />
                         <EditModule 
                             color="#8C52FF" 
@@ -106,6 +108,7 @@ class EditPopup extends React.Component {
                             date={ date } 
                             close={ closePopup }
                             moodSelected={ moodSelected }
+                            updateMap={updateMap}
                         />
                         <EditModule 
                             color="#CB6BE7" 
@@ -113,6 +116,7 @@ class EditPopup extends React.Component {
                             date={ date } 
                             close={ closePopup }
                             moodSelected={ moodSelected }
+                            updateMap={updateMap}
                         />
                         <EditModule 
                             color="#FF66C5" 
@@ -120,6 +124,7 @@ class EditPopup extends React.Component {
                             date={ date } 
                             close={ closePopup }
                             moodSelected={ moodSelected }
+                            updateMap={updateMap}
                         />
                         <EditModule 
                             color="#FF5757" 
@@ -127,6 +132,7 @@ class EditPopup extends React.Component {
                             date={ date } 
                             close={ closePopup }
                             moodSelected={ moodSelected }
+                            updateMap={updateMap}
                         />
                         <hr style={{ marginTop: '5px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
                         <div className="edit-notes">
