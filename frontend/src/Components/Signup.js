@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Styles/Signup.css';
 import { postUser } from '../Axios/axios_getter';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Signup extends React.Component {
     constructor(props) {
@@ -48,6 +49,9 @@ class Signup extends React.Component {
                             <input type="submit" value="Submit" />
                         </div>
                     </form>
+                    <div>
+                        <p>Already have an account?<br/>Sign in <Link to="/signin">here</Link>.</p>
+                    </div>
                 </div>
             </div>
         );

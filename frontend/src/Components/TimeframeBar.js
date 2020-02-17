@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/TimeframeBar.css';
 import { Link } from 'react-router-dom';
 
- 
 class TimeframeBar extends React.Component {
 
     state = {

@@ -46,7 +46,7 @@ export const editRating = (username, date, newMood) => {
 };
 
 export const postUser = (nickname, username) => {
-    return axios.post('http://localhost:4000/user', {
+    return axios.post('http://localhost:4000/signup', {
         nickname,
         username,
     })
@@ -61,7 +61,7 @@ export const postUser = (nickname, username) => {
 };
 
 export const postLogin = (username) => {
-    return axios.post('http://localhost:4000/user/signin', { username })
+    return axios.post('http://localhost:4000/signin', { username })
         .then(function (response) {
             console.log(response);
         })
@@ -71,4 +71,20 @@ export const postLogin = (username) => {
             }
         })
 };
+
+export const getNickname = (username) => {
+    let url =`http://localhost:4000/user?username=${encodeURIComponent(username)}`;
+    return axios.get(url)
+        .then(res => {
+            return res.data;
+        });
+};   
+
+export const authenticate = () => {
+    let url =`http://localhost:4000/isAuthenticated`;
+    return axios.get(url)
+        .then(res => {
+            return res.data;
+        });
+};   
 

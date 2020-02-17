@@ -13,6 +13,22 @@ import Footer from './Components/Footer';
 import SettingsMenu from './Components/SettingsMenu';
 import Signup from './Components/Signup';
 import Signin from './Components/Signin';
+import { authenticate } from './Axios/axios_getter';
+
+class RedirectIfNoAuth extends React.Component {
+
+	componentDidMount() {
+		authenticate().then(status => {
+			if (!status) {
+				window.location = '/signin';
+			}
+		}); 
+	}
+
+	render() {
+		return null;
+	}
+} 
 
 class App extends React.Component {
 
@@ -27,6 +43,7 @@ class App extends React.Component {
 							<Route path='/signin' component={Signin} />
 							<Route path='/' render={ () => (
 								<div className="content">
+									<RedirectIfNoAuth />
 									<div className="left-side">
 										<Header />
 										<div style={{ height: '10px' }} />

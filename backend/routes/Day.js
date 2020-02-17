@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
             );
         }
         console.log(data);
-        console.log(req.cookies);
         res.json(data);
 
     } catch (err) {

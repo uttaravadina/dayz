@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/Signin.css';
 import { postLogin } from '../Axios/axios_getter';
+import { Link } from 'react-router-dom';
 
 class Signin extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class Signin extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         await postLogin(this.state.username)
+        .then(() => {window.location = '/'})
         .catch((e) => alert(e))
     }
 
@@ -35,6 +37,9 @@ class Signin extends React.Component {
                             <input type="submit" value="Enter" />
                         </div>
                     </form>
+                    <div>
+                        <p>Don't have an account?<br/>Sign up <Link to="/signup">here</Link>.</p>
+                    </div>
                 </div>
             </div>
         );
