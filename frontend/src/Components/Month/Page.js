@@ -6,10 +6,10 @@ import '../../Styles/Month/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 import { MONTH_LIST } from '../../constants';
 
-async function getData(username, start, end) {
+async function getData(start, end) {
     start = start.toISOString().substr(0,10);
     end = end.toISOString().substr(0,10);
-    return getDays("karenying", start, end);
+    return getDays(start, end);
 }
 
 function dataToMap(data) {
@@ -43,7 +43,7 @@ class Month extends React.Component {
         let lastDay = new Date(year, month + 1, 0);
         let map;
         let title = MONTH_LIST[month] + " " + year;
-        getData("karenying", firstDay, lastDay)
+        getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
@@ -76,7 +76,7 @@ class Month extends React.Component {
 
         let today = new Date();
         if (firstDay <= today) {
-            getData("karenying", firstDay, lastDay)
+            getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ data: map }); 

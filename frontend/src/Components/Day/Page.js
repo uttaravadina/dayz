@@ -6,9 +6,9 @@ import '../../Styles/Day/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 import { MONTH_LIST } from '../../constants';
 
-async function getData(username, date) {
+async function getData(date) {
     date = date.toISOString().substr(0,10);
-    return getDays("karenying", date);
+    return getDays(date);
 }
 
 class Day extends React.Component {
@@ -23,7 +23,7 @@ class Day extends React.Component {
         let today = new Date();
         today.setHours(0);
         let title = this.createTitle(today);
-        getData("karenying", today)
+        getData(today)
             .then(output => {
                 this.setState({ 
                     day: today,
@@ -45,7 +45,7 @@ class Day extends React.Component {
         let today = new Date();
         today.setHours(0);
         if (day <= today) {
-            getData("karenying", day)
+            getData(day)
             .then(output => {
                 this.setState({ 
                     data: output[0] 

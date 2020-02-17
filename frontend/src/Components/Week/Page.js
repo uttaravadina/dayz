@@ -6,12 +6,12 @@ import '../../Styles/Week/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 import { MONTH_LIST } from '../../constants';
 
-async function getData(username, start, end) {
+async function getData(start, end) {
     start = start.toISOString().substr(0,10);
     end = end.toISOString().substr(0,10);
     // start and end are in greenwich time
   
-    return getDays("karenying", start, end);
+    return getDays(start, end);
 }
 
 // start and end are the start and end of week given a date
@@ -101,7 +101,7 @@ class Week extends React.Component {
         let dates = getDates(currWeek);
         let map;
         let title = this.createTitle(dates[0], dates[6])
-        getData("karenying", currWeek[0], currWeek[1])
+        getData(currWeek[0], currWeek[1])
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
@@ -121,7 +121,7 @@ class Week extends React.Component {
         let map;
         let today = new Date();
         if (week[0] <= today) {
-            getData("karenying", week[0], week[1])
+            getData(week[0], week[1])
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 

@@ -4,7 +4,8 @@ const Day = require('../models/Day');
 
 // get data given username
 router.get('/', async (req, res) => {
-    const { username, start, end } = req.query;
+    const { start, end } = req.query;
+    const username = req.cookies.username;
     let data;
     try {
         // only looking for one date
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
     const day = new Day({
         day: new Date(req.body.day),
         mood: req.body.mood,
-        username: req.body.username,
+        username: req.cookies.username,
         good: req.body.good,
         bad: req.body.bad
     });
@@ -51,8 +52,9 @@ router.post('/', async (req, res) => {
 
 // edit day 
 router.put('/', async (req, res) => {
-    const { username, date, newMood } = req.query;
-
+    const { date, newMood } = req.query;
+    const username = req.cookies.username;
+    
     try {
         await Day.update(
             {

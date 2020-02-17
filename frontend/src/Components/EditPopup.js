@@ -4,10 +4,10 @@ import { IoIosClose } from 'react-icons/io';
 import { FiCheck } from 'react-icons/fi';
 import { FaTrashAlt } from 'react-icons/fa';
 import { GoPencil } from 'react-icons/go';
-import { deleteRating } from '../Axios/axios_getter';
+// import { deleteRating } from '../Axios/axios_getter';
 import { editRating } from '../Axios/axios_getter';
 
-const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
+const EditModule = ({ color, mood, date, close, moodSelected}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -17,7 +17,7 @@ const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
     }
 
     async function editDay(e) {
-        await editRating("karenying", date, moodToNum[mood]);
+        await editRating(date, moodToNum[mood]);
         close(); // why doesn't it close automatically :(((
     }
 
@@ -40,6 +40,7 @@ const EditModule = ({ color, mood, date, username, close, moodSelected}) => {
     )
 };
 
+/*
 const DeleteModule = ({ username, date, closePopup }) => {
 
     async function deleteRatingPopup() {
@@ -56,7 +57,7 @@ const DeleteModule = ({ username, date, closePopup }) => {
         </div>
     );
    
-};
+}; */
 
 class EditPopup extends React.Component {
 

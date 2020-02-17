@@ -7,8 +7,8 @@ if (window.location.hostname !== 'localhost') {
     domain = 'https://dayz-backend.herokuapp.com';
 }
 
-export const getDays = (username, start, end) => {
-    let url =`${domain}/day?username=${encodeURIComponent(username)}&start=${encodeURIComponent(start)}`;
+export const getDays = (start, end) => {
+    let url =`${domain}/day?&start=${encodeURIComponent(start)}`;
     if (end) {
         url+=`&end=${encodeURIComponent(end)}`;
     }
@@ -18,11 +18,10 @@ export const getDays = (username, start, end) => {
         });
 };
 
-export const postDay = (day, mood, username, good, bad) => {
-    return axios.post('${domain}/day', {
+export const postDay = (day, mood, good, bad) => {
+    return axios.post(`${domain}/day`, {
         day,
         mood,
-        username,
         good,
         bad,
     })
@@ -34,16 +33,17 @@ export const postDay = (day, mood, username, good, bad) => {
         });
 };
 
+/*
 export const deleteRating = (username, date) => {
     let url = `${domain}/day?username=${encodeURIComponent(username)}&date=${encodeURIComponent(date)}`;
     return axios.delete(url)
         .then(res => {
             console.log(res);
         });    
-};
+};*/
 
-export const editRating = (username, date, newMood) => {
-    let url = `${domain}/day?username=${encodeURIComponent(username)}&date=${encodeURIComponent(date)}&newMood=${encodeURIComponent(newMood)}`;
+export const editRating = (date, newMood) => {
+    let url = `${domain}/day?date=${encodeURIComponent(date)}&newMood=${encodeURIComponent(newMood)}`;
     return axios.put(url)
         .then(res => {
             console.log(res);
@@ -51,7 +51,7 @@ export const editRating = (username, date, newMood) => {
 };
 
 export const postUser = (nickname, username) => {
-    return axios.post('${domain}/signup', {
+    return axios.post(`${domain}/signup`, {
         nickname,
         username,
     })
@@ -66,7 +66,7 @@ export const postUser = (nickname, username) => {
 };
 
 export const postLogin = (username) => {
-    return axios.post('${domain}/signin', { username })
+    return axios.post(`${domain}/signin`, { username })
         .then(function (response) {
             console.log(response);
         })
@@ -77,11 +77,11 @@ export const postLogin = (username) => {
         })
 };
 
-export const getNickname = (username) => {
-    let url =`${domain}/user?username=${encodeURIComponent(username)}`;
+export const getNickname = () => {
+    let url =`${domain}/user/nickname`;
     return axios.get(url)
         .then(res => {
-            return res.data;
+            return res.data[0].nickname;
         });
 };   
 

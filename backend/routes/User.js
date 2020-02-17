@@ -3,8 +3,8 @@ const router = express.Router();
 const User = require('../models/User');
 
 // get nickname given username
-router.get('/', async (req, res) => {
-    const { username } = req.query;
+router.get('/nickname', async (req, res) => {
+    const username = req.cookies.username;
     let data;
     try {
         data = await User.find({ username }, { nickname: 1, _id: 0 })

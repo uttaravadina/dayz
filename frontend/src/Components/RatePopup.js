@@ -4,7 +4,7 @@ import { IoIosClose } from 'react-icons/io';
 import { IoIosAdd } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter';
 
-const RateModule = ({ color, mood, date, username, close}) => {
+const RateModule = ({ color, mood, date, close}) => {
     let moodToNum = {
         "Great": 4, 
         "Good": 3, 
@@ -14,7 +14,7 @@ const RateModule = ({ color, mood, date, username, close}) => {
     }
 
     async function submitDay(e) {
-        await postDay(date, moodToNum[mood], "karenying", [], []);
+        await postDay(date, moodToNum[mood], [], []);
         close();
     }
     

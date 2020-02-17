@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Header.css';
+import { getNickname } from '../Axios/axios_getter';
 
 class Header extends React.Component {
     state = {
@@ -9,6 +10,7 @@ class Header extends React.Component {
         hrsTill: null,
         minsTill: null,
         timerID: null,
+        nickname: null,
     };
 
     componentDidMount = () => {
@@ -17,6 +19,7 @@ class Header extends React.Component {
             () => this.updateTime(),
             60000
         );
+        getNickname().then(nickname => this.setState({ nickname }))
     };
 
     updateTime = () => {
@@ -63,12 +66,12 @@ class Header extends React.Component {
     };
 
     render() {
-        const { timeframe, emoji, label, hrsTill, minsTill } = this.state;
+        const { timeframe, emoji, label, hrsTill, minsTill, nickname } = this.state;
 
         return (
             <>
                 <div className="header">
-                    <h1>Good { timeframe }, Karen <span role="img" aria-label={label}>{emoji}</span></h1>
+                    <h1>Good { timeframe }, { nickname } <span role="img" aria-label={label}>{emoji}</span></h1>
                     <p>{ hrsTill } hrs { minsTill } mins till day ends</p>
                 </div>
             </>

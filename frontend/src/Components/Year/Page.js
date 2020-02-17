@@ -5,10 +5,10 @@ import TimeframeBar from '../../Components/TimeframeBar';
 import '../../Styles/Year/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 
-async function getData(username, start, end) {
+async function getData(start, end) {
     start = start.toISOString().substr(0,10);
     end = end.toISOString().substr(0,10);
-    return getDays("karenying", start, end);
+    return getDays(start, end);
 }
 
 function dataToMap(data) {
@@ -36,7 +36,7 @@ class Year extends React.Component {
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
 
-        getData("karenying", firstDay, lastDay)
+        getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ 
@@ -55,7 +55,7 @@ class Year extends React.Component {
         let today = new Date();
 
         if (firstDay <= today) {
-            getData("karenying", firstDay, lastDay)
+            getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
                 this.setState({ data: map }); 
