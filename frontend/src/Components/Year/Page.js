@@ -77,6 +77,7 @@ class Year extends React.Component {
                         handleLeftClick = { this.changeYear.bind(this, -1) } 
                         handleRightClick = { this.changeYear.bind(this, +1)  }
                         title = { this.state.year }
+                        timeframe = "year"
                     />
                     <View
                         year = { this.state.year }

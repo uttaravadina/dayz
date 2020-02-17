@@ -25,13 +25,13 @@ class ArrowBar extends React.Component {
                         direction="left" 
                         glyph={ <FaChevronLeft size="25px" /> }
                         clickFunction={ handleLeftClick }
-                        titleText={ "Previous day" }
+                        titleText={ `Previous ${timeframe}` }
                     />
                     <Arrow 
                         direction="right" 
                         glyph={ <FaChevronRight size="25px" /> }
                         clickFunction={ handleRightClick }
-                        titleText={ "Next day" }
+                        titleText={ `Next ${timeframe}` }
                     />
                     <div className="curr-timeframe">
                         <h1>{ title }</h1>

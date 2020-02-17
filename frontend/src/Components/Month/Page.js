@@ -106,6 +106,7 @@ class Month extends React.Component {
                         handleLeftClick = { this.changeMonth.bind(this, -1) } 
                         handleRightClick = { this.changeMonth.bind(this, +1) }
                         title = { this.state.title }
+                        timeframe = "month"
                     />
                     <View
                         numFill = { firstDay.getDay() }

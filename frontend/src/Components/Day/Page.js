@@ -69,6 +69,7 @@ class Day extends React.Component {
                         handleLeftClick = { this.changeDay.bind(this, -1) } 
                         handleRightClick = { this.changeDay.bind(this, +1) }
                         title = { this.state.title } 
+                        timeframe = "day"
                     />
                     <View
                         day = { this.state.day }

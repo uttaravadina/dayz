@@ -154,6 +154,7 @@ class Week extends React.Component {
                         handleLeftClick = { this.changeWeek.bind(this, -1) } 
                         handleRightClick = { this.changeWeek.bind(this, +1) }
                         title = { this.state.title }
+                        timeframe = "week"
                     />
                     <View
                         dates = { this.state.dates }
