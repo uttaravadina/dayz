@@ -159,7 +159,7 @@ class Week extends React.Component {
                     <View
                         dates = { this.state.dates }
                         map = { this.state.data }
-                        updateMap={this.updateMap}
+                        updateMap={ this.updateMap }
                     />
                 </div>
             </>

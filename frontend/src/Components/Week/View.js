@@ -6,7 +6,6 @@ import EditPopup from '../EditPopup';
 class Day extends React.Component {
     constructor(props) {
         super(props);
-        this.myRef = React.createRef();
     }
 
     // for some reason it doesnt work for prev/next weeks ?
@@ -29,7 +28,6 @@ class Day extends React.Component {
             <div 
                 className="week-module" 
                 title={ titleText } 
-                ref={this.myRef}
             >
                 <h3>{ day }</h3>
                 <div className={ todayActive }>
@@ -53,7 +51,6 @@ class View extends React.Component {
     state = {
         dateSelected: null,
         moodSelected: null,
-        positions: {},
     };
 
     showPopup = (date, map) => {
@@ -75,12 +72,6 @@ class View extends React.Component {
             dateSelected: null,
             moodSelected: null, 
         });
-    };
-
-    addPosition = (date, position) => {
-        let positions = this.state.positions
-        positions[date] = position;
-        this.setState({positions})
     };
 
     /*
@@ -152,7 +143,6 @@ class View extends React.Component {
                     <RatePopup
                         closePopup = { this.closeRatePopup } 
                         date={ this.state.dateSelected}
-                        position={ this.state.positions[this.state.dateSelected] }
                         updateMap={this.props.updateMap}
                     /> 
                 : null }
@@ -161,7 +151,6 @@ class View extends React.Component {
                         closePopup = { this.closeEditPopup }
                         date={ this.state.dateSelected}
                         moodSelected = { this.state.moodSelected }
-                        position={ this.state.positions[this.state.dateSelected] }
                         updateMap={this.props.updateMap}
                     /> 
                 : null }
