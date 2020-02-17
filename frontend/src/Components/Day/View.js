@@ -6,7 +6,7 @@ class View extends React.Component {
     
     render() {
         let { day, data } = this.props;
-        let dayOfWeek, date, isToday, todayActive, titleText, color; 
+        let dayOfWeek, date, isToday, todayActive, titleText, color = DEFAULT_GRAY; 
 
         if (day) {
             dayOfWeek = WEEKDAYS[day.getDay()];
@@ -17,9 +17,6 @@ class View extends React.Component {
             titleText = day.toISOString().substr(0,10);
             if (data) {
                 color = MOOD_TO_HEX[data.mood];
-            }
-            else {
-                color = DEFAULT_GRAY;
             }
         }
 

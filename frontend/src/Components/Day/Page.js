@@ -51,6 +51,8 @@ class Day extends React.Component {
                     data: output[0] 
                 });
             });
+        } else {
+            this.setState({data: null})
         }
 
         let title = this.createTitle(day);

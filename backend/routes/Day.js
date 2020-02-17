@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
                 { mood: 1, good: 1, bad: 1, day: 1, _id: 0 }
             );
         }
-        console.log(data);
         res.json(data);
 
     } catch (err) {

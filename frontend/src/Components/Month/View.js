@@ -66,7 +66,7 @@ class View extends React.Component {
             <>
                 <div className="month-wrapper">
                     <div className="month-table">
-                        { WEEKDAYS.map(day => <h3>{day}</h3>) }
+                        { WEEKDAYS.map(day => <h3 key={day}>{day}</h3>) }
                         { monthList }
                     </div>
                 </div>
