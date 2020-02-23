@@ -105,11 +105,10 @@ class Week extends React.Component {
 
         getData(currWeek[0], currWeek[1])
             .then(output => { 
+                map = dataToMap(output);
                 if (map) {
                     Object.values(map).forEach( value => counts[value]++);
                 }
-                
-                map = dataToMap(output);
                 this.setState({ 
                     dates, 
                     weekRange: currWeek,
