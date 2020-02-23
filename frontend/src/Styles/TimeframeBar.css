@@ -24,7 +24,7 @@
     cursor: pointer;
 } 
 
-.timeframe-inactive:hover h2{
+.timeframe-inactive:hover h2 {
     font-weight: bold;
 }
 

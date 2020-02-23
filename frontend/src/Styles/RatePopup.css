@@ -42,7 +42,7 @@
     transition: transform .15s;
 }
 
-.rate-notes:hover svg{
+.rate-notes:hover svg {
     transform: scale(1.2);
 }
 

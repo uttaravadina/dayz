@@ -43,9 +43,13 @@ class Month extends React.Component {
         let lastDay = new Date(year, month + 1, 0);
         let map;
         let title = MONTH_LIST[month] + " " + year;
+        let counts = new Array(5).fill(0);
+        
         getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
+                Object.values(map).forEach( value => counts[value]++);
+                console.log(counts)
                 this.setState({ 
                     month,
                     year,
@@ -54,6 +58,7 @@ class Month extends React.Component {
                     data: map,
                     title,
                 }); 
+                this.props.setCounts(counts);
             }
         );
     };
@@ -73,14 +78,19 @@ class Month extends React.Component {
         let firstDay = new Date(year, month, 1);
         let lastDay = new Date(year, month + 1, 0);
         let map;
-
+        let counts = new Array(5).fill(0);
         let today = new Date();
         if (firstDay <= today) {
             getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
+                Object.values(map).forEach( value => counts[value]++);
                 this.setState({ data: map }); 
+                this.props.setCounts(counts);
             });
+            
+        } else {
+            this.props.setCounts(counts);
         } 
     
         this.setState({ 
@@ -88,14 +98,14 @@ class Month extends React.Component {
             year,
             firstDay,
             lastDay,
-            title
+            title,
         });
     };
 
     render() {
         let firstDay = new Date(this.state.year, this.state.month, 1);
         let lastDay = new Date(this.state.year, this.state.month + 1, 0);
-        
+
         return (
             <>
                 <div>

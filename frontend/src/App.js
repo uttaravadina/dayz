@@ -17,59 +17,66 @@ import { authenticate } from './Axios/axios_getter';
 
 class RedirectIfNoAuth extends React.Component {
 
-	componentDidMount() {
-		authenticate().then(status => {
-			if (!status) {
-				window.location = '/signin';
-			}
-		}); 
-	}
+    componentDidMount() {
+        authenticate().then(status => {
+            if (!status) {
+                window.location = '/signin';
+            }
+        });
+    }
 
-	render() {
-		return null;
-	}
-} 
+    render() {
+        return null;
+    }
+}
 
 class App extends React.Component {
+    state = {
+        counts: [],
+    }
 
-	render() {
+    setCounts = (counts) => {
+        this.setState({ counts })
+    }
 
-		return (
-			<>
-				<Router>
-					<div className="App">
-						<Switch>
-							<Route path='/signup' component={Signup} />
-							<Route path='/signin' component={Signin} />
-							<Route path='/' render={ () => (
-								<div className="content">
-									<RedirectIfNoAuth />
-									<div className="left-side">
-										<Header />
-										<div style={{ height: '10px' }} />
-										<Switch>
-											<Route path='/day' component={Day} />
-											<Route exact={ true } path='/' component={Week} />
-											<Route path='/week' component={Week} />
-											<Route path='/month' component={Month} />
-											<Route path='/year' component={Year} />
-											<Route path="*" component={Error} />
-										</Switch>
-									</div>
-									<div className="divider" />
-									<div className="right-side">
-										<Legend />
-										<SettingsMenu />
-									</div>
-								</div>
-							) } />
-						</Switch>
-						<Footer />
-					</div>
-				</Router>
-			</>
-		);
-	}
+    render() {
+        
+        return (
+            <>
+                <Router>
+                    <div className="App">
+                        <Switch>
+                            <Route path='/signup' component={Signup} />
+                            <Route path='/signin' component={Signin} />
+                            <Route path='/' render={() => (
+                                <div className="content">
+                                    <RedirectIfNoAuth />
+                                    <div className="left-side">
+                                        <Header />
+                                        <div style={{ height: '10px' }} />
+                                        <Switch>
+                                            <Route path='/day' render={ () => (<Day setCounts={this.setCounts}/>) } />
+                                            <Route exact={ true } path='/' render={ () => (<Week setCounts={this.setCounts}/>) } />
+                                            <Route path='/week' render={ () => (<Week setCounts={this.setCounts}/>) } />
+                                            <Route path='/month' render={ () => (<Month setCounts={this.setCounts}/>) } />
+                                            <Route path='/year' render={ () => (<Year setCounts={this.setCounts}/>) } />
+                                            <Route path='*' component={Error} />
+                                        </Switch>
+                                    </div>
+                                    <div className="divider" />
+                                    <div className="right-side">
+                                        <Legend counts={ this.state.counts }/>
+                                        <SettingsMenu />
+                                    </div>
+                                </div>
+                            )} />
+                        </Switch>
+                        <Footer />
+                    </div>
+                </Router>
+            </>
+        );
+    }
 }
 
 export default App;
