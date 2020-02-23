@@ -100,9 +100,15 @@ class Week extends React.Component {
         let currWeek = weekRange(today);
         let dates = getDates(currWeek);
         let map;
-        let title = this.createTitle(dates[0], dates[6])
+        let title = this.createTitle(dates[0], dates[6]);
+        let counts = new Array(5).fill(0);
+
         getData(currWeek[0], currWeek[1])
-            .then(output => {
+            .then(output => { 
+                if (map) {
+                    Object.values(map).forEach( value => counts[value]++);
+                }
+                
                 map = dataToMap(output);
                 this.setState({ 
                     dates, 
@@ -110,6 +116,7 @@ class Week extends React.Component {
                     data: map,
                     title,
                 }); 
+                this.props.setCounts(counts);
             }
         );
     };
@@ -119,16 +126,22 @@ class Week extends React.Component {
         let week = (direction === -1) ? getPrev(currWeek) : getNext(currWeek);
         let dates = getDates(week);
         let map;
+        let counts = new Array(5).fill(0);
         let today = new Date();
         if (week[0] <= today) {
             getData(week[0], week[1])
             .then(output => {
                 map = dataToMap(output);
+                Object.values(map).forEach( value => counts[value]++);
+                this.props.setCounts(counts);
                 this.setState({ 
                     data: map,
                 }); 
             });
+        } else {
+            this.props.setCounts(counts);
         } 
+
         let title = this.createTitle(dates[0], dates[6])
         this.setState({ dates, title });
     };

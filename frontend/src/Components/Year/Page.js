@@ -35,14 +35,19 @@ class Year extends React.Component {
         let map;
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
+        let counts = new Array(5).fill(0);
 
         getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
+                if (map) {
+                    Object.values(map).forEach( value => counts[value]++);
+                }
                 this.setState({ 
                     year,
                     data: map,
                 }); 
+                this.props.setCounts(counts);
             }
         );
     };
@@ -53,13 +58,18 @@ class Year extends React.Component {
         let firstDay = new Date(year, 0, 1);
         let lastDay = new Date(year + 1, 0, 0);
         let today = new Date();
+        let counts = new Array(5).fill(0);
 
         if (firstDay <= today) {
             getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
+                Object.values(map).forEach( value => counts[value]++);
                 this.setState({ data: map }); 
+                this.props.setCounts(counts);
             });
+        } else {
+            this.props.setCounts(counts);
         } 
 
         this.setState({ year })

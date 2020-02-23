@@ -48,8 +48,9 @@ class Month extends React.Component {
         getData(firstDay, lastDay)
             .then(output => {
                 map = dataToMap(output);
-                Object.values(map).forEach( value => counts[value]++);
-                console.log(counts)
+                if (map) {
+                    Object.values(map).forEach( value => counts[value]++);
+                }
                 this.setState({ 
                     month,
                     year,
