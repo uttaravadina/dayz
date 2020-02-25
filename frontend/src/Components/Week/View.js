@@ -5,9 +5,6 @@ import EditPopup from '../EditPopup';
 import { MOOD_TO_HEX, WEEKDAYS, DEFAULT_GRAY } from '../../constants';
 
 class Day extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const { day, date, isToday, color, titleText, clickFunction } = this.props;

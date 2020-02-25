@@ -93,3 +93,9 @@ export const authenticate = () => {
         });
 };   
 
+export const postLogout = () => {
+    return axios.post(`${domain}/user/signout`)
+        .then(function (response) {
+            console.log(response);
+        })
+};

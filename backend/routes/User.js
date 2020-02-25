@@ -14,4 +14,10 @@ router.get('/nickname', async (req, res) => {
     };
 });
 
+// logout
+router.post('/signout', async (req, res) => {
+    res.clearCookie('username');
+    res.status(200).end();
+});
+
 module.exports = router;

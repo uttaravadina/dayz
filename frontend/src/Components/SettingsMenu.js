@@ -3,6 +3,13 @@ import '../Styles/SettingsMenu.css';
 import { IoIosSettings } from 'react-icons/io';
 import { FaCaretDown } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
+import { postLogout } from '../Axios/axios_getter';
+
+async function handleLogout() { 
+    await postLogout()
+    .then(() => {window.location = '/signin'})
+    .catch((e) => alert(e))
+}
 
 const SettingsPopup = () => {
 
@@ -12,7 +19,7 @@ const SettingsPopup = () => {
                 <p>Account</p>
             </div>
             <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
-            <div className="settings-popup-module">
+            <div className="settings-popup-module" onClick={handleLogout}>
                 <p>Logout <FiLogOut style={{ marginLeft: '5px' }} /></p>
             </div>
         </div>
