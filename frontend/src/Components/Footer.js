@@ -1,12 +1,12 @@
 import React from 'react';
 import '../Styles/Footer.css';
 import { GoHeart, GoMarkGithub } from 'react-icons/go';
-import { FaCode, FaTwitter } from 'react-icons/fa';
+import { FaCode, FaTwitter, FaChevronDown } from 'react-icons/fa';
 
 class Footer extends React.Component {
 
     render() {
-        
+        const { clickFunction } = this.props;
         return (
             <>
                 <div className="footer">
@@ -40,6 +40,10 @@ class Footer extends React.Component {
                                 <FaTwitter style={{marginRight: '10px', marginLeft: '10px'}} />
                             </a>
                         </div>
+                        
+                    </div>
+                    <div className="footer-down" onClick={ clickFunction }>
+                            <FaChevronDown size='25px' style={{marginTop: '-10px'}} title="Hide footer"/>
                     </div>
                 </div>
             </>

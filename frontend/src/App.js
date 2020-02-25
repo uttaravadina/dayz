@@ -10,6 +10,7 @@ import Month from './Components/Month/Page';
 import Year from './Components/Year/Page';
 import Error from './Components/404';
 import Footer from './Components/Footer';
+import FooterIcon from './Components/FooterIcon';
 import SettingsMenu from './Components/SettingsMenu';
 import Signup from './Components/Signup';
 import Signin from './Components/Signin';
@@ -33,14 +34,23 @@ class RedirectIfNoAuth extends React.Component {
 class App extends React.Component {
     state = {
         counts: [],
+        footerActive: false,
     }
 
     setCounts = (counts) => {
         this.setState({ counts })
     }
 
+    handleFooterIconClick = () => {
+        this.setState({ footerActive: true });
+    };
+
+    handleFooterCloseClick = () => {
+        this.setState({ footerActive: false });
+    };
+
     render() {
-        
+        console.log(this.state)
         return (
             <>
                 <Router>
@@ -71,7 +81,11 @@ class App extends React.Component {
                                 </div>
                             )} />
                         </Switch>
-                        <Footer />
+                        {
+                            this.state.footerActive ? 
+                            <Footer clickFunction={ this.handleFooterCloseClick }/> : 
+                            <FooterIcon clickFunction={ this.handleFooterIconClick }/>
+                        }
                     </div>
                 </Router>
             </>

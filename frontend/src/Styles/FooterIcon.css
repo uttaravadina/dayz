@@ -1,0 +1,33 @@
+.footer-icon-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    padding: 10px;
+}
+
+.footer-icon-content {
+    position: fixed;
+    right: 0px;
+    padding-right: 20px;
+}
+
+.footer-icon-content svg {
+    transition: transform .15s;
+    cursor: pointer;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.footer-icon-content:hover svg {
+    transform: scale(1.3);
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
