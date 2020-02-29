@@ -1,13 +1,27 @@
 .signin-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    padding: 50px;
+    height: 100vh;
+    background-image: linear-gradient(141deg, #FF5757 0%, #FF66C5 20%, #CB6BE7 40%, #8C52FF 60%,  #5171FF 80%);
+}
+
+.signin-container a {
+    color: #FFDF00;
+    font-weight: bold;
+}
+
+.signin-container h1{
+    color: white;
+}
+
+.signin-container p{
+    color: white;
 }
 
 input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #FFDF00;
+    color: black;
     padding: 5px 10px;
     margin: 8px 0;
     border: none;
@@ -16,9 +30,10 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #d6ba00;
 }
 
 input[type=text], select {
     margin: 5px;
 }
+

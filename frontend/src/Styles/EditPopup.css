@@ -124,3 +124,11 @@
 .edit-close svg:hover {
     background: #f2f3f4;
 }
+
+.edit-close {
+    display: flex;
+    padding-bottom: 15px;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 15px;
+}

@@ -7,6 +7,7 @@ class Footer extends React.Component {
 
     render() {
         const { clickFunction } = this.props;
+        
         return (
             <>
                 <div className="footer">
@@ -43,7 +44,7 @@ class Footer extends React.Component {
                         
                     </div>
                     <div className="footer-down" onClick={ clickFunction }>
-                            <FaChevronDown size='25px' style={{marginTop: '-10px'}} title="Hide footer"/>
+                        <FaChevronDown size='25px' style={{marginTop: '-10px'}} title="Hide footer"/>
                     </div>
                 </div>
             </>

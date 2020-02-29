@@ -6,7 +6,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { GoPencil } from 'react-icons/go';
 // import { deleteRating } from '../Axios/axios_getter';
 import { editRating } from '../Axios/axios_getter';
-import { MOOD_TO_NUM } from '../constants';
+import { MOOD_TO_NUM, WEEKDAYS } from '../constants';
 
 const EditModule = ({ color, mood, date, close, moodSelected, updateMap }) => {
 
@@ -55,9 +55,15 @@ const DeleteModule = ({ username, date, closePopup }) => {
 }; */
 
 class EditPopup extends React.Component {
+    
+    state = {
+        title: null,
+    }
 
     render() {
         const { moodSelected, date, closePopup, updateMap } = this.props;
+        let date_string = date.split("-")
+        let title = WEEKDAYS[date_string[0] - 1] + parseInt(date_string[0], 10)
 
         return (
             <>
@@ -65,9 +71,8 @@ class EditPopup extends React.Component {
                     <div className="edit-close-container" style={{ textAlign: 'right' }}>
                         <div 
                             className="edit-close" 
-                            style={{ paddingTop: '8px', paddingRight: '8px' }}
-                            title={ "close" }
-                        >
+                        > 
+                            <h3 style={{paddingLeft: '20px'}}>{title}</h3>
                             <IoIosClose 
                                 size='30px' 
                                 color='#5f6368' 
@@ -75,7 +80,10 @@ class EditPopup extends React.Component {
                                     paddingBottom: '0px', 
                                     borderRadius: '50%',
                                     cursor: 'pointer',
+                                    position: 'absolute',
+                                    right: '8px'
                                 }}
+                                title={ "close" }
                                 onClick={ closePopup }
                             /> 
                         </div>
