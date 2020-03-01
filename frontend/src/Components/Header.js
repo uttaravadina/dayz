@@ -26,14 +26,14 @@ class Header extends React.Component {
         let currHour = new Date().getHours();
         let currMin = new Date().getMinutes();
         
-        if (currHour >= 6 && currHour <= 12) {
+        if (currHour >= 6 && currHour <= 11) {
             this.setState({ 
                 timeframe: "morning", 
                 emoji: "🌅", 
                 label: "sunrise", 
             });
         }
-        else if (currHour >= 13 && currHour <= 16) {
+        else if (currHour >= 12 && currHour <= 16) {
             this.setState({ 
                 timeframe: "afternoon", 
                 emoji: "☀️", 
