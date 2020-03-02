@@ -50,6 +50,14 @@ export const editRating = (date, newMood) => {
         });  
 };
 
+export const deleteRating = (date) => {
+    let url = `${domain}/day/delete?date=${encodeURIComponent(date)}`;
+    return axios.put(url)
+        .then(res => {
+            console.log(res);
+        });  
+};
+
 export const postUser = (nickname, username) => {
     return axios.post(`${domain}/signup`, {
         nickname,

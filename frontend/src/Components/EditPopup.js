@@ -5,7 +5,7 @@ import { FiCheck } from 'react-icons/fi';
 import { FaTrashAlt } from 'react-icons/fa';
 import { GoPencil } from 'react-icons/go';
 // import { deleteRating } from '../Axios/axios_getter';
-import { editRating } from '../Axios/axios_getter';
+import { editRating, deleteRating } from '../Axios/axios_getter';
 import { MOOD_TO_NUM, WEEKDAYS } from '../constants';
 
 const EditModule = ({ color, mood, date, close, moodSelected, updateMap }) => {
@@ -35,26 +35,13 @@ const EditModule = ({ color, mood, date, close, moodSelected, updateMap }) => {
     )
 };
 
-/*
-const DeleteModule = ({ username, date, closePopup }) => {
-
-    async function deleteRatingPopup() {
-        deleteRating(username, date)
-        closePopup();
-    }
-
-    return (
-        <div 
-            className="edit-trash"
-            onClick={ deleteRatingPopup() }
-        >
-            <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }}/>DELETE RATING</p>
-        </div>
-    );
-   
-}; */
-
 class EditPopup extends React.Component {
+
+    deleteRating = async () => {
+        this.props.updateMap(this.props.date, -1);
+        await deleteRating(this.props.date);
+        this.props.closePopup(); 
+    }
 
     render() {
         const { moodSelected, date, closePopup, updateMap } = this.props;
@@ -136,10 +123,9 @@ class EditPopup extends React.Component {
                             <p><GoPencil size='15px' style={{ marginRight: '4px', marginBottom: '3px' }} />EDIT NOTES</p>
                         </div>
                         <hr style={{ marginTop: '0px', marginBottom: '0px', marginLeft: '20px', marginRight: '20px' }}/>
-                        {/*<DeleteModule date={ date } closePopup={ closePopup } username="karenying"/>*/}
                         <div 
                             className="edit-trash"
-                            // onClick={deleteRating("karenying", date)}
+                            onClick={ this.deleteRating }
                         >
                             <p><FaTrashAlt size='13px' style={{ marginRight: '7px', marginBottom: '3px' }} />DELETE RATING</p>
                         </div>

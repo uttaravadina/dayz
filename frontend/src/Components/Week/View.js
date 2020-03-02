@@ -77,8 +77,9 @@ class View extends React.Component {
                 let fullDate = new Date(titleText);
                 let arg = fullDate <= today ? titleText : null;
 
+                console.log(map);
                 let color = DEFAULT_GRAY;
-                if (map && titleText in map) {
+                if (map && titleText in map && map[titleText] !== -1) {
                     color = MOOD_TO_HEX[map[titleText]];
                 }
 

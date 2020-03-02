@@ -15,7 +15,7 @@ class View extends React.Component {
             isToday = (day.setHours(0,0,0,0) === today.setHours(0,0,0,0));
             todayActive = isToday ? "day-today-active" : "day-today-inactive";
             titleText = day.toISOString().substr(0,10);
-            if (data) {
+            if (data && data.mood !== -1) {
                 color = MOOD_TO_HEX[data.mood];
             }
         }
