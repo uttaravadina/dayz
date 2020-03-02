@@ -30,8 +30,8 @@
     display: flex;
     padding-left: 20px;
     cursor: pointer;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .rate-notes:hover {
@@ -97,4 +97,12 @@
 
 .rate-close svg:hover {
     background: #f2f3f4;
+}
+
+.rate-close {
+    display: flex;
+    padding-bottom: 15px;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 15px;
 }

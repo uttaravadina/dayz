@@ -55,16 +55,12 @@ const DeleteModule = ({ username, date, closePopup }) => {
 }; */
 
 class EditPopup extends React.Component {
-    
-    state = {
-        title: null,
-    }
 
     render() {
         const { moodSelected, date, closePopup, updateMap } = this.props;
-        let date_string = date.split("-")
-        let title = WEEKDAYS[date_string[0] - 1] + parseInt(date_string[0], 10)
-
+        let d = new Date(date + 'T00:00');
+        let title = WEEKDAYS[d.getDay()] + ', ' + (d.getMonth() + 1)  + '/' + parseInt(d.getDate(), 10);
+  
         return (
             <>
                 <div className="edit-container">

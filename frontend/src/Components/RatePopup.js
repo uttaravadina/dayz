@@ -3,7 +3,7 @@ import '../Styles/RatePopup.css';
 import { IoIosClose } from 'react-icons/io';
 import { IoIosAdd } from 'react-icons/io';
 import { postDay } from '../Axios/axios_getter';
-import { MOOD_TO_NUM } from '../constants';
+import { MOOD_TO_NUM, WEEKDAYS } from '../constants';
 
 const RateModule = ({ color, mood, date, close, updateMap}) => {
 
@@ -31,6 +31,8 @@ class RatePopup extends React.Component {
 
     render() {
         const { date, closePopup, updateMap } = this.props;
+        let d = new Date(date + 'T00:00');
+        let title = WEEKDAYS[d.getDay()] + ', ' + (d.getMonth() + 1)  + '/' + parseInt(d.getDate(), 10);
 
         return (
             <>
@@ -38,9 +40,8 @@ class RatePopup extends React.Component {
                     <div className="rate-close-container" style={{ textAlign: 'right' }}>
                         <div 
                             className="rate-close" 
-                            style={{ paddingTop: '8px', paddingRight: '8px' }}
-                            title={ "close" }
-                        >
+                        >   
+                            <h3 style={{paddingLeft: '20px'}}>{title}</h3>
                             <IoIosClose 
                                 size='30px' 
                                 color='#5f6368' 
@@ -48,7 +49,10 @@ class RatePopup extends React.Component {
                                     paddingBottom: '0px', 
                                     borderRadius: '50%',
                                     cursor: 'pointer',
+                                    position: 'absolute',
+                                    right: '8px'
                                 }}
+                                title={ "close" }
                                 onClick={ closePopup }
                             /> 
                         </div>
