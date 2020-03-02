@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// edit day 
+// edit rating
 router.put('/', async (req, res) => {
     const { date, newMood } = req.query;
     const username = req.cookies.username;
@@ -72,17 +72,24 @@ router.put('/', async (req, res) => {
     }
 });
 
-
-// delete document given username and date, does not just delete rating
-router.delete('/', async (req, res) => {
-    const { username, date } = req.query;
+// delete rating
+router.put('/delete', async (req, res) => {
+    const { date } = req.query;
+    const username = req.cookies.username;
+    
     try {
-        await Day.deleteOne(
+        await Day.update(
             {
                 username,
                 day: new Date(date)
+            },
+            {
+                $set: {
+                    mood: -1
+                }
             }
         );
+        res.status(200).end();
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
