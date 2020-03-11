@@ -161,7 +161,7 @@ class Week extends React.Component {
                 <div className="page-container">
                     <TimeframeBar timeframe="week"/>
                     <div style={{ height: '5px' }} />
-                    <hr />
+                    <hr id="hr-fade" />
                     <ArrowBar
                         handleLeftClick = { this.changeWeek.bind(this, -1) } 
                         handleRightClick = { this.changeWeek.bind(this, +1) }

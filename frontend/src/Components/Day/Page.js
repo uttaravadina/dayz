@@ -79,7 +79,7 @@ class Day extends React.Component {
                 <div className="page-container">
                     <TimeframeBar timeframe="day"/>
                     <div style={{ height: '5px' }} />
-                    <hr />
+                    <hr id="hr-fade" />
                     <ArrowBar
                         handleLeftClick = { this.changeDay.bind(this, -1) } 
                         handleRightClick = { this.changeDay.bind(this, +1) }

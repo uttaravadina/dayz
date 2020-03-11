@@ -112,7 +112,7 @@ class Month extends React.Component {
                 <div className="page-container">
                     <TimeframeBar timeframe="month"/>
                     <div style={{ height: '5px' }} />
-                    <hr />
+                    <hr id="hr-fade" />
                     <ArrowBar
                         handleLeftClick = { this.changeMonth.bind(this, -1) } 
                         handleRightClick = { this.changeMonth.bind(this, +1) }

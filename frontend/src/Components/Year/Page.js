@@ -82,7 +82,7 @@ class Year extends React.Component {
                 <div className="page-container">
                     <TimeframeBar timeframe="year"/>
                     <div style={{ height: '5px' }} />
-                    <hr />
+                    <hr id="hr-fade" />
                     <ArrowBar
                         handleLeftClick = { this.changeYear.bind(this, -1) } 
                         handleRightClick = { this.changeYear.bind(this, +1)  }
