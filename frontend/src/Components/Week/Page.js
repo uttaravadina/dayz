@@ -158,7 +158,7 @@ class Week extends React.Component {
 
         return (
             <>
-                <div>
+                <div className="week-container">
                     <TimeframeBar timeframe="week"/>
                     <div style={{ height: '5px' }} />
                     <hr />

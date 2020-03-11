@@ -109,7 +109,7 @@ class Month extends React.Component {
 
         return (
             <>
-                <div>
+                <div className="month-container">
                     <TimeframeBar timeframe="month"/>
                     <div style={{ height: '5px' }} />
                     <hr />

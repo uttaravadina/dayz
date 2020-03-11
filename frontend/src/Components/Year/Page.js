@@ -79,7 +79,7 @@ class Year extends React.Component {
         
         return (
             <>
-                <div>
+                <div className="year-container">
                     <TimeframeBar timeframe="year"/>
                     <div style={{ height: '5px' }} />
                     <hr />

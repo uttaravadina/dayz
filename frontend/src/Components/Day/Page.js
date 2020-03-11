@@ -76,7 +76,7 @@ class Day extends React.Component {
 
         return (
             <>
-                <div>
+                <div className="day-container">
                     <TimeframeBar timeframe="day"/>
                     <div style={{ height: '5px' }} />
                     <hr />
