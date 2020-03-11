@@ -2,7 +2,7 @@ import React from 'react';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
 import ArrowBar from '../../Components/ArrowBar';
-import '../../Styles/Day/Page.css';
+import '../../Styles/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 import { MONTH_LIST } from '../../constants';
 
@@ -76,7 +76,7 @@ class Day extends React.Component {
 
         return (
             <>
-                <div className="day-container">
+                <div className="page-container">
                     <TimeframeBar timeframe="day"/>
                     <div style={{ height: '5px' }} />
                     <hr />

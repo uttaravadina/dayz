@@ -2,7 +2,7 @@ import React from 'react';
 import ArrowBar from '../../Components/ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
-import '../../Styles/Year/Page.css';
+import '../../Styles/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 
 async function getData(start, end) {
@@ -79,7 +79,7 @@ class Year extends React.Component {
         
         return (
             <>
-                <div className="year-container">
+                <div className="page-container">
                     <TimeframeBar timeframe="year"/>
                     <div style={{ height: '5px' }} />
                     <hr />

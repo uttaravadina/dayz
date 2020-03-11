@@ -2,7 +2,7 @@ import React from 'react';
 import ArrowBar from '../../Components/ArrowBar';
 import View from './View';
 import TimeframeBar from '../../Components/TimeframeBar';
-import '../../Styles/Week/Page.css';
+import '../../Styles/Page.css';
 import { getDays } from '../../Axios/axios_getter';
 import { MONTH_LIST } from '../../constants';
 
@@ -158,7 +158,7 @@ class Week extends React.Component {
 
         return (
             <>
-                <div className="week-container">
+                <div className="page-container">
                     <TimeframeBar timeframe="week"/>
                     <div style={{ height: '5px' }} />
                     <hr />
