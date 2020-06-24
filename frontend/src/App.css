@@ -1,44 +1,51 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 
 .App {
-  	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
-  	font-family: 'Open Sans', sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 .content {
-  	display: flex;
-  	flex-direction: row;
-	padding: 50px;
-	width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  width: 100%;
 }
 
 .left-side {
- 	display: flex;
-  	flex-direction: column;
-  	flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
 }
 
 .right-side {
-  	display: flex;
-  	flex-grow: 1;
+  display: flex;
+  flex-grow: 1;
 }
 
 .divider {
-	margin-left: 2em;
-  	margin-right: 2em;
-	border-left: 1px solid;
-	margin-top: -20px;
-	margin-bottom: -20px;
-	height: auto;
-  	border-image: linear-gradient(to bottom, #ffffff, #D9D9D9 15%, #D9D9D9 85%, #ffffff) 1 100%;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-left: 1px solid;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  height: auto;
+  border-image: linear-gradient(
+      to bottom,
+      #ffffff,
+      #d9d9d9 15%,
+      #d9d9d9 85%,
+      #ffffff
+    )
+    1 100%;
 }
 
 hr {
-  	height: 1px; 
-	border: 0;
-	background: #D9D9D9;
+  height: 1px;
+  border: 0;
+  background: #d9d9d9;
 }
